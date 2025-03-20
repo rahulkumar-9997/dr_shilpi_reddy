@@ -94,9 +94,9 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 pl-0 pr-0 border-right-0 core_value_grid">
                         <div class="service-box-item core_value_service_box text-center">
                             <figure>
-                                <img src="{{asset('fronted/shilpi-img/Mental-Health-Awareness.webp')}}" alt="Mental Health Awareness" class="img-fluid core-value-img" loading="lazy">
+                                <img src="{{asset('fronted/shilpi-img/Mental-Health-Awareness.webp')}}" alt="Sustainable development" class="img-fluid core-value-img" loading="lazy">
                             </figure>
-                            <h5>Mental Health Awareness</h5>
+                            <h5>Sustainable Development</h5>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-6 pl-0 pr-0 border-right-0 core_value_grid">
@@ -325,7 +325,7 @@
 </section>
 @endsection
 @push('scripts')
-<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+
 <script>
     var foundationCategoryUrl = "{{ url('foundation-cate-image') }}";
 </script>

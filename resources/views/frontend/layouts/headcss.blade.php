@@ -6,7 +6,7 @@
 <meta name="keywords" content="@yield('keywords')">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
+<link rel="canonical" href="{{ url()->current() }}">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous"/>
 <link rel="stylesheet" href="{{asset('fronted/css/animate.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/bootstarp/bootstrap.min.css')}}">

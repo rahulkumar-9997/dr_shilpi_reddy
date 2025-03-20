@@ -26,7 +26,6 @@ class FrontHomeController extends Controller
         $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id', 'desc')->limit(3)->get();
         
 	    return view('frontend.index', compact('data'));
-        //return view('frontend', compact('data'));
     }
     
     public function aboutUs(){

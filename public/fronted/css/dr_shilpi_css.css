@@ -1107,6 +1107,9 @@ ul.meta li a {
 .donationpb30{
     padding-bottom: 60px;
 }
+.core_value_box.women-wings p{
+    text-align: justify;
+}
 /*Our foundation section tabs*/
 /*Blog details*/
 @media (min-width: 992px) {

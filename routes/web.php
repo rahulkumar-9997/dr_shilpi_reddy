@@ -140,3 +140,20 @@ Route::get('privacy-policy', [FrontHomeController::class, 'privacyPolicy'])->nam
 Route::get('terms-of-use', [FrontHomeController::class, 'termsOfUse'])->name('terms-of-use');
 Route::get('disclaimer', [FrontHomeController::class, 'disclaimer'])->name('disclaimer');
 Route::get('donation', [FrontHomeController::class, 'donation'])->name('donation');
+Route::get('/resize-image/{filename}', function ($filename) {
+    $width = request()->query('width', 800); // Default width 800
+    $height = request()->query('height', 600); // Default height 600
+
+    $path = public_path('our-work/main-img/' . $filename);
+
+    if (!file_exists($path)) {
+        abort(404);
+    }
+
+    $img = Image::make($path)->resize($width, $height, function ($constraint) {
+        $constraint->aspectRatio(); // Maintain aspect ratio
+        $constraint->upsize(); // Prevent upscaling
+    });
+
+    return $img->response('jpg');
+})->name('resize.image');

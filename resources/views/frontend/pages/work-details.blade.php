@@ -53,7 +53,7 @@ use App\Models\OurWorkImage;
                                         <div class="blog_thumb">
                                         <a class="lightbox" title="" data-fancybox="images-1" data-caption="" href="{{ asset('our-work/main-img/' . $image->our_work_image) }}">
                                             <div class="media">
-                                                <img src="{{ asset('our-work/main-img/' . $image->our_work_image) }}" alt="" class="img-responsive main-img">
+                                                <img src="{{ route('resize.image', ['filename' => $image->our_work_image, 'width' => 400, 'height' => 400]) }}" alt="" class="img-responsive main-img" loading="lazy">
                                             </div>
                                         </a>
                                         </div>
