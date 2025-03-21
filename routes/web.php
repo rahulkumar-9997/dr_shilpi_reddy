@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Frontend\FrontHomeController;
 use App\Http\Controllers\Backend\LoginController;
@@ -141,8 +143,8 @@ Route::get('terms-of-use', [FrontHomeController::class, 'termsOfUse'])->name('te
 Route::get('disclaimer', [FrontHomeController::class, 'disclaimer'])->name('disclaimer');
 Route::get('donation', [FrontHomeController::class, 'donation'])->name('donation');
 Route::get('/resize-image/{filename}', function ($filename) {
-    $width = request()->query('width', 800); // Default width 800
-    $height = request()->query('height', 600); // Default height 600
+    $width = request()->query('width', 800); 
+    $height = request()->query('height', 600); 
 
     $path = public_path('our-work/main-img/' . $filename);
 
@@ -151,8 +153,8 @@ Route::get('/resize-image/{filename}', function ($filename) {
     }
 
     $img = Image::make($path)->resize($width, $height, function ($constraint) {
-        $constraint->aspectRatio(); // Maintain aspect ratio
-        $constraint->upsize(); // Prevent upscaling
+        $constraint->aspectRatio();
+        $constraint->upsize();
     });
 
     return $img->response('jpg');

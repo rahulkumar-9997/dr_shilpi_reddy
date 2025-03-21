@@ -52,10 +52,12 @@ $('.about_us_feature_carousel').owlCarousel({
 });
 
 $(window).on('load', function () {
-    var $container = $('.grid-services');
+  var $container = $('.grid-services');
+  $container.imagesLoaded(function() {
       $container.isotope({
-	      filter: '*',
-    });
+          filter: '*'
+      });
+  });
   //   $('.portfolio_filter a').on('click', function() {
 	// $('.portfolio_filter .active').removeClass('active');
 	// $(this).addClass('active');
