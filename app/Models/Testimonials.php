@@ -14,6 +14,8 @@ class Testimonials extends Model
         'name',
         'profile_image',
         'testimonials_content',
+        'testimonial_criteria',
+        'testimonial_video',
         'user_id',
         'created_at',
         'updated_at',

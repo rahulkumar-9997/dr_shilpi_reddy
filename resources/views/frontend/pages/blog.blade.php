@@ -2,9 +2,9 @@
 use App\Models\BlogImages;
 @endphp
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Blogs')
+@section('title','Dr. K. Shilpireddy - Blogs')
 @section('description', 'Choose lean meat, remove the skin from poultry, and try not to add extra fat or oil when cooking meat. Read more about healthily eating meat.')
-@section('keywords', 'Our Blogs,  Hyderabad, Dr. K Shilpireddy Hyderabad, Dr. K Shilpireddy, photo,')
+@section('keywords', 'Our Blogs,  Hyderabad, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, photo,')
 
 @section('main-content')
     <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">

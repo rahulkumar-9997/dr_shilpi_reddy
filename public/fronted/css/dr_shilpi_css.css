@@ -1122,7 +1122,14 @@ ul.meta li a {
     height: auto !important;
     overflow: visible;
 } */
-
+.test-video-section video{
+    border-radius: 20px;
+    /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); */
+}
+.blog-con.hom_blog_page.video-section{
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
 @media only screen and (max-width: 393px) {
     /* .cta1-main-boxarea {
         display: none;

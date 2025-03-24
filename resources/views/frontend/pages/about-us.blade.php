@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - About Us')
+@section('title','Dr. K. Shilpi Reddy - About Us')
 @section('description', 'My father envisioned me as a doctor, specifically an unconventional doctor who would see the depth of a problem')
 @section('keywords', 'DR. Shilpi reddy, The Education, Work experiences, photo,')
 

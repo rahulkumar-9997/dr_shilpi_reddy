@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Privacy Policy')
-@section('description', 'We at Dr. K Shilpi Reddy (“we,” “us,” or “our”) are committed to ensuring the privacy and security of your personal information.')
+@section('title','Dr. K. Shilpireddy - Privacy Policy')
+@section('description', 'We at Dr. K. Shilpi Reddy (“we,” “us,” or “our”) are committed to ensuring the privacy and security of your personal information.')
 @section('keywords', 'DR. Shilpi reddy, The Education, Work experiences, photo,')
 
 @section('main-content')
@@ -40,7 +40,7 @@
                                 Last Updated: 30 August 2023, 06:00PM
                             </p>
                             <p>
-                                We at Dr. K Shilpi Reddy (“we,” “us,” or “our”) are committed to ensuring the privacy and security of your personal information. This Privacy Policy outlines how we collect, use, share, disclose, and protect the personal information of users (“you” or “users”) who visit our website and use our mobile application (collectively referred to as “Services”). By accessing and using our Services, you agree to the terms outlined in this Privacy Policy. Please take the time to read and understand this policy before using our Services.
+                                We at Dr. K. Shilpi Reddy (“we,” “us,” or “our”) are committed to ensuring the privacy and security of your personal information. This Privacy Policy outlines how we collect, use, share, disclose, and protect the personal information of users (“you” or “users”) who visit our website and use our mobile application (collectively referred to as “Services”). By accessing and using our Services, you agree to the terms outlined in this Privacy Policy. Please take the time to read and understand this policy before using our Services.
 
                             </p>
                             <h3>Changes to Privacy Policy</h3>
@@ -145,7 +145,7 @@
                             By using our Website/App, you consent to the collection, use, and sharing of your information as described in this Privacy Policy.
                             </p>
                             <p>
-                            Thank you for trusting Dr. K Shilpi Reddy with your personal information.
+                            Thank you for trusting Dr. K. Shilpi Reddy with your personal information.
                             </p>
                         </div>
 					</div>

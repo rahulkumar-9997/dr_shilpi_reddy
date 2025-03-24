@@ -1,15 +1,15 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Donation')
+@section('title','Dr. K. Shilpireddy - Donation')
 @section('description', 'Every help made counts for a bigger cause. Let us plant trees and make this earth a better place for our brighter future.')
 @section('keywords', 'DR. Shilpi reddy, One Girl, One Tree,
 One Nation, Green Nation')
 @section('meta')
-<meta property="og:title" content="Dr. K Shilpireddy - Donation" />
+<meta property="og:title" content="Dr. K. Shilpireddy - Donation" />
 <meta property="og:description" content="Every help made counts for a bigger cause. Let us plant trees and make this earth a better place for our brighter future." />
 <meta property="og:image" content="{{asset('fronted/shilpi-img/donation/phonepe-scanner.jpeg')}}" />
 <meta property="og:url" content="{{ url()->current() }}" />
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Dr. K Shilpireddy" />
+<meta property="og:site_name" content="Dr. K. Shilpireddy" />
 @endsection
 @section('main-content')
 

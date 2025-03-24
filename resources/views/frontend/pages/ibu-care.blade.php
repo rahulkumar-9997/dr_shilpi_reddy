@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Wow Mom')
+@section('title','Dr. K. Shilpireddy - Wow Mom')
 @section('description', 'Wow Mom is for those women who are expecting a baby, where they are given holistic support for their mental.')
 @section('keywords', 'Core Components of
 WOW MOM, Time Bound Lab Diagnostics, Nutrition support, Prenatal Yoga, Normal Delivery, Stem Cell Bank')

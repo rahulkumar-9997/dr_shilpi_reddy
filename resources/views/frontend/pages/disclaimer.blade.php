@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Disclaimer')
-@section('description', 'Welcome to the official website and mobile application of Dr. K Shilpi Reddy, a renowned Gynecologist.')
+@section('title','Dr. K. Shilpireddy - Disclaimer')
+@section('description', 'Welcome to the official website and mobile application of Dr. K. Shilpi Reddy, a renowned Gynecologist.')
 @section('keywords', 'DR. Shilpi reddy, The Education, Work experiences, photo,')
 
 @section('main-content')

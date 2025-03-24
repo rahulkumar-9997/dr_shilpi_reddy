@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Contact Us')
+@section('title','Dr. K. Shilpireddy - Contact Us')
 @section('description', 'I Look forwards in treating and giving the best consultancy to all my patients in the hospital')
-@section('keywords', 'Our Blogs,  Hyderabad, Dr. K Shilpireddy Hyderabad, Dr. K Shilpireddy, Contact,')
+@section('keywords', 'Our Blogs,  Hyderabad, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, Contact,')
 
 @section('main-content')
     <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">

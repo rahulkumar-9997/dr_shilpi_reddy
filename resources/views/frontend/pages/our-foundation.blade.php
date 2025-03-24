@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Our Foundation')
-@section('description', 'Dr. K Shilpi Reddy Foundation: Dedicated to Womens Health Care')
-@section('keywords', 'Our Foundation, Dr. K Shilpireddy Hyderabad, Dr. K Shilpireddy, Our Core Values')
+@section('title','Dr. K. Shilpireddy - Our Foundation')
+@section('description', 'Dr. K. Shilpi Reddy Foundation: Dedicated to Womens Health Care')
+@section('keywords', 'Our Foundation, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, Our Core Values')
 
 @section('main-content')
 <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">
@@ -35,8 +35,8 @@
     <div class="w-100 float-left professional-con some-content">
         <div class="container">
             <div class="text-center">
-                <h4>Dr. K Shilpi Reddy Foundation: Dedicated to Women's Health Care</h4>
-                <p>The Dr. K Shilpi Reddy Foundation is a transformative organization dedicated
+                <h4>Dr. K. Shilpi Reddy Foundation: Dedicated to Women's Health Care</h4>
+                <p>The Dr. K. Shilpi Reddy Foundation is a transformative organization dedicated
                     to empowering women and promoting comprehensive women’s healthcare.
                     With a deep commitment to improving the lives of women, the foundation
                     strives to create a positive impact by addressing the unique challenges
@@ -122,7 +122,7 @@
                 <div class="col-md-12">
                     <div class="fo-content">
                         <p>
-                            Overall, the Dr. K Shilpi Reddy Foundation stands as a beacon of hope and support, championing women’s empowerment and advocating for comprehensive women’s healthcare, with the ultimate goal of transforming the lives of women and ensuring a brighter and healthier future for all.
+                            Overall, the Dr. K. Shilpi Reddy Foundation stands as a beacon of hope and support, championing women’s empowerment and advocating for comprehensive women’s healthcare, with the ultimate goal of transforming the lives of women and ensuring a brighter and healthier future for all.
                         </p>
                     </div>
                 </div>
@@ -244,7 +244,7 @@
                     <div class="quality-system-left-con">
                         <div class="activity-20">
                             <p>
-                                Dr. K Shilpi Reddy Foundation also targets to successfully complete
+                                Dr. K. Shilpi Reddy Foundation also targets to successfully complete
                                 other campaigns related to women’s health care and empowering the women
                                 of society, and transforming their lives in a better way. In the year
                                 2023 to 2024 we plan to initiate and conduct several campaigns as below.

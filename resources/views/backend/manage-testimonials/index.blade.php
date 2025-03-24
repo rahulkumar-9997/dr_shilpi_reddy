@@ -59,24 +59,39 @@
                            $sr_no = 1;
                         @endphp
                         @foreach($data['testimonials_list'] as $testimonials_list_row)
+                        @php
+                        $testimonial_criteria = $testimonials_list_row->testimonial_criteria;
+                        @endphp
                            <tr>
                               <td>{{ $sr_no }}</td>
-                              <td>{{ $testimonials_list_row->name }}</td>
-                              <td><img src="{{ asset('testimonials-img/thumb/'. $testimonials_list_row->profile_image) }}" style="width: 50px;"></td>
                               
-                              <td>{{ $testimonials_list_row->testimonials_content }}</td>
-                              
-                              <td>
-                                 <a href="{{url('manage-testimonials/edit/'.$testimonials_list_row->id.'') }}">
-                                    <span class="label label-orange"><i class="fa fa-pencil icon-xs"></i></span>   
-                                 </a>
-                                 <a href="{{url('manage-testimonials/delete/'.$testimonials_list_row->id.'') }}">
-                                    <span class="label label-danger"><i class="fa fa-trash icon-xs"></i></span>
-                                 </a>
+                                 <td>{{ $testimonials_list_row->name }}</td>
+                                 <td>
+                                 @if( $testimonials_list_row->testimonial_criteria=='testimonials_video')
+                                    
+                                    <div class="embed-responsive1 embed-responsive-16by9-1">
+                                          <video  controls width="500" height="300" class="embed-responsive-item">
+                                             <source src="
+                                             {{ asset('testimonials-img/testimonials-videos/'. $testimonials_list_row->testimonial_video) }}
+                                             " type="video/mp4">
+                                             Your browser does not support the video tag.
+                                          </video>
+                                    </div>
+                                 @elseif($testimonials_list_row->testimonial_criteria == 'testimonials_content')
+                                    <img src="{{ asset('testimonials-img/thumb/'. $testimonials_list_row->profile_image) }}" style="width: 50px;">
+                                
                                  
-                                 
-                              </td>
-                             
+                                 @endif
+                                 </td>
+                                 <td>{{ $testimonials_list_row->testimonials_content }}</td>
+                                 <td>
+                                    <a href="{{ url('manage-testimonials/edit/' . $testimonials_list_row->id . '?testimonials_criteria=' . $testimonial_criteria) }}">
+                                       <span class="label label-orange"><i class="fa fa-pencil icon-xs"></i></span>   
+                                    </a>
+                                    <a href="{{ url('manage-testimonials/delete/' . $testimonials_list_row->id . '?testimonials_criteria=' . $testimonial_criteria) }}">
+                                       <span class="label label-danger"><i class="fa fa-trash icon-xs"></i></span>
+                                    </a>                                    
+                                 </td>
                            </tr>
                            @php
                               $sr_no++; 
@@ -101,6 +116,29 @@
 <script src="{{asset('backend/assets/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('backend/assets/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('backend/assets/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.js')}}" type="text/javascript">
+
+</script>
+<script>
+   $(document).ready(function () {
+    $(".delete-testimonial").on("click", function (e) {
+        e.preventDefault();
+        var deleteUrl = $(this).data("url");
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = deleteUrl;
+            }
+        });
+    });
+});
 
 </script>
 @endsection

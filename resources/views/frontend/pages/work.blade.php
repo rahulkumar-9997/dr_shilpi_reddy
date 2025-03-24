@@ -2,7 +2,7 @@
 use App\Models\OurWorkImage;
 @endphp
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Our Work')
+@section('title','Dr. K. Shilpireddy - Our Work')
 @section('description', 'I belive in the motto of servicing my community with hand work and awareness about the correct knowledge')
 @section('keywords', 'Cuddles Baby Shower, Womens Health Conclave, Womens wings (RERF) Brahma Kumaris, photo')
 

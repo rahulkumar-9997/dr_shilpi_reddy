@@ -18,9 +18,15 @@ class FrontHomeController extends Controller
 {
     public function home(){
         $data['testimonials_list'] = Testimonials::select('id', 'name', 'profile_image', 'testimonials_content')
-            ->where('id', '>=', DB::raw('(SELECT FLOOR(RAND() * (SELECT MAX(id) FROM testimonials)))'))
-            ->limit(20)
-            ->get();
+        ->where('id', '>=', DB::raw('(SELECT FLOOR(RAND() * (SELECT MAX(id) FROM testimonials)))'))
+        ->where('testimonial_criteria', 'testimonials_content') 
+        ->limit(20)
+        ->get();
+
+        $data['testimonials_list_video'] = Testimonials::select('id', 'testimonial_criteria', 'testimonial_video')
+        ->where('testimonial_criteria', 'testimonials_video') 
+        ->limit(5)
+        ->get();
 
         $data['feature_logo_list'] = FeatureLogo::orderBy('id','DESC')->get();
         $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id', 'desc')->limit(3)->get();

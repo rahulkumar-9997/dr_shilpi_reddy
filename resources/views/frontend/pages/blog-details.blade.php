@@ -2,9 +2,9 @@
 use App\Models\BlogImages;
 @endphp
 @extends('frontend.layouts.master')
-@section('title', $blog->title . ' - Dr. K Shilpireddy')
+@section('title', $blog->title . ' - Dr. K. Shilpireddy')
 @section('description', substr($blog->intro_description, 0, 70))
-@section('keywords', 'Our Blogs, Hyderabad, Dr. K Shilpireddy Hyderabad, Dr. K Shilpireddy, photo,')
+@section('keywords', 'Our Blogs, Hyderabad, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, photo,')
 
 @section('main-content')
 <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">

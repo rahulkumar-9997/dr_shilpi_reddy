@@ -1,6 +1,6 @@
 
 @extends('frontend.layouts.master')
-@section('title', $ibucare->title . ' - Dr. K Shilpireddy')
+@section('title', $ibucare->title . ' - Dr. K. Shilpireddy')
 @section('description', substr($ibucare->description, 0, 70))
 <!-- @section('keywords', 'sharing, sharing text, text, sharing photo, photo,') -->
 

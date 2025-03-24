@@ -28,7 +28,7 @@
             <span class="title">Dashboard</span>
             </a>
          </li>
-         <li class="{{ request()->is('manage-testimonials') ? 'open' : ''}} {{ request()->is('manage-testimonials/add') ? 'open' : ''}}">
+         <li class="{{ request()->is('users') ? 'open' : ''}}">
             <a href="javascript:;">
             <i class="fa fa-user"></i>
             <span class="title">Manage User</span>

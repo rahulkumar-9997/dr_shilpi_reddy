@@ -2,7 +2,7 @@
 use App\Models\OurWorkImage;
 @endphp
 @extends('frontend.layouts.master')
-@section('title', $our_work->heading_name . ' - Dr. K Shilpireddy')
+@section('title', $our_work->heading_name . ' - Dr. K. Shilpireddy')
 @section('description', substr($our_work->our_work_content, 0, 70))
 @section('keywords', 'Cuddles Baby Shower, Womens Health Conclave, Womens wings (RERF) Brahma Kumaris, photo')
 

@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K Shilpireddy - Terms Of Use')
-@section('description', 'Welcome to the official website and mobile application of Dr. K Shilpi Reddy, a renowned Gynecologist.')
-@section('keywords', 'DR. Shilpi reddy, The Education, Work experiences, photo,')
+@section('title','Dr. K. Shilpireddy - Terms Of Use')
+@section('description', 'Welcome to the official website and mobile application of Dr. K. Shilpi Reddy, a renowned Gynecologist.')
+@section('keywords', 'Dr. K. Shilpi reddy, The Education, Work experiences, photo,')
 
 @section('main-content')
     
@@ -40,13 +40,13 @@
                                 1. Introduction
                             </h3>
                             <p>
-                                Welcome to the official website and mobile application of Dr. K Shilpi Reddy, a renowned Gynecologist. By accessing and using this website and app (“Website/App”), you agree to comply with and be bound by the following terms and conditions (“Terms and Conditions”). Please read these Terms and Conditions carefully before using the Website/App. If you do not agree with these Terms and Conditions, please do not use the Website/App.
+                                Welcome to the official website and mobile application of Dr. K. Shilpi Reddy, a renowned Gynecologist. By accessing and using this website and app (“Website/App”), you agree to comply with and be bound by the following terms and conditions (“Terms and Conditions”). Please read these Terms and Conditions carefully before using the Website/App. If you do not agree with these Terms and Conditions, please do not use the Website/App.
                             </p>
                             <h3>
                                 2. Ownership and Contact Information
                             </h3>
                             <p>
-                                The Website/App <a href="https://www.drkshilpireddy.com/">“www.drkshilpireddy.com”</a> and the mobile application “Dr Shilpi” are owned and operated by Dr. K Shilpi Reddy. For any inquiries or concerns related to the Website/App, you can contact us at <a href="mailto:contact@drkshilpireddy.com.">contact@drkshilpireddy.com.</a> 
+                                The Website/App <a href="https://www.drkshilpireddy.com/">“www.drkshilpireddy.com”</a> and the mobile application “Dr Shilpi” are owned and operated by Dr. K. Shilpi Reddy. For any inquiries or concerns related to the Website/App, you can contact us at <a href="mailto:contact@drkshilpireddy.com.">contact@drkshilpireddy.com.</a> 
                             </p>
                             <h3>
                                3. Acceptance of Terms
@@ -85,21 +85,21 @@
                             8. Termination
                             </h3>
                             <p>
-                            Dr. K Shilpi Reddy reserves the right to terminate or suspend your access to the Website/App at any time, for any reason, without prior notice.
+                            Dr. K. Shilpi Reddy reserves the right to terminate or suspend your access to the Website/App at any time, for any reason, without prior notice.
 
                             </p>
                             <h3>
                             9. Communication
                             </h3>
                             <p>
-                            By using the Website/App, you consent to receive communications from Dr. K Shilpi Reddy, including emails, SMS messages, and calls, for purposes including appointment reminders, notifications, and feedback.
+                            By using the Website/App, you consent to receive communications from Dr. K. Shilpi Reddy, including emails, SMS messages, and calls, for purposes including appointment reminders, notifications, and feedback.
 
                             </p>
                             <h3>
                             10. Service Quality
                             </h3>
                             <p>
-                            The quality of services provided through the Website/App is the responsibility of Dr. K Shilpi Reddy. While efforts are made to provide accurate and reliable information, we do not guarantee the accuracy, completeness, or reliability of the information provided on the Website/App.
+                            The quality of services provided through the Website/App is the responsibility of Dr. K. Shilpi Reddy. While efforts are made to provide accurate and reliable information, we do not guarantee the accuracy, completeness, or reliability of the information provided on the Website/App.
                             </p>
                             <h3>
                             11. Medical Emergencies
@@ -118,7 +118,7 @@
                             13. Changes to Terms and Conditions
                             </h3>
                             <p>
-                            Dr. K Shilpi Reddy reserves the right to modify, update, or replace these Terms and Conditions at any time. Your continued use of the Website/App after such modifications signifies your acceptance of the updated Terms and Conditions.
+                            Dr. K. Shilpi Reddy reserves the right to modify, update, or replace these Terms and Conditions at any time. Your continued use of the Website/App after such modifications signifies your acceptance of the updated Terms and Conditions.
                             </p>
                             <h3>
                             14. Governing Law and Jurisdiction
