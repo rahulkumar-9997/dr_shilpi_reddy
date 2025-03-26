@@ -30,7 +30,7 @@ class FrontHomeController extends Controller
 
         $data['feature_logo_list'] = FeatureLogo::orderBy('id','DESC')->get();
         $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id', 'desc')->limit(3)->get();
-        
+        DB::disconnect();
 	    return view('frontend.index', compact('data'));
     }
     
@@ -38,26 +38,31 @@ class FrontHomeController extends Controller
 	    return view('frontend.pages.about-us');
     }
     public function workPage(){
-        $data['our_work_list'] = OurWork::orderBy('id','DESC')->get();    
+        $data['our_work_list'] = OurWork::orderBy('id','DESC')->get(); 
+		DB::disconnect();
 	    return view('frontend.pages.work', compact('data'));
     }
 
     public function workDetailsPage($slug){
-        $our_work = OurWork::where('slug', $slug)->firstOrFail();    
+        $our_work = OurWork::where('slug', $slug)->firstOrFail();
+		DB::disconnect();
 	    return view('frontend.pages.work-details', compact('our_work'));
     }
 
     public function mediaPage(){
-        $data['media_list'] = Media::orderBy('sort_order', 'asc')->simplePaginate(20); 
+        $data['media_list'] = Media::orderBy('sort_order', 'asc')->simplePaginate(20);
+		DB::disconnect();
 	    return view('frontend.pages.media', compact('data'));
     }
     public function blogPage(){
         $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id','DESC')->get();
+		DB::disconnect();
 	    return view('frontend.pages.blog', compact('data'));
     }
     public function blogDetailsPage($slug){
         //$blog = Blog::where('slug', $slug)->firstOrFail();
         $blog = Blog::with('images')->where('slug', $slug)->firstOrFail();
+		DB::disconnect();
         return view('frontend.pages.blog-details' , compact('blog'));
 	    
     }
@@ -66,6 +71,7 @@ class FrontHomeController extends Controller
     }
     public function ourFoundation(){
         $data['foundation_category_list'] = FoundationCategory::withCount('foundationImages')->orderBy('id','DESC')->get();
+		DB::disconnect();
 	    return view('frontend.pages.our-foundation', compact('data'));
     }
 
@@ -97,7 +103,7 @@ class FrontHomeController extends Controller
     
     public function ibuCare(){
         $data['ibucare_list'] = IbuCare::orderBy('id','ASC')->get(); 
-        
+        DB::disconnect();
 	    return view('frontend.pages.ibu-care', compact('data'));
     }
 
@@ -105,6 +111,7 @@ class FrontHomeController extends Controller
         $data['ibucare_list'] = IbuCare::orderBy('id','ASC')->get();
         $array_color = ['#f29685', '#f9bd55', '#f9e255', '#abce5d', '#87d0d6', '#c996ce', '#f9e255', '#ff5757'];
         $ibucare = IbuCare::where('slug', $slug)->firstOrFail();
+		DB::disconnect();
         return view('frontend.pages.ibu-care-details' , compact('ibucare', 'data', 'array_color'));
 	    
     }

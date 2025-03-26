@@ -18,10 +18,9 @@
 <link rel="stylesheet" href="{{asset('fronted/css/owl.theme.default.min.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/css/jquery.fancybox.min.css')}}">
 
-
-<!-- work -->
 <link rel="stylesheet" href="{{asset('fronted/css/super-classes.css')}}?v={{ time() }}">
 <link rel="stylesheet" href="{{asset('fronted/css/custom-style.css')}}?v={{ time() }}">
+<!-- <link rel="stylesheet" href="{{ mix('css/all.css') }}"> -->
     <!-- work -->
 <link rel="icon" href="{{asset('fronted/shilpi-img/cropped-cropped-invest-logo-07-32x32.png')}}" sizes="32x32" />
 <link rel="icon" href="{{asset('fronted/shilpi-img/cropped-cropped-invest-logo-07-192x192.png')}}" sizes="192x192" />
