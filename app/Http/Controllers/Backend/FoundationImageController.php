@@ -4,11 +4,15 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use App\Models\FoundationCategory;
 use App\Models\FoundationImage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Support\Facades\Log;
+
 class FoundationImageController extends Controller
 {
     /**
@@ -29,7 +33,7 @@ class FoundationImageController extends Controller
      */
     public function create(Request $request)
     {
-        $foundation_categories = FoundationCategory::orderBy('id', 'DESC')->get(); 
+        $foundation_categories = FoundationCategory::orderBy('id', 'DESC')->get();
         $foundation_cate_id = $request->input('foundation_cate_id');
         $form = '
         <div class="modal-body">
@@ -41,11 +45,11 @@ class FoundationImageController extends Controller
                             <label for="foundation_category" class="form-label">Select Foundation Category</label>
                             <select class="form-control" name="foundation_category" id="foundation_category">
                                 <option value="">Select Foundation Category</option>';
-                                foreach ($foundation_categories as $category) {
-                                    $selected = ($category->id == $foundation_cate_id) ? 'selected' : '';
-                                    $form .= '<option value="' . $category->id . '" ' . $selected . '>' .$category->name. '</option>';
-                                }
-                                $form .= '
+        foreach ($foundation_categories as $category) {
+            $selected = ($category->id == $foundation_cate_id) ? 'selected' : '';
+            $form .= '<option value="' . $category->id . '" ' . $selected . '>' . $category->name . '</option>';
+        }
+        $form .= '
                             </select>
                         </div>	
                     </div>
@@ -80,17 +84,17 @@ class FoundationImageController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'foundation_category' => 'required|exists:foundation_categories,id',
-            'foundation_image_file' => 'required|array', 
+            'foundation_image_file' => 'required|array',
             'foundation_image_file.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
 
         ]);
-    
+
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
         }
-    
+
         DB::beginTransaction();
-    
+
         try {
             $foundation_category_id = $request->foundation_category;
             $foundation_category = FoundationCategory::findOrFail($foundation_category_id);
@@ -99,34 +103,32 @@ class FoundationImageController extends Controller
                 if (!file_exists($uploadPath)) {
                     mkdir($uploadPath, 0777, true);
                 }
-    
+
                 foreach ($request->file('foundation_image_file') as $file) {
                     $sanitized_title = preg_replace('/[^A-Za-z0-9-]+/', '-', strtolower(trim($foundation_category->name)));
                     $uniqueTimestamp = uniqid() . '-' . round(microtime(true) * 1000);
-                    $image_file_name = 'dr-shilpi-reddy-hyd-' .$sanitized_title . '-' . $uniqueTimestamp . '.webp';
-                    $webpPath = $uploadPath . '/'.$image_file_name;
+                    $image_file_name = 'dr-shilpi-reddy-hyd-' . $sanitized_title . '-' . $uniqueTimestamp . '.webp';
+                    $webpPath = $uploadPath . '/' . $image_file_name;
                     $img = Image::make($file)->resize(800, 600, function ($constraint) {
                         $constraint->aspectRatio();
                         $constraint->upsize();
                     });
-    
+
                     $img->encode('webp', 80)->save($webpPath);
                     FoundationImage::create([
                         'foundation_categories_id' => $foundation_category_id,
-                        'image_path' =>$image_file_name,
+                        'image_path' => $image_file_name,
                         'sort_order' => 0,
                     ]);
                 }
             }
             DB::commit();
-            $data['foundation_category_list'] = FoundationCategory::withCount('foundationImages')->orderBy('id','DESC')->get(); 
+            $data['foundation_category_list'] = FoundationCategory::withCount('foundationImages')->orderBy('id', 'DESC')->get();
             return response()->json([
                 'status' => 'success',
                 'message' => 'Foundation Images uploaded successfully',
                 'foundationCategoryContent' => view('backend.manage-foundation-category.partials.ajax-foundation-category-list', compact('data'))->render(),
             ]);
-            
-    
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json([
@@ -146,10 +148,9 @@ class FoundationImageController extends Controller
     {
         $foundation_category_id = $id;
         $foundation_category = FoundationCategory::with(['foundationImages' => function ($query) {
-            $query->orderBy('sort_order');
+            $query->orderBy('sort_order')->orderByDesc('id');
         }])->findOrFail($foundation_category_id);
         return view('backend.manage-foundation-image.show', compact('foundation_category'));
-
     }
 
     /**
@@ -199,12 +200,31 @@ class FoundationImageController extends Controller
         }
     }
 
-    public function sort(Request $request){
+    public function sort(Request $request)
+    {
         $sortedIDs = $request->input('order');
         foreach ($sortedIDs as $index => $id) {
             FoundationImage::where('id', $id)->update(['sort_order' => $index + 1]);
         }
 
-        return response()->json(['success' => true, 'message'=>'Sort order updated successfully!']);
+        return response()->json(['success' => true, 'message' => 'Sort order updated successfully!']);
+    }
+
+    public function ImageRotate(Request $request, $id)
+    {
+        try {
+            $image = FoundationImage::findOrFail($id);
+            $path = public_path('foundation-img/' . $image->image_path);
+            $degree = $request->input('degree', 90);
+            if (File::exists($path)) {
+                $img = Image::make($path)->rotate(-$degree);
+                $img->save($path);
+            }
+
+            return back()->with('success', 'Image rotated successfully!');
+        } catch (\Exception $e) {
+            Log::error('Rotate Error: ' . $e->getMessage());
+            return back()->with('error', 'Failed to rotate image.');
+        }
     }
 }

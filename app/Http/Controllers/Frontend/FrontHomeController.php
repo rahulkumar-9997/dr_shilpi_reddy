@@ -70,7 +70,9 @@ class FrontHomeController extends Controller
 	    return view('frontend.pages.contact-us');
     }
     public function ourFoundation(){
-        $data['foundation_category_list'] = FoundationCategory::withCount('foundationImages')->orderBy('id','DESC')->get();
+       $data['foundation_category_list'] = FoundationCategory::with(['foundationImages' => function ($q) {
+            $q->orderBy('created_at', 'DESC');
+        }])->orderBy('id', 'DESC')->get();
 		DB::disconnect();
 	    return view('frontend.pages.our-foundation', compact('data'));
     }
@@ -82,7 +84,7 @@ class FrontHomeController extends Controller
             return response()->json(['error' => 'Missing category ID'], 400);
         }
         $category = FoundationCategory::with(['foundationImages' => function ($query) {
-            $query->orderBy('sort_order');
+            $query->orderBy('id', 'DESC');
         }])->find($request->id);
         if (!$category) {
             Log::error('Foundation Category Not Found: ID ' . $request->id);

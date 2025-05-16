@@ -48,18 +48,25 @@
                                         style="position: relative; left: 0px; top: 0px; padding: 5px;">
 
                                         <h6 class="mb-0 mt-0">
-                                            <img src="{{ asset('foundation-img/' . $image->image_path) }}"
+                                            <img src="{{ asset('foundation-img/' . $image->image_path) }}?v={{ time() }}"
                                                 class="img-thumbnail me-3"
-                                                style="width: 50px; height: 50px;"
+                                                style="width: 100px; height: 100px;"
                                                 alt="{{ $data['product_details']->title ?? '' }}">
                                             <span>{{ $image->image_path }}</span>
                                         </h6>
-                                        <span class="float-end">
+                                        <span class="float-end d-flex">
                                             <form method="POST" action="{{ route('foundation-image.destroy', $image->id) }}" accept-charset="UTF-8" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="button" class="btn btn-sm btn-danger show_confirm" data-name="{{ $image->image_path }}" title="Delete">
                                                     <i class="fa fa-trash icon-xs"></i>
+                                                </button>
+                                            </form>
+                                            <form method="POST" action="{{ route('foundation-image.rotate', $image->id) }}" class="d-inline" style="margin-left: 10px;">
+                                                @csrf
+                                                <input type="hidden" name="degree" value="90">
+                                                <button type="submit" class="btn btn-sm btn-primary" title="Rotate">
+                                                    <i class="fa fa-undo icon-xs"></i>
                                                 </button>
                                             </form>
                                         </span>

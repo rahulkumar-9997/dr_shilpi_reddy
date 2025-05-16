@@ -89,7 +89,10 @@ Route::group(['middleware' => ['auth']], function() {
 
         
     });
-    Route::get('delete-multiple-img/{id}/{ourWorkId}', [OurWorkController::class, 'deleteMultipleImage']);
+    Route::get('delete-multiple-img/{id}/{ourWorkId}', [OurWorkController::class, 'deleteMultipleImage']);   
+    Route::get('/manage-work/image-rotate/{image_id}/{degree}', [OurWorkController::class, 'workImageRotate'])->name('manage-work.image.rotate');
+
+
 
 
     Route::get('manage-media', [MediaController::class, 'index'])->name('manage-media');
@@ -120,6 +123,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('foundation-category', FoundationCategoryController::class);
     Route::resource('foundation-image', FoundationImageController::class);
     Route::post('foundation-image/sort', [FoundationImageController::class, 'sort'])->name('foundation-image.sort');
+    Route::post('foundation-image/rotate/{id}', [FoundationImageController::class, 'ImageRotate'])->name('foundation-image.rotate');
+
     
 });
 
@@ -134,6 +139,7 @@ Route::get('blog/{slug}', [FrontHomeController::class, 'blogDetailsPage']);
 Route::get('contact-us', [FrontHomeController::class, 'contactUsPage'])->name('contact-us');
 Route::get('our-foundation', [FrontHomeController::class, 'ourFoundation'])->name('our-foundation');
 Route::get('foundation-cate-image', [FrontHomeController::class, 'getFoundationCategoryDetails'])->name('foundation-cate-image');
+
 
 Route::get('ibu-care', [FrontHomeController::class, 'ibuCare'])->name('ibu-care');
 Route::get('ibu-care/{slug}', [FrontHomeController::class, 'ibuCareDetails']);

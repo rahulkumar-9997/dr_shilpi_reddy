@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        @include('backend.layouts.head')
-        @yeild('morecss')
-    </head>
+    @include('backend.layouts.head')
+    @yield('morecss')
     <body>
         <!-- leftbar-tab-menu -->
         @include('backend.layouts.header')

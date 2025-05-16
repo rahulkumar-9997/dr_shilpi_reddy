@@ -103,13 +103,24 @@ use App\Models\OurWorkImage;
                             @endphp
                                 <div class="col-lg-12">
                                 @foreach($our_work_multiple_img as $image) 
-                                    <div class="col-lg-3">
-                                    <div class="product-element-top">
-                                        <img  src="{{ asset('our-work/main-img/' . $image->our_work_image) }}" class="img-responsive thumbnail_img">
-                                    </div>
-                                    <a href="{{url('delete-multiple-img/'.$image->id.'/'.$our_work->id.'') }}">
-                                        <i class="fa fa-trash-o icon-xs"></i>
-                                    </a>
+                                    <div class="col-lg-4">
+                                        <div class="product-element-top">
+                                            <img  src="{{ asset('our-work/main-img/' . $image->our_work_image) }}?v={{ time() }}" class="img-responsive thumbnail_img">
+                                        </div>
+                                        <div class="mt-1" style="margin-bottom: 10px;">
+                                            <a href="{{url('delete-multiple-img/'.$image->id.'/'.$our_work->id.'') }}" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash-o icon-xs"></i>
+                                            </a>
+                                            @foreach([90] as $degree)
+                                                <a href="{{ route('manage-work.image.rotate', ['image_id' => $image->id, 'degree' => $degree]) }}" 
+                                                class="btn btn-warning btn-sm" 
+                                                data-toggle="tooltip"
+                                                style="margin-right: 5px;" 
+                                                title="Rotate {{ $degree }} deg">
+                                                   <i class="fa fa-undo icon-xs"></i>
+                                                </a>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 @endforeach
                                 </div>

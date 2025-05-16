@@ -2276,10 +2276,8 @@ jQuery(function($) {
                     "color": true, //Button to change color of font  
                     "blockquote": true, //Blockquote  
                     "size": "none" //default: none, other options are xs, sm, lg
-                    
                 }
             });
-            
 
 
             $('.mail-compose-editor').wysihtml5({
