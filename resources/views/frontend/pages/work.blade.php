@@ -119,7 +119,9 @@ use App\Models\OurWorkImage;
                     <div class="col-lg-6 col-md-6 d-flex align-items-center">
                         <div class="quality-system-left-con">
                             <h3>
-                            I belive in the motto of serving my community with hard work and awareness about the correct knowledge
+                            I believe in the motto of serving my
+patients with hard work and awareness
+about the correct knowledge
                             </h3>
                         </div>
                     </div>

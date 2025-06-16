@@ -13,7 +13,7 @@
                 <div class="mobile-app-right-con">
                     <h2>For Online Consultancy</h2>
                     <p>
-                        I Look forwards in treating and giving the best consultancy to all my patients in the hospital, but for those who are far away we have an online solution for you all.
+                        I Look forward to treating and giving the best consultancy to all my patients in the hospital, but for those who are far away, we have an online solution for you all.
                     </p>
                     <h4>Download the App from the link below</h4>
                     <div class="mobile-app-btn">                        

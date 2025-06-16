@@ -61,7 +61,7 @@
 								<img src="{{asset('fronted/shilpi-img/footer-New-logo-Shilpi-reddy-2.png')}}" alt="footer-logo" class="img-fluid footer-logo" loading="lazy">
 							</figure>
 							<p class="col-lg-11 col-md-7 pl-0 pr-0 ml-lg-0 mr-lg-0 ml-md-auto mr-md-auto">
-								An Obstetrician and Gynecologist, Social Activist, Woman Entrepreneur, Philanthropist, Motivational Speaker, and Author, with a vision for Women’s Empowerment.
+								An Obstetrician and Gynaecologist, Social Activist, Woman Entrepreneur, Philanthropist, Motivational Speaker, and Author, with a vision for Women’s Empowerment.
 							</p>
 							<div class="weight-social-list">
 								<ul class="list-unstyled mb-0">
@@ -162,7 +162,7 @@
 											</li>
 											<!--<li><span>Fax: </span>+1 ( 987 ) 654 321  9 9</li>-->
 											<li class="mb-0 address-footer">
-												<span class="pr-2">Address:</span>Kims Cuddles, Kondapur,
+												<span class="pr-2">Address:</span>KIMS Cuddles, Kondapur,
 												Hyderabad, Telangana 500084
 											</li>
 										</ul>

@@ -2,9 +2,9 @@
     <div class="container">
        <div class="row">
 	  <div class="col-lg-6 col-md-6 col-12">
-	     <div class="top-bar-left-con ">
+	     <div class="top-bar-left-con "><a href="https://maps.app.goo.gl/GppzizZoEVq2n1CN9" class="text-white" target="_blank">
 		<i class="fas fa-map-marker-alt"></i>
-		<span>Kims Cuddles, Kondapur, Hyderabad, Telangana 500084</span>
+		<span>KIMS Cuddles, Kondapur, Hyderabad, Telangana 500084</span></a>
 	     </div>
 	  </div>
 	  <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-xl-end justify-content-lg-end justify-content-md-end justify-content-center">

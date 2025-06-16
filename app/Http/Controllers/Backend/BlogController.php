@@ -56,7 +56,6 @@ class BlogController extends Controller
                 $sanitized_title = preg_replace('/[^A-Za-z0-9-]+/', '-', strtolower(trim($request->input('blog_title'))));
                 $uniqueTimestamp = uniqid() . '-' . round(microtime(true) * 1000);
                 $intro_image_name = 'dr-shilpi-reddy-hyd-'.$sanitized_title . '-' . $uniqueTimestamp . '.webp';
-                
                 $destinationPath = public_path('blog-img/intro');
 
                 Image::make($intro_image)

@@ -63,7 +63,7 @@
                             healthcare services. The foundation recognizes that women’s health encompasses
                             a wide range of aspects, including physical, emotional, and mental well-being.
                             It is dedicated to fostering a holistic approach to women’s healthcare by supporting
-                            initiatives that focus on reproductive health, maternal care, gynecological issues,
+                            initiatives that focus on reproductive health, maternal care, gynaecological issues,
                             mental health, and overall wellness. By addressing these areas comprehensively,
                             the foundation aims to ensure that women receive the care they deserve and are
                             empowered to make informed decisions about their health.
@@ -244,9 +244,7 @@
                     <div class="quality-system-left-con">
                         <div class="activity-20">
                             <p>
-                                Dr. K. Shilpi Reddy Foundation also targets to successfully complete
-                                other campaigns related to women’s health care and empowering the women
-                                of society, and transforming their lives in a better way. In the year
+                                Dr. K. Shilpi Reddy Foundation also targets to successfully complete other campaigns related to women’s health, care, empowering the women in society, and transforming their lives in a better way. In the year
                                 2023 to 2024 we plan to initiate and conduct several campaigns as below.
                             </p>
                         </div>
@@ -259,10 +257,10 @@
                                                 Women's health awareness initiative
                                             </li>
                                             <li>
-                                                Health camps for AP & Telangana women
+                                                Health camps for women of Andhra Pradehs & Telangana
                                             </li>
                                             <li>
-                                                Distribution of personal care and hygiene kits for government school girls
+                                                Distribution of personal care and hygiene kits for girls in Government Schools
                                             </li>
                                         </ul>
                                     </div>
@@ -311,10 +309,10 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="quality-system-left-con text-center">
                         <p>
-                            We would we grateful if a considerable amount is supported from your side
+                            We would be grateful if a considerable amount is supported from your side
                             towards the welfare of society’s women.
                             <BR>
-                            For enquires and support kindly contact the below.
+                            For enquiries and support, kindly contact the below.
                         </p>
                         <a href="{{url('contact-us') }}" class="appointment-btn foundation_btn">Contact Us</a>
                     </div>
