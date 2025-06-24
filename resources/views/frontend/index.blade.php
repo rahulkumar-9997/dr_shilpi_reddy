@@ -184,18 +184,22 @@
                             @if($blog_list_row->intro_image)
 
                             <figure class="mb-0">
-                                <img
-                                    src="{{asset('blog-img/intro/'.$blog_list_row->intro_image) }}"
-                                    alt="{{ $blog_list_row->title }}"
-                                    class="img-fluid"
-                                    loading="lazy"
-                                    width="600"
-                                    height="400"
-                                    srcset="
-                                            {{asset('blog-img/intro/'.$blog_list_row->intro_image) }} 600w,
-                                            {{asset('blog-img/intro/'.$blog_list_row->intro_image) }} 1200w
-                                            "
-                                    sizes="(max-width: 600px) 600px, 1200px">
+                                <picture>
+                                    <source media="(max-width: 767px)" srcset="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}">
+                                    <img class="img-fluid blur-up lazyloaded"
+                                        data-src="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}"
+                                        src="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}"
+                                        srcset="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }} 600w, 
+                                        {{ asset('  blog-img/intro/'.$blog_list_row->intro_image) }} 1200w"
+                                        sizes="(max-width: 600px) 600px, 1200px"
+                                        alt="{{ $blog_list_row->title }}"
+                                        title="{{ $blog_list_row->title }}"
+                                        loading="lazy"
+                                        width="600"
+                                        height="400"
+                                        onload="this.style.opacity=1"
+                                        style="opacity: 1;">
+                                </picture>
                             </figure>
                             @else
                             <figure class="mb-0">
@@ -367,21 +371,29 @@
 @if (isset($data['testimonials_list_video']) && $data['testimonials_list_video']->count() > 0)
 <!--Testimonial video-->
 <section>
-    <div class="w-100 float-left blog-con hom_blog_page video-section" >
+    <div class="w-100 float-left blog-con hom_blog_page video-section">
         <div class="container">
-            <div class="row">
-            @foreach($data['testimonials_list_video'] as $testimonials_video)
-                <div class="col-lg-6 col-md-6 mb-10">
-                    <div class="test-video-section">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <video controls autoplay muted class="embed-responsive-item">
-                                <source src="{{ asset('testimonials-img/testimonials-videos/' . $testimonials_video->testimonial_video) }}" type="video/mp4">
+            <div class="row" id="testimonial-videos-container">
+                @foreach($data['testimonials_list_video'] as $testimonials_video)
+                <div class="col-lg-3 col-md-3 mb-10 video-wrapper" data-video-src="{{ asset('testimonials-img/testimonials-videos/' . $testimonials_video->testimonial_video) }}">
+                    <div class="skeleton-loader" style="width: 100%; padding-top: 56.25%; background: #f0f0f0; border-radius: 8px;"></div>
+                    <div class="test-video-section" style="display: none;">
+                        <div class="embed-responsive-div embed-responsive-16by9">
+                            <video class="embed-responsive-item lazy-video"
+                                controls
+                                muted
+                                loop
+                                playsinline
+                                autoplay
+                                preload="metadata"
+                                controlslist="nodownload">
+                                <source data-src="{{ asset('testimonials-img/testimonials-videos/' . $testimonials_video->testimonial_video) }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                @endforeach
             </div>
         </div>
     </div>
@@ -441,5 +453,80 @@
 @endif
 @endsection
 @push('scripts')
-    
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const lazyVideoObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const wrapper = entry.target.closest('.video-wrapper');
+                    const video = wrapper.querySelector('.lazy-video');
+                    const videoSource = wrapper.querySelector('source[data-src]');
+                    const videoSection = wrapper.querySelector('.test-video-section');
+                    const skeleton = wrapper.querySelector('.skeleton-loader');
+                    if (videoSource && !videoSource.src) {
+                        videoSource.src = videoSource.dataset.src;
+                        video.load();
+                        video.onloadedmetadata = function() {
+                            checkVideoOrientation(video, wrapper);
+                            videoSection.style.display = 'block';
+                            videoSection.classList.add('show');
+                            setTimeout(() => {
+                                if (skeleton) skeleton.style.display = 'none';
+                            }, 300);
+                        };
+                        video.onerror = function() {
+                            console.error("Error loading video:", wrapper.dataset.videoSrc);
+                            if (skeleton) skeleton.style.display = 'none';
+                        };
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, {
+            rootMargin: '200px',
+            threshold: 0.1
+        });
+        document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+            lazyVideoObserver.observe(wrapper);
+        });
+
+        function checkVideoOrientation(video, wrapper) {
+            const isLandscape = video.videoWidth > video.videoHeight;
+            if (isLandscape) {
+                wrapper.classList.remove('col-lg-3', 'col-md-3', 'col-sm-3', 'col-6', 'multiple-coloum-div');
+                wrapper.classList.add('col-lg-6', 'col-md-6', 'col-sm-6', 'col-12', 'two-coloum-div');
+            } else {
+                wrapper.classList.remove('col-lg-6', 'col-md-6', 'col-sm-6', 'col-12', 'two-coloum-div');
+                wrapper.classList.add('col-lg-3', 'col-md-3', 'col-sm-3', 'col-6', 'multiple-coloum-div');
+            }
+        }
+        if (!('IntersectionObserver' in window)) {
+            document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+                const video = wrapper.querySelector('.lazy-video');
+                const videoSource = wrapper.querySelector('source[data-src]');
+                const videoSection = wrapper.querySelector('.test-video-section');
+                const skeleton = wrapper.querySelector('.skeleton-loader');
+
+                if (videoSource && !videoSource.src) {
+                    videoSource.src = videoSource.dataset.src;
+                    video.load();
+
+                    video.onloadedmetadata = function() {
+                        checkVideoOrientation(video, wrapper);
+                        videoSection.style.display = 'block';
+                        videoSection.classList.add('show');
+                        setTimeout(() => {
+                            if (skeleton) skeleton.style.display = 'none';
+                        }, 300);
+                    };
+
+                    video.onerror = function() {
+                        console.error("Error loading video:", wrapper.dataset.videoSrc);
+                        if (skeleton) skeleton.style.display = 'none';
+                    };
+                }
+            });
+        }
+    });
+</script>
 @endpush

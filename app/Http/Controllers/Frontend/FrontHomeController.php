@@ -25,7 +25,7 @@ class FrontHomeController extends Controller
 
         $data['testimonials_list_video'] = Testimonials::select('id', 'testimonial_criteria', 'testimonial_video')
         ->where('testimonial_criteria', 'testimonials_video') 
-        ->limit(5)
+        ->limit(6)
         ->get();
 
         $data['feature_logo_list'] = FeatureLogo::orderBy('id','DESC')->get();
