@@ -31,7 +31,7 @@
                     <a href="https://mrsmomevent.com/" target="_blank">
                         <div class="feature-box-item ">
                             <figure>
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/mr_mom.webp')}}" alt="feature-box-icon" class="img-fluid effect lazyload" loading="lazy" data-src="{{asset('fronted/shilpi-img/fav-icon/mr_mom.webp')}}">
+                                <img src="{{asset('fronted/shilpi-img/fav-icon/mr_mom.webp')}}" alt="feature-box-icon" class="img-fluid effect lazyload" loading="lazy" data-src="{{asset('fronted/shilpi-img/fav-icon/mr_mom.webp')}}" fetchpriority="high">
                             </figure>
                             <h5>Mrs. Mom</h5>
                             <p class="mb-0">Wellness & education in pregnancy & infant care.</p>
@@ -42,7 +42,7 @@
                     <a href="{{url('ibu-care') }}">
                         <div class="feature-box-item ">
                             <figure>
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/ibu_care.webp')}}" alt="feature-box-icon" class="img-fluid effect" loading="lazy">
+                                <img src="{{asset('fronted/shilpi-img/fav-icon/ibu_care.webp')}}" alt="feature-box-icon" class="img-fluid effect" loading="lazy" fetchpriority="high">
                                 <!-- <img src="{{asset('fronted/shilpi-img/fav-icon/ibu_care.png')}}" alt="feature-box-icon" class="img-fluid effect second_img"> -->
                             </figure>
                             <h5>IBU care</h5>
@@ -54,8 +54,8 @@
                     <a href="{{url('our-foundation') }}">
                         <div class="feature-box-item our_foundation_div two_images">
                             <figure>
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/our_foundation.webp')}}" alt="feature-box-icon" class="img-fluid first_img" loading="lazy">
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/hover_foundation.webp')}}" alt="feature-box-icon" class="img-fluid second_img" loading="lazy">
+                                <img src="{{asset('fronted/shilpi-img/fav-icon/our_foundation.webp')}}" alt="feature-box-icon" class="img-fluid first_img" loading="lazy" fetchpriority="high">
+                                <img src="{{asset('fronted/shilpi-img/fav-icon/hover_foundation.webp')}}" alt="feature-box-icon" class="img-fluid second_img" loading="lazy" fetchpriority="high">
                             </figure>
                             <h5>Our Foundation</h5>
                             <p class="mb-0">Dr. K. Shilpi Reddy Foundation: Women’s Empowerment & Healthcare.</p>
@@ -66,7 +66,7 @@
                     <a href="{{url('blog') }}">
                         <div class="feature-box-item ">
                             <figure>
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/blog.webp')}}" alt="feature-box-icon" class="img-fluid effect" loading="lazy">
+                                <img src="{{asset('fronted/shilpi-img/fav-icon/blog.webp')}}" alt="feature-box-icon" class="img-fluid effect" loading="lazy" fetchpriority="high">
                             </figure>
                             <h5>Blog</h5>
                             <p class="mb-0">Discover expert insights and advice from Dr. K. Shilpi Reddy.</p>
@@ -405,13 +405,14 @@
     <div class="w-100 float-left blog-con hom_blog_page" style="background-color: #eaeaea3b; padding-bottom: 5px;">
         <div class="container">
             <div class="text-center">
-                <h2 class="instagram-h2">Connect With us On Instagram</h2>
+                <!-- <h2 class="instagram-h2">Connect With us On Instagram</h2> -->
                 <!--<p>Activities in empowering the world with the vision to develop a greater and powerful world for women.
                     </p>-->
             </div>
             <div class="row">
+                <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
                 <script src="https://static.elfsight.com/platform/platform.js" async></script>
-                <div class="elfsight-app-60b27a8c-e4dd-41e5-8fcb-18dcdf01ca55" data-elfsight-app-lazy></div>
+                <div class="elfsight-app-be79a358-343a-4f1d-96c1-b37cd2ee169e" data-elfsight-app-lazy></div>
             </div>
         </div>
     </div>
