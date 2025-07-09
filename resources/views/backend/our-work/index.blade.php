@@ -61,21 +61,26 @@
                            <tr>
                               <td>{{ $sr_no }}</td>
                               <td>{{ $our_work_list->heading_name }}</td>
-                              <td>{!! $our_work_list->our_work_content !!}</td>
-                              
                               <td>
+                                 <div class="overflow-auto" style="max-width: 400px; max-height: 200px; overflow: auto;">
+                                    {!! $our_work_list->our_work_content !!}
+                                 </div>
+                              </td>                              
+                              <td>
+                                 <div class="d-flex gap-2">
                                  
-                                 <a href="{{url('manage-our-work/edit/'.$our_work_list->id.'') }}" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-pencil icon-xs"></i>
-                                 </a>
-                                 <a href="{{url('manage-our-work/delete/'.$our_work_list->id.'') }}"
-                                 class="btn btn-danger btn-sm">
-                                    <i class="fa fa-trash icon-xs"></i>
-                                 </a>
-                                 <a href="{{url('manage-our-work/edit/'.$our_work_list->id.'') }}"
-                                 class="btn btn-info btn-sm">
-                                    <i class="fa fa-eye icon-xs"></i>
-                                 </a>
+                                    <a href="{{url('manage-our-work/edit/'.$our_work_list->id.'') }}" class="btn btn-primary btn-sm">
+                                       <i class="fa fa-pencil icon-xs"></i>
+                                    </a>
+                                    <a href="{{url('manage-our-work/delete/'.$our_work_list->id.'') }}"
+                                    class="btn btn-danger btn-sm">
+                                       <i class="fa fa-trash icon-xs"></i>
+                                    </a>
+                                    <a href="{{url('manage-our-work/edit/'.$our_work_list->id.'') }}"
+                                    class="btn btn-info btn-sm">
+                                       <i class="fa fa-eye icon-xs"></i>
+                                    </a>
+                                 </div>
                                  
                               </td>
                              

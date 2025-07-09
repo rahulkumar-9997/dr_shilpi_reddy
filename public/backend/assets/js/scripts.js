@@ -2276,6 +2276,38 @@ jQuery(function($) {
                     "color": true, //Button to change color of font  
                     "blockquote": true, //Blockquote  
                     "size": "none" //default: none, other options are xs, sm, lg
+                },
+                parserRules: {
+                    clean: false  // ⚠️ Disables ALL sanitization (security risk!)
+                },
+                parserRules: {
+                    tags: {
+                         div: {
+                            "check_attributes": {
+                                  "class": "any"
+                            },
+                        },
+                        p: {
+                            "check_attributes": {
+                                "class": "any"
+                            }
+                        },
+                        span: {
+                            "check_attributes": {
+                                 "class": "any"
+                            }
+                        },
+                        iframe: {
+                            "check_attributes": {
+                                "src": "href",
+                                "title": "alt",
+                                "frameborder": "numbers",
+                                "allowfullscreen": "href",
+                                "style": "href"
+                            }
+                        },
+                        
+                    }
                 }
             });
 
