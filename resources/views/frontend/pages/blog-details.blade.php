@@ -1,10 +1,27 @@
-@php
-use App\Models\BlogImages;
-@endphp
+
 @extends('frontend.layouts.master')
-@section('title', $blog->title . ' - Dr. K. Shilpireddy')
-@section('description', substr($blog->intro_description, 0, 70))
-@section('keywords', 'Our Blogs, Hyderabad, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, photo,')
+@php
+	if($blog->meta_title)
+	{
+		$meta_title = $blog->meta_title;
+	}
+	else
+	{
+		$meta_title = $blog->title;
+	}
+	if($blog->meta_description)
+	{
+		$meta_description = $blog->meta_description;
+	}
+	else
+	{
+		$meta_description = substr($blog->intro_description, 0, 70);
+	}
+	$meta_keywords = 'Our Blogs, Hyderabad, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, photo';
+@endphp
+@section('title', "$meta_title")
+@section('description', $meta_description)
+@section('keywords', $meta_keywords)
 
 @section('main-content')
 <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">

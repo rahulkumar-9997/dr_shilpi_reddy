@@ -45,44 +45,45 @@
                             <form action="{{ route('manage-blog.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Title *</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="blog_title">
+                                                <input type="text" class="form-control" name="blog_title" value="{{ old('blog_title') }}">
                                             </div>
                                             @if($errors->has('blog_title'))
                                                 <div class="text-danger">{{ $errors->first('blog_title') }}</div>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Heading</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="blog_intro_heading">
+                                                <input type="text" class="form-control" name="blog_intro_heading" value="{{ old('blog_intro_heading') }}">
                                             </div>
                                             @if($errors->has('blog_intro_heading'))
                                             <div class="text-danger">{{ $errors->first('blog_intro_heading') }}</div>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Post Date *</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control form-control datepicker" name="blog_post_date" data-format="dd-mm-yyyy" readonly>
+                                                <input type="text" class="form-control form-control datepicker" name="blog_post_date" 
+                                                    value="{{ old('blog_post_date') }}" data-format="dd-mm-yyyy" readonly>
                                             </div>
                                             @if($errors->has('blog_post_date'))
                                             <div class="text-danger">{{ $errors->first('blog_post_date') }}</div>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Description *</label>
                                             <div class="controls">
-                                                <textarea type="text" class="form-control" name="blog_intro_desc"></textarea>
+                                                <textarea type="text" class="form-control" name="blog_intro_desc">{{ old('blog_intro_desc') }}</textarea>
                                             </div>
                                             @if($errors->has('blog_intro_desc'))
                                             <div class="text-danger">{{ $errors->first('blog_intro_desc') }}</div>
@@ -91,7 +92,7 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label class="form-label">Blog Intro Image *</label>
+                                            <label class="form-label">Blog Intro Image</label>
                                             <div class="controls">
                                                 <input type="file" class="form-control" name="blog_intro_image">
                                             </div>
@@ -102,34 +103,31 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label class="form-label">Blog External URL</label>
+                                            <label class="form-label">Is External Blog?</label>
                                             <div class="form-block">
-                                                <input type="checkbox" class="iswitch iswitch-primary" name="blog_external_url_checkbox" value="1">
+                                                <input type="checkbox" class="iswitch iswitch-primary" name="blog_external_url_checkbox" 
+                                                    value="1" {{ old('blog_external_url_checkbox') ? 'checked' : '' }}>
                                             </div>
-                                            @if($errors->has('blog_external_url_checkbox'))
-                                            <div class="text-danger">{{ $errors->first('blog_external_url_checkbox') }}</div>
-                                            @endif
                                         </div>
                                     </div>
                                     
-                                    <div class="col-lg-4" id="blog_external_url_area">
+                                    <div class="col-lg-4" id="blog_external_url_area" style="{{ old('blog_external_url_checkbox') ? '' : 'display: none;' }}">
                                         <div class="form-group">
-                                            <label class="form-label" for="field-1">
-                                                Blog Blog External Url *
-                                            </label>
+                                            <label class="form-label">Blog External URL *</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="blog_external_url">
+                                                <input type="text" class="form-control" name="blog_external_url" value="{{ old('blog_external_url') }}">
                                             </div>
                                             @if($errors->has('blog_external_url'))
                                             <div class="text-danger">{{ $errors->first('blog_external_url') }}</div>
                                             @endif
                                         </div>
                                     </div>
+                                    
                                     <div class="row"> 
                                         <div class="col-lg-12" id="blog_image_description_area">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label" for="field-1">Blog Image (Select Multiple Image (Limit 20 images))</label>
+                                                    <label class="form-label">Blog Image (Select Multiple Image (Limit 20 images))</label>
                                                     <div class="controls">
                                                         <input type="file" class="form-control" name="blog_image[]" multiple>
                                                     </div>
@@ -138,11 +136,35 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Meta Title</label>
+                                                    <div class="controls">
+                                                        <input type="text" class="form-control form-control" name="meta_title" value="{{ old('meta_title') }}">
+                                                    </div>
+                                                    @if($errors->has('meta_title'))
+                                                    <div class="text-danger">{{ $errors->first('meta_title') }}</div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Meta Description</label>
+                                                    <div class="controls">
+                                                        <input type="text" class="form-control form-control" name="meta_description" value="{{ old('meta_description') }}">
+                                                    </div>
+                                                    @if($errors->has('meta_description'))
+                                                    <div class="text-danger">{{ $errors->first('meta_description') }}</div>
+                                                    @endif
+                                                </div>
+                                            </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label" for="field-1">Blog Description</label>
+                                                    <label class="form-label">Blog Description</label>
                                                     <div class="controls">
-                                                        <textarea class="bootstrap-wysihtml5-textarea" placeholder="Enter text ..." style="width: 100%; height: 250px; font-size: 14px; line-height: 23px;padding:15px;" name="blog_description"></textarea>
+                                                        <textarea class="bootstrap-wysihtml5-textarea" placeholder="Enter text ..." 
+                                                                style="width: 100%; height: 250px; font-size: 14px; line-height: 23px;padding:15px;" 
+                                                                name="blog_description">{{ old('blog_description') }}</textarea>
                                                     </div>
                                                     @if($errors->has('blog_description'))
                                                     <div class="text-danger">{{ $errors->first('blog_description') }}</div>
@@ -152,11 +174,11 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                       <div class="form-group">
-                                          <div class="controls">
-                                             <button type="submit" class="btn btn-primary">Submit</button>
-                                          </div>
-                                       </div>
+                                    <div class="form-group">
+                                        <div class="controls">
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </div>
                                     </div>
                                 </div>
                             </form>

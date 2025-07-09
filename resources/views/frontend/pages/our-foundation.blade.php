@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K. Shilpireddy - Our Foundation')
-@section('description', 'Dr. K. Shilpi Reddy Foundation: Dedicated to Womens Health Care')
+@section('title','Our Foundation | Women-Centered Health by Dr. Shilpi Reddy')
+@section('description', 'Learn about outreach and awareness programs led by Dr. K. Shilpi Reddy Foundation.')
 @section('keywords', 'Our Foundation, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, Our Core Values')
 
 @section('main-content')

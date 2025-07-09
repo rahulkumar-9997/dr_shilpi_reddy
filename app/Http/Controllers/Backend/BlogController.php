@@ -29,6 +29,8 @@ class BlogController extends Controller
                 'blog_description' => 'nullable',
                 'blog_intro_desc' => 'required',
                 'blog_intro_heading' => 'nullable',
+                'meta_title' => 'nullable',
+                'meta_description' => 'nullable',
                 'blog_post_date' =>'required',
                 'blog_intro_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
                 'blog_image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
@@ -43,12 +45,14 @@ class BlogController extends Controller
             $input = [
                 'title' => $request->input('blog_title'),
                 'intro_description' => $request->input('blog_intro_desc'),
-                'blog_description' => $request->input('blog_description') ?: 'No description available.',
+                'blog_description' => $request->input('blog_description') ?: '',
                 'blog_intro_head' => $request->input('blog_intro_heading'),
                 'blog_post_date' => date('y-m-d', strtotime($request->input('blog_post_date'))),
                 'user_id' => $user_id,
                 'is_external' => $request->has('blog_external_url_checkbox') ? 1 : 0,
                 'external_url' => $request->input('blog_external_url'),
+                'meta_title' => $request->input('meta_title') ?: '',
+                'meta_description' => $request->input('meta_description') ?: '',
             ];
 
             if ($request->hasFile('blog_intro_image')) {
@@ -93,7 +97,6 @@ class BlogController extends Controller
             return redirect('manage-blog')->with('success', 'Blog added successfully');
         } catch (\Exception $e) {
             DB::rollBack(); 
-            dd($e->getMessage(), session('errors'), session()->all()); // Debugging
             return redirect()->back()->with('error', 'Failed to add blog. ' . $e->getMessage());
         }
         
@@ -115,6 +118,8 @@ class BlogController extends Controller
                 'blog_intro_heading' => 'nullable',
                 'blog_post_date' =>'required',
                 'blog_intro_desc' => 'required',
+                'meta_title' => 'nullable',
+                'meta_description' => 'nullable',
                 'blog_intro_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
                 'blog_image.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
                 'blog_external_url' => 'nullable|url|required_if:blog_external_url_checkbox,1',
@@ -133,6 +138,8 @@ class BlogController extends Controller
                 'user_id' => $user_id,
                 'is_external' => $request->has('blog_external_url_checkbox') ? 1 : 0,
                 'external_url' => $request->input('blog_external_url'),
+                'meta_title' => $request->input('meta_title') ?: '',
+                'meta_description' => $request->input('meta_description') ?: '',
             ];
 
             // Handle Intro Image Upload

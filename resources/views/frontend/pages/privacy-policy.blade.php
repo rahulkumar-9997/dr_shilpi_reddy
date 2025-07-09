@@ -1,8 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K. Shilpireddy - Privacy Policy')
-@section('description', 'We at Dr. K. Shilpi Reddy (“we,” “us,” or “our”) are committed to ensuring the privacy and security of your personal information.')
-@section('keywords', 'DR. Shilpi reddy, The Education, Work experiences, photo,')
-
+@section('title','Privacy Policy | Dr. K. Shilpi Reddys Website & Patient Data')
+@section('description', 'Read how Dr. K. Shilpi Reddy\'s website handles your personal data, privacy rights and security measures.')
 @section('main-content')
     
     <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">

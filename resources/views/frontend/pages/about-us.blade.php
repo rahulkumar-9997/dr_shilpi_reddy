@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K. Shilpi Reddy - About Us')
-@section('description', 'My father envisioned me as a doctor, specifically an unconventional doctor who would see the depth of a problem')
+@section('title','About Dr. K. Shilpi Reddy | Gynecology & Wellness Expert')
+@section('description', 'Know more about Dr. K. Shilpi Reddy\'s journey in women\'s wellness and integrative medicine.')
 @section('keywords', 'DR. Shilpi reddy, The Education, Work experiences, photo,')
 
 @section('main-content')

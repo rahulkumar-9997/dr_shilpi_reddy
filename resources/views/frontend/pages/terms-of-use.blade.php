@@ -1,8 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K. Shilpireddy - Terms Of Use')
-@section('description', 'Welcome to the official website and mobile application of Dr. K. Shilpi Reddy, a renowned Gynecologist.')
-@section('keywords', 'Dr. K. Shilpi reddy, The Education, Work experiences, photo,')
-
+@section('title','Terms of Use | Website Access & Usage Guidelines')
+@section('description', 'Understand the terms and conditions of using Dr. Shilpi Reddy\'s official website and services.')
 @section('main-content')
     
     <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">

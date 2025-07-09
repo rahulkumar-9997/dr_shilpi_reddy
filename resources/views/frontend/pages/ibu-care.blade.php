@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K. Shilpireddy - Wow Mom')
-@section('description', 'Wow Mom is for those women who are expecting a baby, where they are given holistic support for their mental.')
+@section('title','IBU Care | Integrated Support for Women by Dr. Shilpi Reddy')
+@section('description', 'IBU Care empowers women with emotional, mental and physical support during motherhood.')
 @section('keywords', 'Core Components of
 WOW MOM, Time Bound Lab Diagnostics, Nutrition support, Prenatal Yoga, Normal Delivery, Stem Cell Bank')
 

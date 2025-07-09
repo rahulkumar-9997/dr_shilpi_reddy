@@ -48,7 +48,7 @@ use App\Models\BlogImages;
                                 @csrf
                                 <input type="hidden" class="form-control" name="blog_id_hidden" value="{{$blog->id}}">
                                 <div class="row">
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Title *</label>
                                             <div class="controls">
@@ -60,7 +60,7 @@ use App\Models\BlogImages;
                                         </div>
                                     </div>
                                     
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Heading</label>
                                             <div class="controls">
@@ -71,7 +71,7 @@ use App\Models\BlogImages;
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Post Date *</label>
                                             <div class="controls">
@@ -84,7 +84,7 @@ use App\Models\BlogImages;
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-lg-6">
+                                    <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Description *</label>
                                             <div class="controls">
@@ -146,6 +146,28 @@ use App\Models\BlogImages;
                                                     </div>
                                                     @if($errors->has('blog_image'))
                                                     <div class="text-danger">{{ $errors->first('blog_image') }}</div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Meta Title</label>
+                                                    <div class="controls">
+                                                        <input type="text" class="form-control form-control" name="meta_title" value="{{ $blog->meta_title }}">
+                                                    </div>
+                                                    @if($errors->has('meta_title'))
+                                                    <div class="text-danger">{{ $errors->first('meta_title') }}</div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label class="form-label">Meta Description</label>
+                                                    <div class="controls">
+                                                        <input type="text" class="form-control form-control" name="meta_description" value="{{ $blog->meta_description }}">
+                                                    </div>
+                                                    @if($errors->has('meta_description'))
+                                                    <div class="text-danger">{{ $errors->first('meta_description') }}</div>
                                                     @endif
                                                 </div>
                                             </div>

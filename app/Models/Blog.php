@@ -16,6 +16,8 @@ class Blog extends Model
         'blog_post_date',
         'slug',
         'intro_description',
+        'meta_title',
+        'meta_description',
         'intro_image',
         'is_external',
         'external_url',

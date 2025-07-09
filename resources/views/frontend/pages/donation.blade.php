@@ -1,8 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K. Shilpireddy - Donation')
-@section('description', 'Every help made counts for a bigger cause. Let us plant trees and make this earth a better place for our brighter future.')
-@section('keywords', 'DR. Shilpi reddy, One Girl, One Tree,
-One Nation, Green Nation')
+@section('title','Donate to Support Women\'s Health | Dr. K. Shilpi Reddy')
+@section('description', 'Contribute to Dr. K. Shilpi Reddy\'s foundation supporting women\'s hygiene, wellness and rural health programs.')
 @section('meta')
 <meta property="og:title" content="Dr. K. Shilpireddy - Donation" />
 <meta property="og:description" content="Every help made counts for a bigger cause. Let us plant trees and make this earth a better place for our brighter future." />

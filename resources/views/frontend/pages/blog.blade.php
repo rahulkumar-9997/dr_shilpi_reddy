@@ -2,8 +2,8 @@
 use App\Models\BlogImages;
 @endphp
 @extends('frontend.layouts.master')
-@section('title','Dr. K. Shilpireddy - Blogs')
-@section('description', 'Choose lean meat, remove the skin from poultry, and try not to add extra fat or oil when cooking meat. Read more about healthily eating meat.')
+@section('title','Blog | Insights on Pregnancy, Fertility & Women\'s Health')
+@section('description', 'Read blogs offering tips and awareness on fertility, pregnancy, and holistic wellness.')
 @section('keywords', 'Our Blogs,  Hyderabad, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, photo,')
 
 @section('main-content')

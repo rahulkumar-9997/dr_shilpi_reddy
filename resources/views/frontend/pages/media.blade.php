@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Dr. K. Shilpireddy Hyderabad - Media')
-@section('description', 'Glimpse of events and activities conducted by Dr.K.Shilpi Reddy')
+@section('title','Media & Talks | Videos Featuring Dr. Shilpi Reddy')
+@section('description', 'Watch Dr. Shilpi Reddy\'s interviews and media coverage on health, motherhood, and healing.')
 @section('keywords', 'Media, Hyderabad, Dr. K. Shilpireddy Hyderabad, Dr. K. Shilpireddy, photo,')
 
 @section('main-content')
