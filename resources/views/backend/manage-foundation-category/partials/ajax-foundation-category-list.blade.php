@@ -39,7 +39,7 @@
                         </a>
                     </form>
 
-                    <a href="javascript:void(0);" data-addfoundationimage-popup="true" data-fcid="{{ $foundation_category_row->id }}" data-size="lg" data-title="Add Foundation Image ( {{ $foundation_category_row->name }})" data-url="{{ route('foundation-image.create', $foundation_category_row->id) }}"  rel="tooltip" data-color-class="purple" data-animate=" animated fadeIn " data-toggle="tooltip" data-original-title="Add Foundation Image ( {{ $foundation_category_row->name }})" class="btn btn-info btn-sm" style="margin-left: 10px;">
+                    <a href="javascript:void(0);" data-addfoundationimage-popup="true" data-fcid="{{ $foundation_category_row->id }}" data-size="lg" data-title="Add Foundation Image ( {{ $foundation_category_row->name }})" data-url="{{ route('foundation-image.create') }}"  rel="tooltip" data-color-class="purple" data-animate=" animated fadeIn " data-toggle="tooltip" data-original-title="Add Foundation Image ( {{ $foundation_category_row->name }})" class="btn btn-info btn-sm" style="margin-left: 10px;">
                        Add Foundation Image
                     </a>
                 </div>

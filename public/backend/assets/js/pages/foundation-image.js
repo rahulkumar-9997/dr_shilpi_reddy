@@ -5,7 +5,6 @@ $(document).ready(function () {
         var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
         var url = $(this).data('url');
         var data = {
-            _token: $('meta[name="csrf-token"]').attr('content'),
             size: size,
             url: url,
             foundation_cate_id: foundation_cate_id,
@@ -15,13 +14,13 @@ $(document).ready(function () {
             url: url,
             type: 'get',
             data: data,
-            success: function (data) {
+            success: function (data) {				
                 $('#commonModal .render-data').html(data.form);
                 $("#commonModal").modal('show');
             },
-            error: function (data) {
-                data = data.responseJSON;
-            }
+			error: function (xhr, status, error) {
+				console.error("AJAX Error:", status, error);
+			}            
         });
     });
     $(document).off('submit', '#foundationImageStore').on('submit', '#foundationImageStore', function (event) {

@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title','Best gynecologist in Hyderabad - Dr. K. Shilpireddy')
+@section('title','Best gynecologist in Hyderabad - Dr. K. Shilpi Reddy')
 @section('description', 'Find the Best gynecologist in Hyderabad for exceptional womens healthcare. Trust their expertise for personalized, compassionate treatment.')
 @section('keywords', 'sharing, sharing text, text, sharing photo, photo,')
 

@@ -34,7 +34,7 @@ use App\Models\BlogImages;
     </div>
 
     
-    <section class=" blog-posts w-100 float-left blog_list">
+    <section class=" blog-posts w-100 float-left blog_list blog-list-section">
         <div class="container">
             <div class="row">
                 <div id="blog" class="col-xl-12">
@@ -49,7 +49,7 @@ use App\Models\BlogImages;
                             }
                         @endphp
                         <div class="col-md-4">
-                            <div class="float-left w-100 post-item border mb-4 blog_list_height">
+                            <div class="float-left post-item border mb-4 blog_list_height">
                                 <div class="post-item-wrap position-relative">
                                     <div class="post-image">
                                         <a href="{{ $blog_url }}">
@@ -64,10 +64,12 @@ use App\Models\BlogImages;
                                         <h2>
                                             <a href="{{ $blog_url }}">{{$blog_list_row->title}}</a>
                                         </h2>
-                                    <p>
-                                    {!! strip_tags(substr($blog_list_row->intro_description, 0, 120)) !!}
-                                    </p>
-                                    <a href="{{ $blog_url }}" class="item-link">Read More <i class="fa fa-arrow-right"></i></a>
+                                        <p>
+                                        {!! strip_tags(substr($blog_list_row->intro_description, 0, 120)) !!}
+                                        </p>
+                                        <div class="read_more_class">
+                                            <a href="{{ $blog_url }}" class="item-link read_more_btn">Read More <i class="fa fa-arrow-right"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

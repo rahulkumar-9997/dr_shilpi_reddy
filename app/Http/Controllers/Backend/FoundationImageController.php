@@ -45,11 +45,11 @@ class FoundationImageController extends Controller
                             <label for="foundation_category" class="form-label">Select Foundation Category</label>
                             <select class="form-control" name="foundation_category" id="foundation_category">
                                 <option value="">Select Foundation Category</option>';
-        foreach ($foundation_categories as $category) {
-            $selected = ($category->id == $foundation_cate_id) ? 'selected' : '';
-            $form .= '<option value="' . $category->id . '" ' . $selected . '>' . $category->name . '</option>';
-        }
-        $form .= '
+								foreach ($foundation_categories as $category) {
+									$selected = ($category->id == $foundation_cate_id) ? 'selected' : '';
+									$form .= '<option value="' . $category->id . '" ' . $selected . '>' . $category->name . '</option>';
+								}
+								$form .= '
                             </select>
                         </div>	
                     </div>

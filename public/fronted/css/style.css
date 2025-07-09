@@ -1569,3 +1569,56 @@ body {
 #testimonial-videos-container .video-wrapper {
 	margin-bottom: 10px;
 }
+
+.work_page .post-item{
+	box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
+	border: none!important;
+	border-radius: 10px;
+}
+.work_page .post-item-description h2{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.blog-list-section .post-item{
+	box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
+	border: none!important;
+	border-radius: 10px;
+}
+.read_more_class{
+	text-align: center;
+}
+
+.hom_blog_page .blog-item{
+	box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
+	border: none!important;
+	border-radius: 10px;
+}
+
+.read_more_class .read_more_btn {
+    font-size: 14px;
+    color: #52656d;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 900;
+    width: 200px;
+    position: absolute;
+    margin: 0 auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    padding: 10px 20px;
+    background-color: transparent;
+    display: block;
+    border: 1px solid #d20048;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}

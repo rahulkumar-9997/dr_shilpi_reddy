@@ -563,7 +563,10 @@ a.item-link{
 }
 #blog .post-item.border > .post-item-wrap > .post-item-description {
 	padding: 25px 7px;
-	line-height: 28px;
+    line-height: 28px;
+    margin: 0 auto;
+    min-height: 280px;
+    position: relative;
 }
 #blog .post-item.border .post-meta-category{
 	top: 11px;

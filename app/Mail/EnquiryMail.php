@@ -21,7 +21,7 @@ class EnquiryMail extends Mailable
     public function build()
     {
         return $this->view('frontend.mail.enquiry-home-mail')
-        ->from('gdsons.vns@gmail.com', 'Dr. K Shilpi Reddy Website') // Sender's email and name
+        ->from('drkshilpireddy@gmail.com', 'Dr. K Shilpi Reddy Website') // Sender's email and name
         ->subject('Appointment Request on Website - www.drkshilpireddy.com');
     }
 }
