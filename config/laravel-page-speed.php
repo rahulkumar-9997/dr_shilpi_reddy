@@ -9,9 +9,9 @@ return [
     |
     | Set this field to false to disable the laravel page speed service.
     | You would probably replace that in your local configuration to get a readable output.
-    |https://github.com/renatomarinho/laravel-page-speed
+    |
     */
-    'enable' => env('LARAVEL_PAGE_SPEED_ENABLE', false),
+    'enable' => env('LARAVEL_PAGE_SPEED_ENABLE', true),
 
     /*
     |--------------------------------------------------------------------------
