@@ -67,10 +67,10 @@
                               
                                  <td>{{ $testimonials_list_row->name }}</td>
                                  <td>
-                                 @if( $testimonials_list_row->testimonial_criteria=='testimonials_video')
+                                 @if($testimonials_list_row->testimonial_criteria=='testimonials_video')
                                     
                                     <div class="embed-responsive1 embed-responsive-16by9-1">
-                                          <video  controls width="500" height="300" class="embed-responsive-item">
+                                          <video  controls width="200" height="200" class="embed-responsive-item">
                                              <source src="
                                              {{ asset('testimonials-img/testimonials-videos/'. $testimonials_list_row->testimonial_video) }}
                                              " type="video/mp4">
@@ -83,14 +83,20 @@
                                  
                                  @endif
                                  </td>
-                                 <td>{{ $testimonials_list_row->testimonials_content }}</td>
                                  <td>
-                                    <a href="{{ url('manage-testimonials/edit/' . $testimonials_list_row->id . '?testimonials_criteria=' . $testimonial_criteria) }}">
-                                       <span class="label label-orange"><i class="fa fa-pencil icon-xs"></i></span>   
-                                    </a>
-                                    <a href="{{ url('manage-testimonials/delete/' . $testimonials_list_row->id . '?testimonials_criteria=' . $testimonial_criteria) }}">
-                                       <span class="label label-danger"><i class="fa fa-trash icon-xs"></i></span>
-                                    </a>                                    
+                                    <div style="max-height: 150px; overflow: auto; white-space: pre-wrap;">
+                                       {{ $testimonials_list_row->testimonials_content }}
+                                    </div>
+                                 </td>
+                                 <td>
+                                    <div class="d-flex gap-2">
+                                       <a href="{{ url('manage-testimonials/edit/' . $testimonials_list_row->id . '?testimonials_criteria=' . $testimonial_criteria) }}" class="btn btn-primary btn-sm">
+                                       <i class="fa fa-pencil icon-xs"></i>  
+                                       </a>
+                                       <a href="{{ url('manage-testimonials/delete/' . $testimonials_list_row->id . '?testimonials_criteria=' . $testimonial_criteria) }}" class="btn btn-danger btn-sm">
+                                          <i class="fa fa-trash icon-xs"></i>
+                                       </a> 
+                                    </div>
                                  </td>
                            </tr>
                            @php

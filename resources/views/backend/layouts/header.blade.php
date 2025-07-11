@@ -10,7 +10,10 @@
                                 <i class="fa fa-bars"></i>
                             </a>
                         </li>
-                        <!--<li class="message-toggle-wrapper">
+                        <li>
+                            <a class="btn btn-info" href="{{ route('clear-cache') }}">Clear cache</a>
+                        </li>
+                        <!-- <li class="message-toggle-wrapper">
                             <a href="#" data-toggle="dropdown" class="toggle">
                                 <i class="fa fa-envelope"></i>
                                 <span class="badge badge-primary">7</span>
@@ -297,7 +300,7 @@
                                     <input type='submit' value="">
                                 </form>
                             </div>
-                        </li>-->
+                        </li> -->
                     </ul>
                 </div>		
                 <div class='pull-right'>

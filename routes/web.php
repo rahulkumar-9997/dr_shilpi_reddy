@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Frontend\FrontHomeController;
+
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\ForgotPasswordController;
 use App\Http\Controllers\Backend\DashboardController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\Backend\RolesController;
 use App\Http\Controllers\Backend\PermissionsController;
 use App\Http\Controllers\Backend\FoundationCategoryController;
 use App\Http\Controllers\Backend\FoundationImageController;
+use App\Http\Controllers\Backend\CacheController;
 
 
 /*
@@ -63,6 +65,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('manage-profile', [DashboardController::class, 'showProfileUpdateForm'])->name('manage-profile');
     Route::post('manage-profile.update', [DashboardController::class, 'updateProfile'])->name('manage-profile.update');
     Route::get('manage-feature-logo', [FeatureLogoController::class, 'index'])->name('manage-feature-logo');
+    Route::get('/clear-cache', [CacheController::class, 'clearCache'])->name('clear-cache');
     Route::group(['prefix' => 'manage-feature-logo'], function(){
         Route::get('add', [FeatureLogoController::class, 'showFeatureLogoForm'])->name('manage-feature-logo.add');
         Route::post('store', [FeatureLogoController::class, 'store'])->name('manage-feature-logo.store');
