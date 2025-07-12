@@ -236,8 +236,6 @@ class BlogController extends Controller
         }
     }
 
-
-
     public function deleteMultipleImage($multiple_image_id, $blog_id){
         $blog_image = BlogImages::find($multiple_image_id);
         /*Unlink image*/
