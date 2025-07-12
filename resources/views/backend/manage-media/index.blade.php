@@ -45,13 +45,13 @@
                            <li class="d-flex align-items-center justify-content-between list-group-item ui-sortable-handle"
                               data-id="{{ $image->id }}"
                               style="position: relative; left: 0px; top: 0px; padding: 5px;">
-                              <h6 class="mb-0 mt-0">
+                              <div class="mb-0 mt-0 product-element-top img-bg-none">
                                  <img src="{{ asset('media-img/thumb/'. $image->media_image) }}"
                                     class="img-thumbnail me-3"
-                                    style="width: 50px; height: 50px;"
                                     alt="{{ $image->title }}">
-                                 <span>{{ $image->title }}</span>
-                              </h6>
+                                
+                              </div>
+                              <span>{{ $image->title }}</span>
                               <span class="float-end">
                                  <a href="{{ url('manage-media/edit/'.$image->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i>

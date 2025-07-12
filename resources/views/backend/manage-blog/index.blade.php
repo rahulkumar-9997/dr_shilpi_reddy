@@ -62,7 +62,7 @@
                               <td>{{ $sr_no }}</td>
                               <td>{{ $blog_list_row->title }}</td>
                               <td>
-                                 <div style="max-height: 200px; overflow: auto; white-space: pre-wrap;">
+                                 <div style="max-height: 100px; overflow: auto; white-space: pre-wrap;">
                                     {!! $blog_list_row->blog_description !!}
                                  </div>
                                  </td>

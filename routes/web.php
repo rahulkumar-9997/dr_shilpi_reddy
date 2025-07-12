@@ -115,6 +115,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('delete/{id}', [BlogController::class, 'delete']);
         Route::get('deleteblogimage/{id}/{blogId}', [BlogController::class, 'deleteMultipleImage']);
     });
+    Route::get('/manage-blog/image-rotate/{image_id}/{degree}', [BlogController::class, 'blogImageRotate'])->name('manage-blog.image.rotate');
     Route::get('manage-ibucare', [IbuCareController::class, 'index'])->name('manage-ibucare');
     Route::group(['prefix' => 'manage-ibucare'], function(){
         Route::get('add', [IbuCareController::class, 'showIbuCareForm'])->name('manage-ibucare.add');

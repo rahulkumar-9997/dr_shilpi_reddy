@@ -62,7 +62,7 @@
                               <td>{{ $sr_no }}</td>
                               <td>{{ $our_work_list->heading_name }}</td>
                               <td>
-                                 <div class="overflow-auto" style="max-width: 400px; max-height: 200px; overflow: auto;">
+                                 <div class="overflow-auto" style="max-width: 300px; max-height: 100px; overflow: auto;">
                                     {!! $our_work_list->our_work_content !!}
                                  </div>
                               </td>                              

@@ -5,9 +5,13 @@ use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 use App\Models\Blog;
 use App\Models\BlogImages;
-use Illuminate\Support\Facades\DB;
+
+
 class BlogController extends Controller
 {
     public function index(){
@@ -246,5 +250,30 @@ class BlogController extends Controller
         /*Unlink image*/
         $blog_image->delete();
         return redirect('manage-blog/edit/'.$blog_id.'')->with('success','Blog images deleted successfully !');
+    }
+
+    public function blogImageRotate($image_id, $degree){
+        try {
+            $imageRecord = BlogImages::findOrFail($image_id);           
+            $mainImagePath = public_path('blog-img/main-img/' . $imageRecord->blog_image);
+            $thumbImagePath = public_path('blog-img/thumb/' . $imageRecord->blog_image); 
+            if (File::exists($mainImagePath)) {
+                $img = Image::make($mainImagePath)->rotate(-$degree);
+                $img->save($mainImagePath);
+            }
+            if (File::exists($thumbImagePath)) {
+                $thumb = Image::make($thumbImagePath)->rotate(-$degree);
+                $thumb->save($thumbImagePath);
+            }
+            Log::info("Image rotated successfully.", ['image_id' => $image_id, 'degree' => $degree]);
+            return back()->with('success', "Images rotated $degree degrees.");
+        } catch (\Exception $e) {
+            Log::error('Image Rotation Error: ' . $e->getMessage(), [
+                'image_id' => $image_id,
+                'degree' => $degree
+            ]);
+
+            return back()->with('error', 'An unexpected error occurred while rotating the images.');
+        }
     }
 }

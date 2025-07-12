@@ -200,17 +200,31 @@ use App\Models\BlogImages;
                             if ($blog_multiple_image){
                             @endphp
                                 <div class="col-lg-12">
-                                @foreach($blog_multiple_image as $image) 
-                                    <div class="col-lg-3">
-                                        <div class="product-element-top">
-                                            
-                                            <img  src="{{ asset('blog-img/main-img/' . $image->blog_image) }}" class="img-responsive thumbnail_img">
-                                        </div>
-                                        <a href="{{url('manage-blog/deleteblogimage/'.$image->id.'/'.$blog->id.'') }}">
-                                            <i class="fa fa-trash-o icon-xs"></i>
-                                        </a>
+                                    <div class="row">
+                                        @foreach($blog_multiple_image as $image) 
+                                            <div class="col-lg-2">
+                                                <div class="product-element-top img-bg">
+                                                    <img  src="{{ asset('blog-img/main-img/' . $image->blog_image) }}?v={{ time() }}" class="img-responsive thumbnail_img">
+                                                </div>
+
+                                                <div class="mt-1" style="margin-bottom: 10px;">
+                                                    <a href="{{url('manage-blog/deleteblogimage/'.$image->id.'/'.$blog->id.'') }}" class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash-o icon-xs"></i>
+                                                    </a>
+                                                    @foreach([90] as $degree)
+                                                        <a href="{{ route('manage-blog.image.rotate', ['image_id' => $image->id, 'degree' => $degree]) }}" 
+                                                        class="btn btn-warning btn-sm" 
+                                                        data-toggle="tooltip"
+                                                        style="margin-right: 5px;" 
+                                                        title="Rotate {{ $degree }} deg">
+                                                        <i class="fa fa-undo icon-xs"></i>
+                                                        </a>
+                                                    @endforeach
+                                                </div>
+                                                
+                                            </div>
+                                        @endforeach
                                     </div>
-                                @endforeach
                                 </div>
                             @php
                             }

@@ -47,13 +47,13 @@
                                         data-id="{{ $image->id }}"
                                         style="position: relative; left: 0px; top: 0px; padding: 5px;">
 
-                                        <h6 class="mb-0 mt-0">
+                                        <div class="mb-0 mt-0 product-element-top img-bg-none">
                                             <img src="{{ asset('foundation-img/' . $image->image_path) }}?v={{ time() }}"
-                                                class="img-thumbnail me-3"
-                                                style="width: 100px; height: 100px;"
+                                                class="img-thumbnail me-3"                                             
                                                 alt="{{ $data['product_details']->title ?? '' }}">
-                                            <span>{{ $image->image_path }}</span>
-                                        </h6>
+                                            
+                                        </div>
+                                        <span>{{ $image->image_path }}</span>
                                         <span class="float-end d-flex">
                                             <form method="POST" action="{{ route('foundation-image.destroy', $image->id) }}" accept-charset="UTF-8" class="d-inline">
                                                 @csrf
