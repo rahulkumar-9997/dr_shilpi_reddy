@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(document).on('click', 'a[ data-foundation-category-popup="true"]', function () {
+    $(document).on('click', 'a[data-foundation-category-popup="true"]', function () {
         var title = $(this).data('title');
         var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
         var url = $(this).data('url');

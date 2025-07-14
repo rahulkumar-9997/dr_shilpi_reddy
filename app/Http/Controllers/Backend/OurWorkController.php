@@ -5,13 +5,16 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
-use App\Models\OurWork;
-use App\Models\OurWorkImage;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Log;
-use DB;
+use App\Models\OurWork;
+use App\Models\OurWorkImage;
+use App\Models\FoundationCategory;
+use App\Models\FoundationImage;
 
 class OurWorkController extends Controller
 {
@@ -35,12 +38,6 @@ class OurWorkController extends Controller
     public function store(Request $request)
     {
         $user_id = Auth::user()->id;
-        // $product = OurWork::create([
-        //     "heading_name" => "Laravel 8 Image Upload",
-        //     "our_work_content" => "Laravel 8 Image Upload",
-        //     "user_id" => $user_id,
-        // ]);
-        // dd($product);
         $this->validate($request, [
             'our_work_heading_name' => 'required',
             'work_content' => 'required',
@@ -185,6 +182,200 @@ class OurWorkController extends Controller
             ]);
 
             return back()->with('error', 'An unexpected error occurred while rotating the images.');
+        }
+    }
+
+    public function mappedWorkToFoundation($workId){
+        $foundation_categories = FoundationCategory::orderBy('id','DESC')->get();
+        $form = '
+        <div class="modal-body">
+            <form method="POST" action="' . route('mapped-work-to-foundation.submit') . '" accept-charset="UTF-8" enctype="multipart/form-data" id="mappedWorkToFoundationForm">
+                ' . csrf_field() . '
+                <input type="hidden" name="work_id" value="'.$workId.'"> 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="foundation_category" class="control-label">Select Foundation Category Name *</label>
+                            <select name="foundation_category" class="form-control" id="foundation_category">
+                                <option>Select Foundation Category</option>';
+                                foreach($foundation_categories as $foundation_category){
+                                    $form .='
+                                    <option value="'.$foundation_category->id.'">
+                                        '.$foundation_category->name.'
+                                    </option>';
+                                }
+                            $form .='
+                            </select>
+                        </div>	
+                    </div>
+                    <div class="col-md-12">
+                        <h4 class="text-center text-danger">Or</h4>
+                        <h5 class="text-center text-danger">
+                            Create new foundation category than check this checkbox only.
+                        </h5>
+                        <div class="form-check text-center">
+                            <input class="form-check-input" type="checkbox" value="1" name="foundation_check" id="foundation_check">
+                            <label class="form-check-label" for="foundation_check">Create new foundation category</label>
+                        </div>                            
+                    </div>
+                </div>
+                <div class="modal-footer pb-0">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        ';
+        return response()->json([
+            'message' => 'Foundation Category Form created successfully',
+            'form' => $form,
+        ]);
+    }
+
+    public function mappedWorkToFoundationSubmit(Request $request)
+    {
+        $rules = [
+            'work_id' => 'required|exists:our_works,id',
+            'foundation_check' => 'sometimes|boolean',
+        ];
+        if ($request->has('foundation_check') && $request->foundation_check == 1) {
+            $rules['foundation_category'] = 'nullable|exists:foundation_categories,id';
+        } else {
+            $rules['foundation_category'] = 'required|exists:foundation_categories,id';
+        }
+        $validator = Validator::make($request->all(), $rules, [
+            'foundation_category.required' => 'Please select a foundation category',
+            'foundation_category.exists' => 'The selected foundation category is invalid'
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+        DB::beginTransaction();
+        try {
+            $work_id = $request->work_id;
+            $work = OurWork::with('workImages')->find($work_id);
+            if (!$work) {
+                DB::rollBack();
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Work not found'
+                ], 404);
+            }
+            $uploadPath = public_path('foundation-img');                    
+            if (!file_exists($uploadPath)) {
+                if (!mkdir($uploadPath, 0777, true)) {
+                    DB::rollBack();
+                    return response()->json([
+                        'status' => 'error',
+                        'message' => 'Failed to create foundation image directory'
+                    ], 500);
+                }
+            }
+            if ($request->has('foundation_check') && $request->foundation_check == 1) {
+                /* Create new foundation category */
+                $foundationCategory = FoundationCategory::create([
+                    'name' => $work->heading_name,
+                    'status' => 1,
+                    'work_id' =>$work_id
+                ]);
+                if (!empty($work->workImages) && $work->workImages->isNotEmpty()) {                    
+                    foreach ($work->workImages as $imageFile) {
+                        $sourcePath = public_path('our-work/main-img/' . $imageFile->our_work_image);
+                        if (!file_exists($sourcePath)) {
+                            DB::rollBack();
+                            return response()->json([
+                                'status' => 'error',
+                                'message' => "Source image not found: {$imageFile->our_work_image}"
+                            ], 404);
+                        }
+                        $sanitized_title = preg_replace('/[^A-Za-z0-9-]+/', '-', strtolower(trim($work->heading_name)));
+                        $uniqueTimestamp = uniqid() . '-' . round(microtime(true) * 1000);
+                        $image_file_name = 'dr-shilpi-reddy-hyd-' . $sanitized_title . '-' . $uniqueTimestamp . '.webp';
+                        $destinationPath = $uploadPath . '/' . $image_file_name;
+                        /* Only copy the file */
+                        if (!copy($sourcePath, $destinationPath)) {
+                            DB::rollBack();
+                            return response()->json([
+                                'status' => 'error',
+                                'message' => "Failed to copy image: {$imageFile->our_work_image}"
+                            ], 500);
+                        }
+                        $foundationImage = FoundationImage::create([
+                            'foundation_categories_id' => $foundationCategory->id,
+                            'image_path' => $image_file_name,
+                            'sort_order' => 0,
+                        ]);
+
+                        if (!$foundationImage) {
+                            DB::rollBack();
+                            return response()->json([
+                                'status' => 'error',
+                                'message' => 'Failed to create foundation image record'
+                            ], 500);
+                        }
+                    }
+                }
+            } else {
+                /* Map to existing foundation category */
+                $foundationCategoryId = $request->foundation_category;
+                if (!empty($work->workImages) && $work->workImages->isNotEmpty()) {
+                    foreach ($work->workImages as $imageFile) {
+                        $sourcePath = public_path('our-work/main-img/' . $imageFile->our_work_image);
+                        if (!file_exists($sourcePath)) {
+                            DB::rollBack();
+                            return response()->json([
+                                'status' => 'error',
+                                'message' => "Source image not found: {$imageFile->our_work_image}"
+                            ], 404);
+                        }
+                        $sanitized_title = preg_replace('/[^A-Za-z0-9-]+/', '-', strtolower(trim($work->heading_name)));
+                        $uniqueTimestamp = uniqid() . '-' . round(microtime(true) * 1000);
+                        $image_file_name = 'dr-shilpi-reddy-hyd-' . $sanitized_title . '-' . $uniqueTimestamp . '.webp';
+                        $destinationPath = $uploadPath . '/' . $image_file_name;
+                        /* Only copy the file */
+                        if (!copy($sourcePath, $destinationPath)) {
+                            DB::rollBack();
+                            return response()->json([
+                                'status' => 'error',
+                                'message' => "Failed to copy image: {$imageFile->our_work_image}"
+                            ], 500);
+                        }
+                        $foundationImage = FoundationImage::create([
+                            'foundation_categories_id' => $foundationCategoryId,
+                            'image_path' => $image_file_name,
+                            'sort_order' => 0,
+                        ]);
+                        if (!$foundationImage) {
+                            DB::rollBack();
+                            return response()->json([
+                                'status' => 'error',
+                                'message' => 'Failed to create foundation image record'
+                            ], 500);
+                        }
+                    }
+                }
+            }            
+            /* Update work status */
+            $work->mapped_status_to_foundation = 1;
+            if (!$work->save()) {
+                DB::rollBack();
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Failed to update work status'
+                ], 500);
+            }
+            DB::commit();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Work successfully mapped to foundation category'
+            ], 200);
+
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'status' => 'error',
+                'message' => 'An unexpected error occurred ' . $e->getMessage()
+            ], 500);
         }
     }
 }

@@ -46,8 +46,8 @@
                      <table id="example-1" class="table table-striped dt-responsive display" cellspacing="0" width="100%">
                         <thead>
                            <tr>
-                              <th>Sr. No.</th>
-                              <th>Title</th>
+                              <th style="width: 10%;">Sr. No.</th>
+                              <th style="width: 30%;">Title</th>
                               <th style="width: 40%;">Content</th>
                               <th>Action</th>
                            </tr>
@@ -68,6 +68,28 @@
                               </td>                              
                               <td>
                                  <div class="d-flex gap-2">
+                                    @if($our_work_list->mapped_status_to_foundation==0)
+                                       <a href="javascript:;"
+                                          data-bs-toggle="tooltip"
+                                          data-url="{{ route('mapped-work-to-foundation', ['ourWorkId' => $our_work_list->id]) }}"
+                                          data-title="Mapped this work page content to any foundation page"
+                                          class="badge badge-info text-light border py-1 px-2"
+                                          data-bs-original-title="Mapped Work to Foundation Page"
+                                          data-mapped-modal="true"
+                                          data-work-id="{{ $our_work_list->id }}">
+                                          Mapped Work to Foundation Page
+                                       </a>
+                                    @else
+                                       <a href="javascript:;"
+                                          data-bs-toggle="tooltip"
+                                          class="badge badge-danger text-light border py-1 px-2"
+                                          data-bs-original-title="Mapped Work to Foundation Page"
+                                         >
+                                          Already Mapped this Work to Foundation
+                                       </a>
+
+                                    @endif
+
                                  
                                     <a href="{{url('manage-our-work/edit/'.$our_work_list->id.'') }}" class="btn btn-primary btn-sm">
                                        <i class="fa fa-pencil icon-xs"></i>
@@ -107,7 +129,8 @@
 <script src="{{asset('backend/assets/plugins/datatables/js/jquery.dataTables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('backend/assets/plugins/datatables/extensions/TableTools/js/dataTables.tableTools.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('backend/assets/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js')}}" type="text/javascript"></script>
-<script src="{{asset('backend/assets/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.js')}}" type="text/javascript">
+<script src="{{asset('backend/assets/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.js')}}" type="text/javascript"></script>
+<script src="{{asset('backend/assets/js/pages/mapped-work-to-foundation.js')}}" type="text/javascript">
 
 </script>
 @endsection

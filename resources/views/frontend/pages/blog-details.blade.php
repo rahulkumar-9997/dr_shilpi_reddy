@@ -59,14 +59,14 @@
 			<div class="row justify-content-md-center">
 				<div class="col-lg-11 primary right-sidebar blog_details">
 					<div class="professional-title single-post single">
-						@if($blog->blog_post_date)
+						<!--@if($blog->blog_post_date)
 							<ul class="meta ospm-default clr">
 								<li class="meta-date">
 									<i class="fa fa-clock" aria-hidden="true"></i>
 									{{ \Carbon\Carbon::parse($blog->blog_post_date)->format('F d, Y') }}
 								</li>							
 							</ul>
-						@endif
+						@endif-->
 						@if($blog->blog_intro_head)
 						<div class="entry-header clr">
 							<h1 class="entry-title-blog">

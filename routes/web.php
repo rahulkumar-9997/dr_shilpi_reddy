@@ -94,6 +94,8 @@ Route::group(['middleware' => ['auth']], function() {
     });
     Route::get('delete-multiple-img/{id}/{ourWorkId}', [OurWorkController::class, 'deleteMultipleImage']);   
     Route::get('/manage-work/image-rotate/{image_id}/{degree}', [OurWorkController::class, 'workImageRotate'])->name('manage-work.image.rotate');
+    Route::get('mapped-work-to-foundation/{ourWorkId}', [OurWorkController::class, 'mappedWorkToFoundation'])->name('mapped-work-to-foundation');
+    Route::post('mapped-work-to-foundation-submit', [OurWorkController::class, 'mappedWorkToFoundationSubmit'])->name('mapped-work-to-foundation.submit');
 
 
 

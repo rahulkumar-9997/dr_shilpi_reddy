@@ -12,6 +12,8 @@ class FoundationCategory extends Model
     protected $fillable = [
         'id',
         'name',
+        'work_id',
+        'description',
         'status'
     ];
 

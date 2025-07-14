@@ -16,7 +16,12 @@ class OurWork extends Model
         'slug',
         'our_work_content',
         'user_id',
+        'mapped_status_to_foundation'
     ];
+    public function workImages()
+    {
+        return $this->hasMany(OurWorkImage::class, 'our_work_id');
+    }
 
     
     /**

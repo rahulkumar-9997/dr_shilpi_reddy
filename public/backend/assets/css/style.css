@@ -4865,19 +4865,11 @@ code {
 ----------------------------------------------------------*/
 
 .badge {
-    display: inline-block;
-    min-width: 10px;
-    padding: 3px 7px;
+    padding: 0.35rem 0.45rem;   
+    font-weight: 500;
+    border-radius: 5px;
     font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-    color: #fff;
-    background-color: #777;
-    border-radius: 10px;
-    -o-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
+    line-height: 15px;
 }
 .badge.badge-md {
     font-size: 14px;
