@@ -80,7 +80,7 @@
                             <h4>
                                 Dr. K. Shilpi Reddy Foundation and Androcare
                             </h4>
-                        </div>                        
+                        </div>
                     </div>
                 </div>
                 <div class="row justify-content-center align-items-center">
@@ -147,11 +147,11 @@
                 </div>
 
                 <div class="col-md-3">
-                    <div class="day-regi">
+                    <div class="day-regi boxess">
                         <div class="ribbon-box text-white">
                             <h2>₹ 499/-</h2>
                             <h4>
-                                REGISTER 
+                                REGISTER
                                 <strong>TODAY</strong>
                             </h4>
                             <small>
@@ -163,10 +163,12 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="day-regi">
+                    <div class="day-regi boxess">
                         <div class="qr-box text-white">
-                            <h4>SCAN ME</h4>
-                            <img src="{{ asset('fronted/shilpi-img/fertility/scan.png') }}" alt="QR Code" class="img-fluid">
+                            <h2>SCAN ME</h2>
+                            <div class="qr-img">
+                                <img src="{{ asset('fronted/shilpi-img/fertility/scan.png') }}" alt="QR Code" class="img-fluid">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -179,7 +181,7 @@
     <div class="w-100 float-left our-speaker-section mt-1">
         <div class="container">
             <div class="text-center speaker-title">
-                <h2>OUR SPEAKERS</h2>               
+                <h2>OUR SPEAKERS</h2>
             </div>
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-3 p-1">
@@ -209,7 +211,7 @@
                 <div class="col-md-3 p-1">
                     <div class="speaker-card text-center">
                         <h4>
-                           Dr. Spoorthy Chennamaneni
+                            Dr. Spoorthy Chennamaneni
                         </h4>
                         <p>
                             Consultant Fertility
@@ -220,51 +222,94 @@
                 <div class="col-md-3 p-1">
                     <div class="speaker-card text-center">
                         <h4>
-                           Dr. Krishna Reddy
+                            Dr. Krishna Reddy
                         </h4>
                         <p>
-                           Consultant Endocrinologist
+                            Consultant Endocrinologist
                         </p>
                     </div>
                 </div>
                 <div class="col-md-3 p-1">
                     <div class="speaker-card text-center">
                         <h4>
-                           Dr. R Phani Krishna
+                            Dr. R Phani Krishna
                         </h4>
                         <p>
-                           Gastroenterologist
+                            Gastroenterologist
                         </p>
                     </div>
                 </div>
                 <div class="col-md-3 p-1">
                     <div class="speaker-card text-center">
                         <h4>
-                           Dr. Charan Teja Koganti
+                            Dr. Charan Teja Koganti
                         </h4>
                         <p>
-                          Consultant Psychiatrist
+                            Consultant Psychiatrist
                         </p>
                     </div>
                 </div>
                 <div class="col-md-3 p-1">
                     <div class="speaker-card text-center">
                         <h4>
-                           Dr. Prathima M
+                            Dr. Prathima M
                         </h4>
                         <p>
-                          Consultant Physiotherapist
+                            Consultant Physiotherapist
                         </p>
                     </div>
                 </div>
                 <div class="col-md-3 p-1">
                     <div class="speaker-card text-center">
                         <h4>
-                           Miss. Prerna jain
+                            Miss. Prerna jain
                         </h4>
                         <p>
-                          Dance and Fitness Instructor
+                            Dance and Fitness Instructor
                         </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="w-100 float-left register-now-section mt-1">
+        <div class="container">
+            
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6">
+                    <div class="text-center register-now-title">
+                        <h2>REGISTER NOW</h2>
+                    </div>
+                    <div class="Schedule-box-item position-relative w-100 float-left mb-md-0">
+                        <figure class="mb-0 float-md-left overlay-img">
+                            <i class="fad fa-headphones"></i>
+                        </figure>
+                        <div class="Schedule-box-title float-md-left overlay-img contact_no">
+                            <h5>Phone No.</h5>
+                            <span class="d-block">
+                                <a href="tel:+919503606049">+91 95036 06049</a> |   <a href="tel:+916302327377">+91 63023 27377</a>
+                            </span>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center register-now-title">
+                        <h2>For More Information</h2>
+                    </div>
+                    <div class="Schedule-box-item position-relative w-100 float-left mb-md-0">
+                        <figure class="mb-0 float-md-left overlay-img">
+                           <i class="fad fa-globe"></i>
+                        </figure>
+                        <div class="Schedule-box-title float-md-left overlay-img contact_no">
+                            <h5>Visit the website</h5>
+                            <span class="d-block">
+                                <a href="https://www.drkshilpireddy.com/">www.drkshilpireddy.com</a>
+                            </span>
+                            
+                        </div>
                     </div>
                 </div>
             </div>

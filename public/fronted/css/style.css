@@ -1677,8 +1677,11 @@ body {
 	display: block;
 	margin: 0 auto;
 }
+.its-possible-section .about-dad-img img{
+	background: #ffffff;
+}
 .fertility-hero{
-	/* background-image: linear-gradient(180deg, #ffffff 82%, #d20048 100%); */
+	background-image: linear-gradient(180deg, #ffffff 67%, #d20048 100%);
 }
 .india-only-section{
 	background-color: #cc0265;;
@@ -1761,23 +1764,37 @@ body {
     padding: 25px 15px;
     color: white;
     text-align: center;
-    border-left: 3px dashed white;
+    /* border-left: 3px dashed white;
     border-right: 3px dashed white;
-    border-bottom: 3px dashed white;
+    border-bottom: 3px dashed white; */
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    outline: 3px dashed white;
+    outline-offset: -0.75em;
 }
+
 .qr-box {
 	background-color: #e50021;
-	border-bottom-left-radius: 40px;
-	border-bottom-right-radius: 40px;
-	padding: 30px 20px;
-	text-align: center;
-	color: white;
-	border-left: 3px dashed white;
-	border-right: 3px dashed white;
-	border-bottom: 3px dashed white;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding: 25px 15px;
+    color: white;
+    text-align: center;
+    /* border-left: 3px dashed white;
+    border-right: 3px dashed white;
+    border-bottom: 3px dashed white; */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    outline: 3px dashed white;
+    outline-offset: -0.75em;
+}
+.qr-img{
+	padding: 20px;
 }
 .ribbon-box h2{
+	color: #ffff;
+    font-size: 40px;
+	line-height: 55px;
+}
+.qr-box h2{
 	color: #ffff;
     font-size: 40px;
 }
@@ -1794,20 +1811,127 @@ body {
 .qr-box img {
 	max-width: 100%;
 	border-radius: 15px;
+	background-color: #ffffff;
+}
+.register-now-section .Schedule-box-item{
+	box-shadow: 3px 9px 8px 7px rgb(0 0 0 / 16%);
 }
 .india-only-div{
 	padding:30px 0;
 }
 .our-speaker-section{
-	padding: 50px 0;
+	padding-top: 50px;
 }
 .speaker-card h4{
 	font-size: 24px;
     line-height: 30px;
     font-weight: 600;
 }
-.speaker-title h2{
+.speaker-title h2, 
+.register-now-title h2{
 	margin-bottom: 10px;
 	color: #d07;
+}
+.register-now-section{
+	padding: 50px 0;
+}
+.register-now-section .Schedule-box-title span{
+	font-size: 20px;
+}
+.register-now-section figure i{
+	font-size: 40px;
+	color: #d07;
+}
+@media only screen and (max-width: 991px) {
+	.navbar-light .navbar-nav .nav-link{
+		padding: 0px 0px !important;
+	}
+	.drop-down-menu-lg .dropdown-item{
+		white-space: normal;
+		line-height: 21px;
+	}
+	.drop-down-menu-lg .dropdown-item {
+		padding: 10px 10px;
+	}
+	.image-wrapper img{
+		max-height: 170px;
+	}
+	.its-possible-section {
+		margin-top: -48px;
+	}
+	.season-banner-content h2 {
+		font-size: 28px;
+		line-height: 32px;
+	}
+	.season-banner-content h6 {
+		font-size: 26px;
+		line-height: 30px;
+	}
+	.season-banner-content h4 {
+		font-size: 28px;
+		line-height: 33px;
+	}
+	.india-only-div h2 {
+		font-size: 36px;
+		margin-bottom: 10px;
+	}
+	.india-only-div h3 {
+    	font-size: 27px;
+		margin-bottom: 5px;
+	}
+	.india-only-div h5 {
+		font-size: 22px;
+		line-height: 24px;
+	}
+	.india-only-div {
+		padding: 10px 0;
+	}
+	.meet-div h6 {
+		font-size: 22px;
+		line-height: 30px;
+		letter-spacing: 2px;
+		margin-bottom: 10px;
+	}
+	.meet-div h1 {
+		font-size: 28px;
+		line-height: 35px;
+	}
+	.border-right3{
+		border-right: 0px;
+	}
+	.registration-scan-area .p-4{
+		padding: 10px 15px !important;
+	}
+	.day-regi h3,
+	.day-regi h4{
+		font-size: 22px;
+		font-weight: 600;
+		line-height: 30px;
+	}
+	.day-regi.boxess{
+		margin-bottom: 20px;
+	}
+	.ribbon-box h2 {
+		font-size: 35px;
+		line-height: 40px;
+	}
+	.qr-box h2 {
+		color: #ffff;
+		font-size: 35px;
+		line-height: 40px;
+	}
+	.ribbon-box,
+	.qr-box{
+		border-top-left-radius: 40px;
+    	border-top-right-radius: 40px;
+		padding: 20px;
+	}
+	.speaker-title h2, .register-now-title h2{
+		font-size: 30px;
+    	line-height: 35px;
+	}
+	.register-now-section{
+		padding: 10px 0px 50px 0px;
+	}
 }
 /*season banner*/
