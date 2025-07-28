@@ -150,9 +150,9 @@ body {
 }
 
 .dropdown-menu {
-	box-shadow: 0 0 2px 0px rgb(34 32 32 / 90%);
-	border: none;
-	border-radius: 0;
+	/* box-shadow: 0 0 2px 0px rgb(34 32 32 / 90%); */
+	/* border: 2; */
+	/* border-radius: 0; */
 }
 
 /*navbar-end*/
@@ -1570,55 +1570,244 @@ body {
 	margin-bottom: 10px;
 }
 
-.work_page .post-item{
+.work_page .post-item {
 	box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
-	border: none!important;
+	border: none !important;
 	border-radius: 10px;
 }
-.work_page .post-item-description h2{
+
+.work_page .post-item-description h2 {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.blog-list-section .post-item{
+.blog-list-section .post-item {
 	box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
-	border: none!important;
+	border: none !important;
 	border-radius: 10px;
 }
-.read_more_class{
+
+.read_more_class {
 	text-align: center;
 }
 
-.hom_blog_page .blog-item{
+.hom_blog_page .blog-item {
 	box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
-	border: none!important;
+	border: none !important;
 	border-radius: 10px;
 }
 
 .read_more_class .read_more_btn {
-    font-size: 14px;
-    color: #52656d;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-weight: 900;
-    width: 200px;
-    position: absolute;
-    margin: 0 auto;
-    text-align: center;
-    left: 0;
-    right: 0;
-    bottom: 30px;
-    padding: 10px 20px;
-    background-color: transparent;
-    display: block;
-    border: 1px solid #d20048;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+	font-size: 14px;
+	color: #52656d;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	font-weight: 900;
+	width: 200px;
+	position: absolute;
+	margin: 0 auto;
+	text-align: center;
+	left: 0;
+	right: 0;
+	bottom: 30px;
+	padding: 10px 20px;
+	background-color: transparent;
+	display: block;
+	border: 1px solid #d20048;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 }
+
+.header-and-banner-con.banner-overlay-img {
+	z-index: -1;
+}
+
+.drop-down-menu-lg .dropdown-menu .dropdown-item:hover {
+	background-color: #074560;
+	color: #ffffff;
+}
+
+.drop-down-menu-lg .dropdown-menu {
+	z-index: 999;
+}
+
+.navbar-light .navbar-nav .nav-link {
+	padding: 10px 0px !important;
+}
+
+.drop-down-menu-lg .dropdown-item {
+	padding: 10px 20px;
+}
+
+/*season banner*/
+.season-banner {
+	position: relative;
+	padding: 20px 0;
+}
+
+.image-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	gap: 0px;	
+}
+
+.image-wrapper img {
+	max-width: 100%;
+	height: auto;
+	width: auto;
+	max-height: 400px;
+	object-fit: contain;
+}
+.its-possible-section{
+	margin-top: -131px;
+}
+
+
+.season-banner img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+.fertility-hero{
+	/* background-image: linear-gradient(180deg, #ffffff 82%, #d20048 100%); */
+}
+.india-only-section{
+	background-color: #cc0265;;
+}
+.india-only-div h2{
+	color: #ffff;
+    font-size: 65px;
+	margin-bottom: 17px;
+}
+.india-only-div h3{
+	color: #ffff;
+    font-size: 40px;
+	margin-bottom: 10px;
+}
+.india-only-div h5{
+	color: #ffff;
+    font-size: 24px;
+    line-height: 30px;
+	font-weight: 400;
+}
+.season-banner-content h2{
+	font-size: 44px;
+    color: black;
+	font-weight: 600;
+	line-height: 40px;
+}
+.season-banner-content h6{
+	font-size: 35px;
+    color: black;
+	font-weight: 400;
+	line-height: 40px;
+}
+.season-banner-content h4{
+	font-size: 33px;
+    color: black;
+	font-weight: 600;
+	line-height: 40px;
+}
+.meet-div{
+	margin-top: 30px;
+}
+.meet-div h6{
+	color: #ffff;
+    font-size: 34px;
+    line-height: 30px;
+    font-weight: 600;
+    letter-spacing: 5px;
+	margin-bottom: 18px;
+}
+
+.meet-div h1{
+	font-size: 60px;
+    line-height: 70px;
+    font-weight: 700;
+	color: #ffff;
+	letter-spacing: 1px;
+}
+.registration-scan-area{
+	background-color: #84004c;
+	position: relative;
+	overflow: visible;
+}
+.day-regi{
+	color: #ffffff;
+}
+.day-regi h4{
+	font-size: 30px;
+    line-height: 36px;
+}
+.day-regi em{
+	font-size: 20px;
+}
+.border-right3{
+	border-right: 3px solid #ffffff;
+}
+.ribbon-box {
+	background-color: #e50021;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding: 25px 15px;
+    color: white;
+    text-align: center;
+    border-left: 3px dashed white;
+    border-right: 3px dashed white;
+    border-bottom: 3px dashed white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+.qr-box {
+	background-color: #e50021;
+	border-bottom-left-radius: 40px;
+	border-bottom-right-radius: 40px;
+	padding: 30px 20px;
+	text-align: center;
+	color: white;
+	border-left: 3px dashed white;
+	border-right: 3px dashed white;
+	border-bottom: 3px dashed white;
+}
+.ribbon-box h2{
+	color: #ffff;
+    font-size: 40px;
+}
+.ribbon-box h4,
+.qr-box h4 {
+	color: #ffff;
+    font-size: 40px;
+	line-height: 45px;
+}
+.ribbon-box small{
+	font-size: 20px;
+}
+
+.qr-box img {
+	max-width: 100%;
+	border-radius: 15px;
+}
+.india-only-div{
+	padding:30px 0;
+}
+.our-speaker-section{
+	padding: 50px 0;
+}
+.speaker-card h4{
+	font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+}
+.speaker-title h2{
+	margin-bottom: 10px;
+	color: #d07;
+}
+/*season banner*/

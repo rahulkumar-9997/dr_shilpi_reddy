@@ -135,3 +135,25 @@ document.addEventListener("DOMContentLoaded", function () {
       observer.observe(img);
   });
 });
+
+function enableDesktopDropdownHover() {
+    if (window.innerWidth >= 992) {
+        $('.nav-item.dropdown').hover(
+            function () {
+                $(this).addClass('show');
+                $(this).find('.dropdown-menu').addClass('show');
+            },
+            function () {
+                $(this).removeClass('show');
+                $(this).find('.dropdown-menu').removeClass('show');
+            }
+        );
+    } else {
+        $('.nav-item.dropdown').off('mouseenter mouseleave');
+    }
+}
+
+$(document).ready(function () {
+    enableDesktopDropdownHover();
+    $(window).resize(enableDesktopDropdownHover);
+});

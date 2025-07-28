@@ -1,0 +1,276 @@
+@extends('frontend.layouts.master')
+@section('title','Natural Fertility Conclave')
+@section('description', 'Natural Fertility Conclave')
+@section('keywords', 'DR. Shilpi reddy, The Education, Work experiences, photo,')
+
+@section('main-content')
+
+<div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">
+    <div class="container">
+        <div class="overlay-img">
+            <!-- navbar-start -->
+            @include('frontend.layouts.header-menu')
+            <!-- navbar-end -->
+
+        </div>
+    </div>
+</div>
+<div class="w-100 float-left header-and-banner-con banner-overlay-img breadcrub">
+    <div class="container">
+        <div class="overlay-img">
+            <section>
+                <div class="w-100 float-left generic-banner-con text-xl-left text-lg-left text-center">
+                    <div class="container">
+                        <div class="generic-banner-content text-white text-center">
+                            <h1>Natural Fertility Conclave</h1>
+                            <p class="text-white mb-0">
+                                A Public Initiative by
+                                <br>
+                                <strong>
+                                    Dr. K. Shilpi Reddy Foundation and Androcare
+                                </strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="w-100 float-left fertility-hero mt-5">
+        <div class="container">
+            <!-- <div class="row justify-content-center align-items-center">                
+                <div class="col-lg-3 col-md-3">
+                    <div class="quality-system-right-con position-relative text-center overlay-img">
+                        <figure class="mb-0 about-dad-img">
+                            <img src="{{asset('fronted/shilpi-img/fertility/cuddles.png')}}" alt="professional-doctor-img" class="img-fluid">
+                        </figure>
+                    </div>
+                </div>
+            </div> -->
+            <div class="season-banner-section">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-8 col-md-10">
+                        <div class="season-banner text-center">
+                            <div class="image-wrapper">
+                                <img src="{{ asset('fronted/shilpi-img/fertility/male.png') }}" alt="Male Host">
+                                <img src="{{ asset('fronted/shilpi-img/fertility/female.png') }}" alt="Female Host">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="its-possible-section">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-8 col-md-10">
+                        <div class="season-banner text-center">
+                            <div class="image-wrapper-possible">
+                                <img src="{{ asset('fronted/shilpi-img/fertility/possible.png') }}" alt="Male Host">
+                            </div>
+                        </div>
+                        <div class="season-banner-content text-center">
+                            <h2>
+                                NATURAL FERTILITY CONCLAVE
+                            </h2>
+                            <h6>
+                                A Public Initiative by
+                            </h6>
+                            <h4>
+                                Dr. K. Shilpi Reddy Foundation and Androcare
+                            </h4>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-lg-3 col-md-3 mb-4 mt-2">
+                        <figure class="mb-0 about-dad-img">
+                            <img src="{{asset('fronted/shilpi-img/fertility/cuddles.png')}}" alt="professional-doctor-img" class="img-fluid">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section>
+    <div class="w-100 float-left india-only-section mt-1">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-10 col-md-10">
+                    <div class="india-only-div text-center">
+                        <div class="india-only-div">
+                            <h2>
+                                INDIA’S ONLY
+                            </h2>
+                            <h3>
+                                FERTILITY CONCLAVE
+                            </h3>
+                            <h5>
+                                to Boost Your Natural Fertility for the age group of <strong>20 to 45 years</strong>
+                            </h5>
+                        </div>
+                        <div class="meet-div">
+                            <h6>
+                                Meet and Interaction with the
+                            </h6>
+                            <h1>
+                                India’s Top Fertility Specialist
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="w-100 float-left registration-scan-area mt-1">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-3 p-4 border-right3">
+                    <div class="day-regi">
+                        <div><em>Sunday,</em></div>
+                        <h3 class="fw-bold">24th August 2025</h3>
+                        <div class="fw-bold"><em>10:00 am to 04:00 pm</em></div>
+                    </div>
+                </div>
+                <div class="col-md-3 p-4">
+                    <div class="day-regi">
+                        <div><em>Venue:</em></div>
+                        <h4 class="fw-bold">Telangana<br>Contractor’s Club</h4>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="day-regi">
+                        <div class="ribbon-box text-white">
+                            <h2>₹ 499/-</h2>
+                            <h4>
+                                REGISTER 
+                                <strong>TODAY</strong>
+                            </h4>
+                            <small>
+                                and get all your doubts
+                                cleared in the right way from
+                                the Top Experts of India.
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="day-regi">
+                        <div class="qr-box text-white">
+                            <h4>SCAN ME</h4>
+                            <img src="{{ asset('fronted/shilpi-img/fertility/scan.png') }}" alt="QR Code" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="w-100 float-left our-speaker-section mt-1">
+        <div class="container">
+            <div class="text-center speaker-title">
+                <h2>OUR SPEAKERS</h2>               
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                            Dr. K. Shilpi Reddy
+                        </h4>
+                        <p>
+                            Clinical Director – Obstetrics &
+                            Gynaecology, Fertility Specialist
+                            & High-Risk Pregnancy Care
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                            Dr. Rahul Reddy
+                        </h4>
+                        <p>
+                            MBBS MS (Gen Surgery)
+                            DNB (Urology) Fellowship in
+                            Andrology and Mens Health
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                           Dr. Spoorthy Chennamaneni
+                        </h4>
+                        <p>
+                            Consultant Fertility
+                            Specialist and Gynecologist
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                           Dr. Krishna Reddy
+                        </h4>
+                        <p>
+                           Consultant Endocrinologist
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                           Dr. R Phani Krishna
+                        </h4>
+                        <p>
+                           Gastroenterologist
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                           Dr. Charan Teja Koganti
+                        </h4>
+                        <p>
+                          Consultant Psychiatrist
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                           Dr. Prathima M
+                        </h4>
+                        <p>
+                          Consultant Physiotherapist
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                           Miss. Prerna jain
+                        </h4>
+                        <p>
+                          Dance and Fitness Instructor
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@endsection

@@ -164,6 +164,9 @@ class FrontHomeController extends Controller
     public function donation(){
         return view('frontend.pages.donation'); 
     }
+    public function fertilityConclave(){
+        return view('frontend.pages.fertility-conclave'); 
+    }
     
     
     
