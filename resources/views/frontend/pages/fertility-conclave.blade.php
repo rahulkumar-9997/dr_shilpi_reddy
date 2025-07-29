@@ -24,7 +24,7 @@
                         <div class="generic-banner-content text-white text-center">
                             <h1>Natural Fertility Conclave</h1>
                             <p class="text-white mb-0">
-                                A Public Initiative by
+                                A Public Health Initiative by
                                 <br>
                                 <strong>
                                     Dr. K. Shilpi Reddy Foundation and Androcare
@@ -75,7 +75,7 @@
                                 NATURAL FERTILITY CONCLAVE
                             </h2>
                             <h6>
-                                A Public Initiative by
+                                A Public Health Initiative by
                             </h6>
                             <h4>
                                 Dr. K. Shilpi Reddy Foundation and Androcare
@@ -83,13 +83,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center align-items-center">
+                <!--<div class="row justify-content-center align-items-center">
                     <div class="col-lg-3 col-md-3 mb-4 mt-2">
                         <figure class="mb-0 about-dad-img">
                             <img src="{{asset('fronted/shilpi-img/fertility/cuddles.png')}}" alt="professional-doctor-img" class="img-fluid">
                         </figure>
                     </div>
-                </div>
+                </div>-->
             </div>
 
         </div>
@@ -117,7 +117,7 @@
                                 Meet and Interaction with the
                             </h6>
                             <h1>
-                                India’s Top Fertility Specialist
+                                India’s Top Fertility Specialists
                             </h1>
                         </div>
                     </div>
@@ -132,17 +132,28 @@
     <div class="w-100 float-left registration-scan-area mt-1">
         <div class="container">
             <div class="row justify-content-center align-items-center">
-                <div class="col-md-3 p-4 border-right3">
-                    <div class="day-regi">
-                        <div><em>Sunday,</em></div>
-                        <h3 class="fw-bold">24th August 2025</h3>
-                        <div class="fw-bold"><em>10:00 am to 04:00 pm</em></div>
-                    </div>
-                </div>
-                <div class="col-md-3 p-4">
-                    <div class="day-regi">
-                        <div><em>Venue:</em></div>
-                        <h4 class="fw-bold">Telangana<br>Contractor’s Club</h4>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-md-6 p-4 border-right3">
+                            <div class="day-regi">
+                                <div><em>Sunday,</em></div>
+                                <h3 class="fw-bold">24th August 2025</h3>
+                                <div class="fw-bold"><em>10:00 am to 04:00 pm</em></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-4">
+                            <div class="day-regi">
+                                <div><em>Venue:</em></div>
+                                <h4 class="fw-bold">Telangana<br>Contractor’s Club</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-12 p-4">
+                            <div class="page-regiter-btn text-center">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs4K77wIHz-SA1gkkjbPBlw8JVaNIxpsJWvoIAsjtLn0LHDQ/viewform?pli=1" target="_blank" class="btn appointment-btn">
+                                    Register Now
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -162,7 +173,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="day-regi boxess">
                         <div class="qr-box text-white">
                             <h2>SCAN ME</h2>
@@ -171,7 +182,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -235,7 +246,7 @@
                             Dr. R Phani Krishna
                         </h4>
                         <p>
-                            Gastroenterologist
+                            Consultant Gastroenterologist
                         </p>
                     </div>
                 </div>
@@ -278,10 +289,10 @@
         <div class="container">
             
             <div class="row justify-content-center align-items-center1">
-                <div class="col-lg-6">
-                    <div class="text-center register-now-title">
+                <div class="col-lg-5">
+                    <!-- <div class="text-center register-now-title">
                         <h2>Register Now</h2>
-                    </div>
+                    </div> -->
                     <div class="regi-item-box">
                         <div class="item-area">
                             <figure class="mb-0 float-md-left overlay-img">
@@ -299,25 +310,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="text-center register-now-title">
-                        <h2>For More Information</h2>
-                    </div>
-                    <div class="regi-item-box">
-                        <div class="item-area">
-                            <figure class="mb-0 float-md-left overlay-img">
-                                <i class="fad fa-globe"></i>
-                            </figure>
-                            <div class="regi-link">
-                                <h5>Visit the website</h5>
-                                <span class="d-block">
-                                    <a href="https://www.drkshilpireddy.com/">www.drkshilpireddy.com</a>
-                                </span>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
