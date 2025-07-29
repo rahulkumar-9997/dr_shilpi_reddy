@@ -1632,10 +1632,14 @@ body {
 .drop-down-menu-lg .dropdown-menu .dropdown-item:hover {
 	background-color: #074560;
 	color: #ffffff;
+	border-radius: 10px;
 }
 
 .drop-down-menu-lg .dropdown-menu {
 	z-index: 999;
+}
+.drop-down-menu-lg .dropdown-menu{
+	border-radius: 10px;
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -1813,8 +1817,39 @@ body {
 	border-radius: 15px;
 	background-color: #ffffff;
 }
-.register-now-section .Schedule-box-item{
+.register-now-section .regi-item-box{
 	box-shadow: 3px 9px 8px 7px rgb(0 0 0 / 16%);
+	margin-bottom: 10px;
+    border-radius: 10px;
+	padding: 20px 25px;
+	background: var(--primary--color);
+	min-height: 130px;
+}
+.regi-item-box:hover{
+	background-image: linear-gradient(180deg, #ffffff 0%, #d20048 100%);
+}
+
+.regi-item-box:hover figure i,
+.regi-item-box:hover .regi-link a {
+    color: #ffffff;
+}
+.regi-item-box:hover .regi-link h5{
+	color: #000000;
+}
+.regi-item-box .item-area{
+	display: flex;
+    gap: 32px;
+    align-items: center;
+	
+}
+.regi-link a{
+	font-size: 18px;
+    line-height: 24px;
+    color: var(--text-color);
+}
+
+.register-now-section .Schedule-box-item:after{
+	display: none;
 }
 .india-only-div{
 	padding:30px 0;
@@ -1827,6 +1862,7 @@ body {
     line-height: 30px;
     font-weight: 600;
 }
+
 .speaker-title h2, 
 .register-now-title h2{
 	margin-bottom: 10px;

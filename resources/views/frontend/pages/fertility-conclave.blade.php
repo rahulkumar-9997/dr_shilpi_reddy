@@ -181,7 +181,7 @@
     <div class="w-100 float-left our-speaker-section mt-1">
         <div class="container">
             <div class="text-center speaker-title">
-                <h2>OUR SPEAKERS</h2>
+                <h2>Our Speakers</h2>
             </div>
             <div class="row justify-content-center align-items-center">
                 <div class="col-md-3 p-1">
@@ -277,21 +277,25 @@
     <div class="w-100 float-left register-now-section mt-1">
         <div class="container">
             
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-center align-items-center1">
                 <div class="col-lg-6">
                     <div class="text-center register-now-title">
-                        <h2>REGISTER NOW</h2>
+                        <h2>Register Now</h2>
                     </div>
-                    <div class="Schedule-box-item position-relative w-100 float-left mb-md-0">
-                        <figure class="mb-0 float-md-left overlay-img">
-                            <i class="fad fa-headphones"></i>
-                        </figure>
-                        <div class="Schedule-box-title float-md-left overlay-img contact_no">
-                            <h5>Phone No.</h5>
-                            <span class="d-block">
-                                <a href="tel:+919503606049">+91 95036 06049</a> |   <a href="tel:+916302327377">+91 63023 27377</a>
-                            </span>
-                            
+                    <div class="regi-item-box">
+                        <div class="item-area">
+                            <figure class="mb-0 float-md-left overlay-img">
+                                <i class="fad fa-headphones"></i>
+                            </figure>
+                            <div class="regi-link">
+                                <h5>Phone No.</h5>
+                                <span class="d-block">
+                                    <a href="tel:+919503606049">+91 95036 06049</a> 
+                                </span>
+                                <span class="d-block">
+                                <a href="tel:+916302327377">+91 63023 27377</a>
+                                </span>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -299,16 +303,18 @@
                     <div class="text-center register-now-title">
                         <h2>For More Information</h2>
                     </div>
-                    <div class="Schedule-box-item position-relative w-100 float-left mb-md-0">
-                        <figure class="mb-0 float-md-left overlay-img">
-                           <i class="fad fa-globe"></i>
-                        </figure>
-                        <div class="Schedule-box-title float-md-left overlay-img contact_no">
-                            <h5>Visit the website</h5>
-                            <span class="d-block">
-                                <a href="https://www.drkshilpireddy.com/">www.drkshilpireddy.com</a>
-                            </span>
-                            
+                    <div class="regi-item-box">
+                        <div class="item-area">
+                            <figure class="mb-0 float-md-left overlay-img">
+                                <i class="fad fa-globe"></i>
+                            </figure>
+                            <div class="regi-link">
+                                <h5>Visit the website</h5>
+                                <span class="d-block">
+                                    <a href="https://www.drkshilpireddy.com/">www.drkshilpireddy.com</a>
+                                </span>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
