@@ -296,7 +296,7 @@
 <section>
     <div class="w-100 float-left register-now-section mt-1">
         <div class="container">
-            
+
             <div class="row justify-content-center align-items-center1">
                 <div class="col-lg-5">
                     <!-- <div class="text-center register-now-title">
@@ -310,20 +310,68 @@
                             <div class="regi-link">
                                 <h5>Phone No.</h5>
                                 <span class="d-block">
-                                    <a href="tel:+919503606049">+91 95036 06049</a> 
+                                    <a href="tel:+919503606049">+91 95036 06049</a>
                                 </span>
                                 <span class="d-block">
-                                <a href="tel:+916302327377">+91 63023 27377</a>
-                                </span>                            
+                                    <a href="tel:+916302327377">+91 63023 27377</a>
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
 </section>
-
+<section>
+    <div class="w-100 float-left media-box">
+        <div class="container">
+            <div class="professional-box-conclave">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="conclave-content">
+                            <p>
+                                The <strong>Natural Fertility Conclave – Season 2</strong> was organized on <strong>Sunday, 24th August 2025,</strong> at the Telangana Contractor’s Club, Hyderabad. A public health initiative by the <em> Dr. K. Shilpi Reddy Foundation</em> and <em>Androcare,</em> in association with <em>KIMS Cuddles Mother & Child Centre</em>, Kondapur. The conclave stood out as <em>India’s only fertility conclave</em> dedicated to boosting natural fertility in the age group of <strong> 25 to 45 years.</strong> The event focused on creating awareness about reproductive health and offered evidence-based insights on improving fertility through natural approaches. With a strong emphasis on empowering couples and individuals, it highlighted the importance of lifestyle, medical guidance, and holistic care in enhancing natural conception. 
+                            </p>
+                            <h6>Expert Participation & Highlights</h6>
+                            <p>
+                                The conclave featured an esteemed panel of experts including <strong> Dr. K. Shilpi Reddy, Dr. Rahul Reddy, Dr. Spoorthy Chennamaneni, Dr. Krishna Reddy, Dr. R. Phani Krishna, Dr. Charan Teja Koganti, Dr. Prathima M,</strong> Mrs Nandini Devda, and <strong> Miss Prerna Jain.</strong> Together, they addressed diverse aspects of fertility and wellness, ranging from high-risk pregnancy and andrology to endocrinology, psychiatry, physiotherapy, and fitness. The sessions were interactive, enabling participants to ask questions and gain practical knowledge from leading specialists in the field. Designed especially for young couples, families, and individuals aspiring to improve their fertility health, the conclave created an impactful platform where science and holistic care came together. It not only offered medical expertise but also inspired participants to take proactive steps towards achieving their dream of parenthood. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row grid-services media-box-image">
+                    <div class="col-lg-4 col-md-4">
+                        <article class="single_blog agree_bazar_image">
+                            <figure>
+                                <div class="blog_thumb border border-radius">
+                                    <a class="lightbox" title="Natural Fertility Conclave" data-fancybox="images-1" data-caption="" href="{{asset('fronted/shilpi-img/natural-fertility-conclave/2.jpg') }}">
+                                        <div class="media">
+                                            <img src="{{asset('fronted/shilpi-img/natural-fertility-conclave/2.jpg') }}" alt="Natural Fertility Conclave" class="img-responsive main-img">
+                                        </div>                                        
+                                    </a>
+                                </div>
+                            </figure>
+                        </article>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <article class="single_blog agree_bazar_image">
+                            <figure>
+                                <div class="blog_thumb border border-radius">
+                                    <a class="lightbox" title="Natural Fertility Conclave" data-fancybox="images-1" data-caption="" href="{{asset('fronted/shilpi-img/natural-fertility-conclave/1.jpg') }}">
+                                        <div class="media">
+                                            <img src="{{asset('fronted/shilpi-img/natural-fertility-conclave/1.jpg') }}" alt="Natural Fertility Conclave" class="img-responsive main-img">
+                                        </div>                                        
+                                    </a>
+                                </div>
+                            </figure>
+                        </article>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</section>
 
 @endsection

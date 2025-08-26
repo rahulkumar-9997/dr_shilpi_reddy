@@ -1975,10 +1975,19 @@ body {
 		line-height: 22px;
 		color: #dd0077;
 	}
+	.professional-box-conclave .conclave-content{
+		text-align: center;
+	}
 }
 /*season banner*/
 .image-wrapper-possible h4{
 	font-size: 41px;
     line-height: 22px;
     color: #dd0077;
+}
+.conclave-content{
+	text-align: justify;
+}
+.conclave-content h6{
+	font-size: 22px;
 }
