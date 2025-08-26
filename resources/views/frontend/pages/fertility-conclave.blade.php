@@ -27,7 +27,7 @@
                                 A Public Health Initiative by
                                 <br>
                                 <strong>
-                                    Dr. K. Shilpi Reddy Foundation and Androcare
+                                    Dr. K. Shilpi Reddy Foundation & Androcare
                                 </strong>
                             </p>
                         </div>
@@ -67,6 +67,7 @@
                     <div class="col-lg-8 col-md-10">
                         <div class="season-banner text-center">
                             <div class="image-wrapper-possible">
+                                <h4>SEASON 2</h4>
                                 <img src="{{ asset('fronted/shilpi-img/fertility/possible.png') }}" alt="Male Host">
                             </div>
                         </div>
@@ -78,7 +79,7 @@
                                 A Public Health Initiative by
                             </h6>
                             <h4>
-                                Dr. K. Shilpi Reddy Foundation and Androcare
+                                Dr. K. Shilpi Reddy Foundation & <br>Androcare
                             </h4>
                         </div>
                     </div>
@@ -147,17 +148,17 @@
                                 <h4 class="fw-bold">Telangana<br>Contractor’s Club</h4>
                             </div>
                         </div>
-                        <div class="col-md-12 p-4">
+                        <!-- <div class="col-md-12 p-4">
                             <div class="page-regiter-btn text-center">
                                 <a href="https://docs.google.com/forms/d/e/1FAIpQLSfs4K77wIHz-SA1gkkjbPBlw8JVaNIxpsJWvoIAsjtLn0LHDQ/viewform?pli=1" target="_blank" class="btn appointment-btn">
                                     Register Now
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="day-regi boxess">
                         <div class="ribbon-box text-white">
                             <h2>₹ 499/-</h2>
@@ -172,7 +173,7 @@
                             </small>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="col-md-3">
                     <div class="day-regi boxess">
                         <div class="qr-box text-white">
@@ -201,9 +202,7 @@
                             Dr. K. Shilpi Reddy
                         </h4>
                         <p>
-                            Clinical Director – Obstetrics &
-                            Gynaecology, Fertility Specialist
-                            & High-Risk Pregnancy Care
+                            Clinical Director-Obstetrics & Gynaecology Fertility Specialist High-Risk Pregnancy Expert
                         </p>
                     </div>
                 </div>
@@ -277,6 +276,16 @@
                         </h4>
                         <p>
                             Dance and Fitness Instructor
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 p-1">
+                    <div class="speaker-card text-center">
+                        <h4>
+                            Nandini Devda
+                        </h4>
+                        <p>
+                            Yoga Instructor
                         </p>
                     </div>
                 </div>

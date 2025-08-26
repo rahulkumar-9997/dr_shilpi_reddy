@@ -1970,5 +1970,15 @@ body {
 	.register-now-section{
 		padding: 10px 0px 50px 0px;
 	}
+	.season-banner .image-wrapper-possible h4 {
+		font-size: 30px;
+		line-height: 22px;
+		color: #dd0077;
+	}
 }
 /*season banner*/
+.image-wrapper-possible h4{
+	font-size: 41px;
+    line-height: 22px;
+    color: #dd0077;
+}

@@ -37,7 +37,7 @@
 				</a>
 				<div class="dropdown-menu p-0" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="{{ route('our-foundation') }}">Dr. K. Shilpi Reddy Foundation</a>
-					<a class="dropdown-item" href="{{ route('fertility-conclave') }}">Fertility Conclave</a>					
+					<a class="dropdown-item" href="{{ route('fertility-conclave') }}">Natural Fertility Conclave</a>					
 				</div>
 			</li>
 			<!-- <li class="nav-item">
