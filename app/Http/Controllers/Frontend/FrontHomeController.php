@@ -50,7 +50,8 @@ class FrontHomeController extends Controller
     }
 
     public function mediaPage(){
-        $data['media_list'] = Media::orderBy('sort_order', 'asc')->simplePaginate(20);
+        //$data['media_list'] = Media::orderBy('sort_order', 'asc')->simplePaginate(20);
+        $data['media_list'] = Media::orderBy('id', 'desc')->simplePaginate(20);
 		DB::disconnect();
 	    return view('frontend.pages.media', compact('data'));
     }
@@ -135,10 +136,8 @@ class FrontHomeController extends Controller
                 'message' => $request->input('message'),
             ];
             
-            Mail::to('drkshilpireddy@gmail.com')->send(new EnquiryMail($data));
-            Mail::to('drkshilpireddyfoundation@gmail.com') ->send(new EnquiryMail($data));
-            Log::info('Email sent successfully to drkshilpireddy@gmail.com');
-			
+            Mail::to('drkshilpireddyfoundation@gmail.com')->send(new EnquiryMail($data));
+            Mail::to('rahulkumarmaurya464@gmail.com')->send(new EnquiryMail($data));
         } catch (Exception $e) {
             Log::error('Error sending email: ' . $e->getMessage());
         }

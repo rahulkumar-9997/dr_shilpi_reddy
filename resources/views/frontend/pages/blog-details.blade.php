@@ -69,9 +69,9 @@
 						@endif-->
 						@if($blog->blog_intro_head)
 						<div class="entry-header clr">
-							<h1 class="entry-title-blog">
+							<h2 class="entry-title-blog">
 								{!! $blog->blog_intro_head !!}
-							</h1>
+							</h2>
 						</div>
 						@endif
 						

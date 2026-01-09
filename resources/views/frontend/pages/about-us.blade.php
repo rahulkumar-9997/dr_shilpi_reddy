@@ -77,7 +77,7 @@
                                 <div class="media-col mt-3 ng-star-inserted">
                                     <img alt="Professional Understanding" class="me-3 rightIconSize ng-star-inserted" src="{{asset('fronted/shilpi-img/correctTick.svg')}}">
                                     <div class="media-body ng-star-inserted">
-                                        <span>Schooling from Siva Shivani Public School. She was very active in sports, an athlete by virtue and her thought processes were born in that phase of life, in schooling. </span>
+                                        <span>Schooling from Siva Shivani Public School. Dr.K.Shilpi Reddy was very active in sports, an athlete by virtue and her thought processes were born in that phase of life, in schooling. </span>
                                     </div>
                                 </div>
                                 <div class="media-col mt-3 ng-star-inserted">
@@ -230,13 +230,13 @@
                                 <div class="media-col mt-3 ng-star-inserted">
                                     <img alt="Professional Understanding" class="me-3 rightIconSize ng-star-inserted" src="{{asset('fronted/shilpi-img/correctTick.svg')}}">
                                     <div class="media-body ng-star-inserted">
-                                        <span> She always had a passion to work in remote villages and rural practice was her personal & family interest. In 2003, she started Lalita Devi Nursing Home at Dubbaka, a small village in the then Medak district. Year 2003 was drought affected and severely impacted women. Most of them converted to Beedi workers from that area who needed good antenatal and general care. She was successful in providing quality health care to them in obstetrics, Gynecology, general surgery, ENT and Urological procedure.</span>
+                                        <span> Dr.K.Shilpi Reddy always had a passion to work in remote villages and rural practice was her personal & family interest. In 2003, she started Lalita Devi Nursing Home at Dubbaka, a small village in the then Medak district. Year 2003 was drought affected and severely impacted women. Most of them converted to Beedi workers from that area who needed good antenatal and general care. Dr.K.Shilpi Reddy was successful in providing quality health care to them in obstetrics, Gynecology, general surgery, ENT and Urological procedure.</span>
                                     </div>
                                 </div>
                                 <div class="media-col mt-3 ng-star-inserted">
                                     <img alt="24/7 Help" class="me-3 rightIconSize ng-star-inserted" src="{{asset('fronted/shilpi-img/correctTick.svg')}}">
                                     <div class="media-body ng-star-inserted">
-                                        <span>She gave her 100 percent while serving the poor and needy, conducted many health camps, free treatment days, trained woman in self-care & hygiene and helped them understand the importance of pregnancy care. She also trained many local female health workers and anganwadi workers about safe delivery practices, nutrition and its importance in health.</span>
+                                        <span>Dr.K.Shilpi Reddy gave her 100 percent while serving the poor and needy, conducted many health camps, free treatment days, trained woman in self-care & hygiene and helped them understand the importance of pregnancy care. Dr.K.Shilpi Reddy also trained many local female health workers and anganwadi workers about safe delivery practices, nutrition and its importance in health.</span>
                                     </div>
                                 </div>
                                 <div class="media-col mt-3 ng-star-inserted">
@@ -248,13 +248,13 @@
                                 <div class="media-col mt-3 ng-star-inserted">
                                     <img alt="Traditional Indian Food" class="me-3 rightIconSize ng-star-inserted" src="{{asset('fronted/shilpi-img/correctTick.svg')}}">
                                     <div class="media-body ng-star-inserted">
-                                        <span>On deputation training she worked in Swapna Health care for 4 months.</span>
+                                        <span>On deputation training Dr.K.Shilpi Reddy worked in Swapna Health care for 4 months.</span>
                                     </div>
                                 </div>
                                 <div class="media-col mt-3 ng-star-inserted">
                                     <img alt="Multiple Source Materials" class="me-3 rightIconSize ng-star-inserted" src="{{asset('fronted/shilpi-img/correctTick.svg')}}">
                                     <div class="media-body ng-star-inserted">
-                                        <span>After finishing DNB, she worked at Image Hospital, Ameerpet under the guidance of Dr Krishna Kumari. This was the time Dr.Shilpi was thinking on what her future goals would be …rural Healthcare was always in her mind and wanted to take this passion forward for some more years and give back to the society and who needs her surgical skills.</span>
+                                        <span>After finishing DNB, Dr.K.Shilpi Reddy worked at Image Hospital, Ameerpet under the guidance of Dr Krishna Kumari. This was the time Dr.Shilpi was thinking on what her future goals would be …rural Healthcare was always in her mind and wanted to take this passion forward for some more years and give back to the society and who needs her surgical skills.</span>
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                                 <div class="media-col mt-3 ng-star-inserted">
                                     <img alt="Satisfied Customer" class="me-3 rightIconSize ng-star-inserted" src="{{asset('fronted/shilpi-img/correctTick.svg')}}">
                                     <div class="media-body ng-star-inserted">
-                                        <span>With this vision, she started Sai Sri Lalitha Devi Nursing Home in Siddipet in 2007 with 25 beds. It was a specialty center for obstetrics, Gynecology, General surgery, ultrasonography and ENT surgeries. Maternal mortality and morbidity were very high at that time in Siddipet & surrounding rural villages. She provided her relentless services for the needy and to greater challenges in high-risk pregnancy cases to improve the outcomes in women’s health.</span>
+                                        <span>With this vision, she started Sai Sri Lalitha Devi Nursing Home in Siddipet in 2007 with 25 beds. It was a specialty center for obstetrics, Gynecology, General surgery, ultrasonography and ENT surgeries. Maternal mortality and morbidity were very high at that time in Siddipet & surrounding rural villages. Dr.K.Shilpi Reddy provided her relentless services for the needy and to greater challenges in high-risk pregnancy cases to improve the outcomes in women’s health.</span>
                                     </div>
                                 </div>
                                 <div class="media-col mt-3 ng-star-inserted">
@@ -281,7 +281,7 @@
                                 <div class="media-col mt-3 ng-star-inserted">
                                     <img alt="Careful While Travelling" class="me-3 rightIconSize ng-star-inserted" src="{{asset('fronted/shilpi-img/correctTick.svg')}}">
                                     <div class="media-body ng-star-inserted">
-                                        <span>Then in 2014, she joined The Birthplace hospital as a consultant and became a lead Consultant for their branch in Gachibowli.</span>
+                                        <span>Then in 2014, Dr.K.Shilpi Reddy joined The Birthplace hospital as a consultant and became a lead Consultant for their branch in Gachibowli.</span>
                                     </div>
                                 </div>
                                 <div class="media-col mt-3 ng-star-inserted">

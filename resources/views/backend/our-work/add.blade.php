@@ -3,14 +3,6 @@
 @section('main-content') 
 {{--@dd(Auth::check());--}}
 @section('morecss')
-<link href="{{asset('backend/assets/plugins/bootstrap3-wysihtml5/css/bootstrap3-wysihtml5.min.css')}}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{asset('backend/assets/plugins/uikit/css/components/htmleditor.css')}}" rel="stylesheet" type="text/css" media="screen"/>
-
-
-<link href="{{asset('backend/assets/plugins/bootstrap3-wysihtml5/css/bootstrap3-wysihtml5.min.css')}}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{asset('backend/assets/plugins/uikit/css/uikit.min.css')}}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{asset('backend/assets/plugins/uikit/vendor/codemirror/codemirror.css')}}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{asset('backend/assets/plugins/uikit/css/components/htmleditor.css')}}" rel="stylesheet" type="text/css" />
 @endsection
 <section id="main-content" class=" ">
     <section class="wrapper main-wrapper">
@@ -62,7 +54,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="field-1">Our Work Content</label>
                                             <div class="controls">
-                                            <textarea class="bootstrap-wysihtml5-textarea" placeholder="Enter text ..." style="width: 100%; height: 250px; font-size: 14px; line-height: 23px;padding:15px;" name="work_content"></textarea>
+                                                <textarea class="ckeditor4" placeholder="Enter text ..."  name="work_content"></textarea>
                                             </div>
                                             @if($errors->has('work_content'))
                                                 <div class="text-danger">{{ $errors->first('work_content') }}</div>
@@ -99,20 +91,13 @@
 </section>
 @endsection
 @section('morescripts')
-<script src="{{asset('backend/assets/plugins/bootstrap3-wysihtml5/js/bootstrap3-wysihtml5.all.min.js')}}" type="text/javascript"></script>
-		<script src="{{asset('backend/assets/plugins/ckeditor/ckeditor.js')}}" type="text/javascript"></script>
-		<script src="{{asset('backend/assets/plugins/uikit/js/uikit.min.js')}}" type="text/javascript"></script>
-		<script src="{{asset('backend/assets/plugins/uikit/vendor/codemirror/codemirror.js')}}" type="text/javascript"></script>
-		<script src="{{asset('backend/assets/plugins/uikit/vendor/codemirror/codemirror.js')}}" type="text/javascript"></script>
-		<!-- <script src="{{asset('backend/assets/plugins/uikit/vendor/codemirror/mode/markdown/markdown.js')}}"></script>
-		<script src="{{asset('backend/assets/plugins/uikit/vendor/codemirror/addon/mode/overlay.js')}}"></script> -->
-		<!-- <script src="{{asset('backend/assets/plugins/uikit/vendor/codemirror/mode/xml/xml.js')}}"></script>
-		<script src="{{asset('backend/assets/plugins/uikit/vendor/codemirror/mode/gfm/gfm.js')}}"></script>
-		<script src="{{asset('backend/assets/plugins/uikit/vendor/marked/marked.min.js')}}" type="text/javascript"></script> -->
-		<script src="{{asset('backend/assets/plugins/uikit/js/components/htmleditor.js')}}" type="text/javascript"></script>
-
-
-
-
+<script src="{{ asset('backend/assets/ckeditor-4/ckeditor.js') }}"></script>
+<script>
+    document.querySelectorAll('.ckeditor4').forEach(function(el) {
+        CKEDITOR.replace(el, {
+            removePlugins: 'exportpdf'
+        });
+    });
+</script>
 
 @endsection

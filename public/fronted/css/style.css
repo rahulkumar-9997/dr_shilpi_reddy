@@ -419,11 +419,20 @@ body {
 .fun-facts-box-con .row>div {
 	border: 1px solid #d6d6d6;
 }
-
-.fun-facts-item-content h2 {
+.about-home-p p{
+	font-size: 20px;
+	text-align: justify;
+	line-height: 25px;
+}
+.hom-some-content{
+	padding: ;
+}
+.fun-facts-item-content .count-nu {
 	font-weight: 600;
 	line-height: 48px;
 	margin-bottom: 0;
+	font-size: 38px;
+	color: var(--secondary--color);
 }
 
 .fun-facts-item-title span {

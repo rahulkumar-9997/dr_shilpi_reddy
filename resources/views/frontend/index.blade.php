@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Gynecologist in Hyderabad | Pregnancy & Fertility Expert')
-@section('description', 'Hyderabad\'s trusted OB-GYN Dr. K. Shilpi Reddy offering holistic fertility & maternity care.')
+@section('title','Dr. K. Shilpi Reddy: Gynaecologist in Hyderabad')
+@section('description', 'Dr. K. Shilpi Reddy – Trusted Gynaecologist in Hyderabad for expert care in women\'s health, pregnancy, and fertility. Book your appointment today.')
 
 <!-- @section('keywords', 'sharing, sharing text, text, sharing photo, photo,') -->
 
@@ -80,7 +80,7 @@
     </div>
 </section>
 <section>
-    <div class="w-100 float-left quality-system-con video-pb-20">
+    <div class="w-100 float-left quality-system-con video-pb-20 about-home-p">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-6 d-flex align-items-center">
@@ -120,7 +120,7 @@
                             </figure>
                             <div class="fun-facts-item-content d-inline-block">
                                 <div class="position-relative fun-facts-item-title d-inline-block">
-                                    <h2 class="count">150</h2>
+                                    <div class="count count-nu">150</div>
                                     <span>+</span>
                                 </div>
                                 <p class="mb-0">Vaginal Birth After Cesarean</p>
@@ -134,7 +134,7 @@
                             </figure>
                             <div class="fun-facts-item-content d-inline-block">
                                 <div class="position-relative fun-facts-item-title d-inline-block">
-                                    <h2 class="count">75</h2>
+                                    <div class="count count-nu">75</div>
                                     <span>%</span>
                                 </div>
                                 <p class="mb-0">Normal Delivery</p>
@@ -148,7 +148,7 @@
                             </figure>
                             <div class="fun-facts-item-content d-inline-block">
                                 <div class="position-relative fun-facts-item-title d-inline-block">
-                                    <h2 class="count">98</h2>
+                                    <div class="count count-nu">98</div>
                                     <span>%</span>
                                 </div>
                                 <p class="mb-0">Positive Feedback</p>
@@ -160,7 +160,29 @@
         </div>
     </div>
 </section>
+<section>
+    <div class="w-100 float-left home-some-content pt-2 pb-5">
+        <div class="container">
+            <div class="text-center">
+                <h2>Holistic Care for Every Stage of Womanhood</h2>                
+            </div>
+            <div class="row justify-content-md-center">
+                <div class="col-md-11">
+                    <div class="text-center">
+                        <p>
+                            Dr. K. Shilpi Reddy offers compassionate, evidence-based care that goes beyond routine obstetrics and gynaecology. With a strong focus on safety, comfort, and personalized treatment, she supports women through every phase of life—from preconception and pregnancy to complex gynaecological concerns. Her approach blends advanced medical practices with holistic wellness, ensuring both physical and emotional well-being.
+                        </p>
+                        <p>
+                            Known for her calm guidance and patient-centric care, Dr. Shilpi Reddy emphasizes informed decision-making and natural, woman-friendly treatment options wherever possible. She is committed to achieving healthy outcomes through meticulous monitoring, minimally invasive techniques, and continuous support for families. At KIMS Cuddles, Kondapur, her vision is to create a nurturing environment where women feel heard, empowered, and confident throughout their healthcare journey, making each experience safe, positive, and memorable.
+                        </p>
+                    </div>
+                </div>
+            </div>                                              
+        </div>
+    </div>
+</section>
 @include('frontend.layouts.for-online-consultancy')
+
 @if (isset($data['blog_list']) && $data['blog_list']->count() > 0)
 <section>
     <div class="w-100 float-left blog-con hom_blog_page">

@@ -8085,6 +8085,11 @@ border-left: 3px solid transparent;
 .gap-2 {
     gap: 0.75rem !important;
 }
+/*ckeditor display*/
+.cke_notifications_area{
+  display: none;
+}
+/*ckeditor display*/
 
 
 /*

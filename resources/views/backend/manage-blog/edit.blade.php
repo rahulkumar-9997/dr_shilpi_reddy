@@ -175,7 +175,7 @@ use App\Models\BlogImages;
                                                 <div class="form-group">
                                                     <label class="form-label" for="field-1">Blog Description</label>
                                                     <div class="controls">
-                                                        <textarea class="bootstrap-wysihtml5-textarea" placeholder="Enter text ..." style="width: 100%; height: 250px; font-size: 14px; line-height: 23px;padding:15px;" name="blog_description">{{$blog->blog_description}}</textarea>
+                                                        <textarea class="ckeditor4" placeholder="Enter text ..." name="blog_description">{{$blog->blog_description}}</textarea>
                                                     </div>
                                                     @if($errors->has('blog_description'))
                                                     <div class="text-danger">{{ $errors->first('blog_description') }}</div>
@@ -237,6 +237,14 @@ use App\Models\BlogImages;
 </section>
 @endsection
 @section('morescripts')
+<script src="{{ asset('backend/assets/ckeditor-4/ckeditor.js') }}"></script>
+<script>
+    document.querySelectorAll('.ckeditor4').forEach(function(el) {
+        CKEDITOR.replace(el, {
+            removePlugins: 'exportpdf'
+        });
+    });
+</script>
 <script src="{{asset('backend/assets/plugins/bootstrap3-wysihtml5/js/bootstrap3-wysihtml5.all.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('backend/assets/plugins/datepicker/js/datepicker.js')}}" type="text/javascript"></script>
 <script>
