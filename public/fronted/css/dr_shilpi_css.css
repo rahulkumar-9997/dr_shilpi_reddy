@@ -158,7 +158,7 @@
     padding: 50px 0;
 }
 .service-box-item.core_value_service_box{
-    padding: 25px 29px 44px 47px;
+    padding: 19px 39px 15px 35px;
 }
 .sticky-sidebar-panel{
     margin-bottom: 10px;
@@ -963,7 +963,7 @@ ul.meta li a {
     padding-top: 20px;
 }
 .foundation-img-section .professional-con {
-    padding: 20px 0px;
+    padding: 40px 0px;
 }
 .women-wings{
     background-color: #dcdcde2b;
@@ -1059,6 +1059,29 @@ ul.meta li a {
     }
     .last .d-flex{
         display: unset!important;
+    }
+    .schlorship_section .carousel-img-fixed {
+    	height: 300px;
+	}
+	.schlorship_section .schlorship_content {
+		text-align: center;
+		margin-top: 20px;
+	}
+	.schlorship_content ul{
+		list-style-type: none;
+	}
+	.schlorship_section .schlorship_content p {
+		text-align: center;
+		font-size: 17px;
+	}
+	.schlorship_section .schlorship_content ul li{
+		font-size: 17px;
+	}
+	.schlorship_section .schlorship_content ul {
+		margin-left: 0px;
+	}
+    .schlorship-title h2{
+        font-size: 28px;
     }
 }
 .Schedule-box-title a{

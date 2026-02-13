@@ -130,8 +130,81 @@
         </div>
     </div>
 </section>
+<section class="schlorship_section w-100 float-left">
+    <div class="schlorship-div">
+        <div class="container">
+            <div class="schlorship-title text-center">
+                <h2>Scholarship</h2>
+            </div>
+            <div class="our_core_value">
+                <div class="row ml-0 mr-0">                  
+                    <div class="col-md-7 px-1">
+                        <div id="scholarshipImageCarousel" class="carousel slide multi-carousel" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a class="lightbox" title="Certificate" data-fancybox="images-1" data-caption="Certificate" href="{{asset('fronted/shilpi-img/schlorship/certificate.jpeg')}}">
+                                        <div class="carousel-img carousel-img-fixed">
+                                            <img src="{{asset('fronted/shilpi-img/schlorship/certificate.jpeg')}}" class="img-fluid" alt="certificate">
+                                        </div>
+                                     </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a class="lightbox" title="Check" data-fancybox="images-1" data-caption="" href="{{asset('fronted/shilpi-img/schlorship/check.jpeg')}}">
+                                        <div class="carousel-img carousel-img-fixed">
+                                            <img src="{{asset('fronted/shilpi-img/schlorship/check.jpeg')}}" class="img-fluid" alt="Check">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#scholarshipImageCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#scholarshipImageCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                            <ol class="carousel-indicators">
+                                <li data-target="#scholarshipImageCarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#scholarshipImageCarousel" data-slide-to="1"></li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="schlorship_content">
+                            <h4>
+                                Kommara Lalitha Devi Scholarship
+                            </h4>
+                            <p>
+                                The Dr. K. Shilpi Reddy Foundation proudly announces the Kommara Lalitha Devi Scholarship, an annual scholarship initiative to support and encourage academic excellence.
+                            </p>
+                            <h5>
+                                Under this scholarship:
+                            </h5>
+                            <ul>
+                                <li>
+                                    ₹1,00,000 is awarded every year
+                                </li>
+                                <li>
+                                    Given to the Best Outgoing Student
+                                </li>
+                                <li>
+                                    Recognizes dedication, leadership, and outstanding academic performance
+
+                                </li>
+                            </ul>
+                            <p>
+                                This initiative reflects our commitment to empowering young achievers and supporting education as a foundation for a better future.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @if (isset($data['foundation_category_list']) && $data['foundation_category_list']->count() > 0)
-    <section class="foundation-img-section">
+    <section class="foundation-img-section mt-10">
         <div class="w-100 float-left professional-con media-box">
             <div class="container">
                 <div class="row justify-content-md-center">
@@ -152,7 +225,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="foundation-image-area">
                     @if(isset($data['foundation_category_list'][0]))
                         @include('frontend.pages.partials.foundation-category-details', [
