@@ -1060,29 +1060,6 @@ ul.meta li a {
     .last .d-flex{
         display: unset!important;
     }
-    .schlorship_section .carousel-img-fixed {
-    	height: 300px;
-	}
-	.schlorship_section .schlorship_content {
-		text-align: center;
-		margin-top: 20px;
-	}
-	.schlorship_content ul{
-		list-style-type: none;
-	}
-	.schlorship_section .schlorship_content p {
-		text-align: center;
-		font-size: 17px;
-	}
-	.schlorship_section .schlorship_content ul li{
-		font-size: 17px;
-	}
-	.schlorship_section .schlorship_content ul {
-		margin-left: 0px;
-	}
-    .schlorship-title h2{
-        font-size: 28px;
-    }
 }
 .Schedule-box-title a{
     text-decoration: none;
