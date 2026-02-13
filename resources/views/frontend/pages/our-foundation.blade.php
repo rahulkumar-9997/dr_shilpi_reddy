@@ -370,5 +370,5 @@
 <script>
     var foundationCategoryUrl = "{{ url('foundation-cate-image') }}";
 </script>
-<script src="{{asset('fronted/js/foundation-category.js') }}?v={{ time() }}"></script>
+<script src="{{asset('fronted/js/foundation-category.js') }}?v={{ env('ASSET_VERSION', '1.0.0') }}"></script>
 @endpush

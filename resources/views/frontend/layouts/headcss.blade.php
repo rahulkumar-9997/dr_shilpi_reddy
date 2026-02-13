@@ -11,17 +11,17 @@
 <link rel="stylesheet" href="{{asset('fronted/css/animate.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/bootstarp/bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/css/super-classes.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/css/style.css')}}?v={{ time() }}">
-<link rel="stylesheet" href="{{asset('fronted/css/mobile.css')}}?v={{ time() }}">
-<link rel="stylesheet" href="{{asset('fronted/css/dr_shilpi_css.css')}}?v={{ time() }}">
+<link rel="stylesheet" href="{{asset('fronted/css/style.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
+<link rel="stylesheet" href="{{asset('fronted/css/mobile.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
+<link rel="stylesheet" href="{{asset('fronted/css/dr_shilpi_css.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
 <link rel="stylesheet" href="{{asset('fronted/css/owl.carousel.min.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/css/owl.theme.default.min.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/css/jquery.fancybox.min.css')}}">
 
 
 <!-- work -->
-<link rel="stylesheet" href="{{asset('fronted/css/super-classes.css')}}?v={{ time() }}">
-<link rel="stylesheet" href="{{asset('fronted/css/custom-style.css')}}?v={{ time() }}">
+<link rel="stylesheet" href="{{asset('fronted/css/super-classes.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
+<link rel="stylesheet" href="{{asset('fronted/css/custom-style.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
     <!-- work -->
 <link rel="icon" href="{{asset('fronted/shilpi-img/cropped-cropped-invest-logo-07-32x32.png')}}" sizes="32x32" />
 <link rel="icon" href="{{asset('fronted/shilpi-img/cropped-cropped-invest-logo-07-192x192.png')}}" sizes="192x192" />
