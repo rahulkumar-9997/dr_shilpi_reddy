@@ -47,13 +47,17 @@
                                         <div class="media">
                                             <img src="{{asset('media-img/main-img/' . $media_list_row->media_image) }}" alt="{{$media_list_row->title}}" class="img-responsive main-img" >
                                         </div>
-                                        <!--@if(isset($media_list_row->title))
+                                        @if(isset($media_list_row->title))
                                         <div class="media_title">
                                             <h4 class="text-center">
-                                            {{$media_list_row->title}}
+											@if($media_list_row->media_link_url)
+											        <a target="_blank" href="{{$media_list_row->media_link_url}}">{{$media_list_row->title}}</a>
+											@else
+												{{$media_list_row->title}}
+											@endif
                                             </h4>
                                         </div>
-                                        @endif-->
+                                        @endif
                                     </a>
                                     </div>
                                 </figure>

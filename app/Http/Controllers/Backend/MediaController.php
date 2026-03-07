@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
 class MediaController extends Controller
 {
     public function index(){
-        $data['media_image_list'] = Media::orderBy('sort_order', 'asc')->get();
+        $data['media_image_list'] = Media::orderBy('id', 'desc')->paginate('20');
         return view('backend.manage-media.index' , compact('data'));
     }
 

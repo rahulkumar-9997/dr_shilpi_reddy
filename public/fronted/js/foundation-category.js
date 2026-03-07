@@ -1,5 +1,7 @@
-$(document).ready(function() {    
+$(document).ready(function() {
+    
     initIsotopeOther();
+
     $(".foundation-pills .nav-link").on("click", function(e) {
         e.preventDefault();
         var categoryId = $(this).data("id");

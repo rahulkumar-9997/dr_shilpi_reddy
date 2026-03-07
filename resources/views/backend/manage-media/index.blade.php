@@ -9,7 +9,8 @@
       <div class='col-lg-12 col-md-12 col-sm-12 col-xs-12'>
          <div class="page-title">
             <div class="pull-left">
-               <a href="{{route('manage-media.add')}}" class="btn btn-warning btn-sm" style="margin-top: 20px;">Add Media Images</a>
+               <a href="{{route('manage-media.add')}}" class="btn btn-warning btn-sm" style="margin-top: 20px;">Add
+                  Media Images</a>
             </div>
             <div class="pull-right hidden-xs">
                <ol class="breadcrumb">
@@ -43,26 +44,41 @@
                         <ul class="list-unstyled list-group sortable stage ui-sortable" id="sortable_media_image">
                            @foreach($data['media_image_list'] as $image)
                            <li class="d-flex align-items-center justify-content-between list-group-item ui-sortable-handle"
-                              data-id="{{ $image->id }}"
-                              style="position: relative; left: 0px; top: 0px; padding: 5px;">
-                              <div class="mb-0 mt-0 product-element-top img-bg-none">
-                                 <img src="{{ asset('media-img/thumb/'. $image->media_image) }}"
-                                    class="img-thumbnail me-3"
-                                    alt="{{ $image->title }}">
-                                
+                              data-id="{{ $image->id }}" data-sort_order="{{ $image->sort_order ?? $loop->iteration }}"
+                              style="position: relative; left: 0px; top: 0px; padding: 10px;">
+                              <div class="d-flex align-items-center">
+                                 <i class="fa fa-grip-vertical"
+                                    style="margin-right: 10px; color: #999; cursor: grab;"></i>
+                                 <div class="mb-0 mt-0 product-element-top img-bg-none" style="margin-right: 15px;">
+                                    <img src="{{ asset('media-img/thumb/'. $image->media_image) }}"
+                                       class="img-thumbnail"
+                                       alt="{{ $image->title }}">
+                                 </div>
+                                 <span style="
+                                    white-space: nowrap;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    max-width: 500px;
+                                    display: inline-block;
+                                    " title="{{ $image->title }}">
+                                    {{ $image->title }}
+                                 </span>
                               </div>
-                              <span>{{ $image->title }}</span>
                               <span class="float-end">
                                  <a href="{{ url('manage-media/edit/'.$image->id) }}" class="btn btn-primary btn-sm">
                                     <i class="fa fa-pencil"></i>
                                  </a>
-                                 <a href="{{ url('manage-media/delete/'.$image->id) }}" class="btn btn-danger btn-sm">
-                                   <i class="fa fa-trash"></i>
+                                 <a href="{{ url('manage-media/delete/'.$image->id) }}" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Are you sure you want to delete this image?')">
+                                    <i class="fa fa-trash"></i>
                                  </a>
                               </span>
                            </li>
                            @endforeach
                         </ul>
+                     </div>
+                     <div class="my-pagination">
+                        {{ $data['media_image_list']->links('vendor.pagination.bootstrap-4') }}
                      </div>
                      @endif
                   </div>
@@ -79,65 +95,55 @@
    var mediaImageSortUrl = "{{ route('media-image.sort') }}";
 </script>
 <script>
-$(function() {
-    $('#sortable_media_image').sortable({
-        placeholder: "ui-sortable-placeholder",
-        update: function(event, ui) {
-            var movedItem = ui.item;  // Dragged item
-            var previousItem = movedItem.prev(); // Just above element
-            var nextItem = movedItem.next(); // Just below element
-
-            var swapData = []; // Store items for swapping
-
+   $(function() {
+      $('#sortable_media_image').sortable({
+         placeholder: "ui-sortable-placeholder",
+         update: function(event, ui) {
+            var movedItem = ui.item; 
+            var previousItem = movedItem.prev();
+            var nextItem = movedItem.next(); 
+            var swapData = []; 
             if (previousItem.length > 0) {
-                // Swap with previous element
-                swapData.push({
-                    id: movedItem.attr('data-id'),
-                    sort_order: previousItem.attr('data-id') // Get previous item's ID
-                });
-
-                swapData.push({
-                    id: previousItem.attr('data-id'),
-                    sort_order: movedItem.attr('data-id') // Swap with dragged item
-                });
+               swapData.push({
+                  id: movedItem.attr('data-id'),
+                  sort_order: previousItem.attr('data-id') 
+               });
+               swapData.push({
+                  id: previousItem.attr('data-id'),
+                  sort_order: movedItem.attr('data-id') 
+               });
             } else if (nextItem.length > 0) {
-                // Swap with next element
-                swapData.push({
-                    id: movedItem.attr('data-id'),
-                    sort_order: nextItem.attr('data-id') // Get next item's ID
-                });
-
-                swapData.push({
-                    id: nextItem.attr('data-id'),
-                    sort_order: movedItem.attr('data-id') // Swap with dragged item
-                });
+               swapData.push({
+                  id: movedItem.attr('data-id'),
+                  sort_order: nextItem.attr('data-id') 
+               });
+               swapData.push({
+                  id: nextItem.attr('data-id'),
+                  sort_order: movedItem.attr('data-id') 
+               });
             }
-
-            console.log("Swapped Order:", swapData); // Debugging
-
+            console.log("Swapped Order:", swapData);
             $.ajax({
-                url: mediaImageSortUrl, 
-                method: 'POST',
-                data: {
-                    _token: '{{ csrf_token() }}',
-                    swaps: swapData
-                },
-                success: function(response) {
-                    console.log("Sort Response:", response);
-                    if (response.success) {
-                        showSuccess(response.message); 
-                    } else {
-                        showSuccess('Failed to swap order.');
-                    }
-                },
-                error: function() {
-                    showSuccess('Error swapping sort order.');
-                }
+               url: mediaImageSortUrl,
+               method: 'POST',
+               data: {
+                  _token: '{{ csrf_token() }}',
+                  swaps: swapData
+               },
+               success: function(response) {
+                  console.log("Sort Response:", response);
+                  if (response.success) {
+                     showSuccess(response.message);
+                  } else {
+                     showSuccess('Failed to swap order.');
+                  }
+               },
+               error: function() {
+                  showSuccess('Error swapping sort order.');
+               }
             });
-        }
-    });
-});
-
-
+         }
+      });
+   });
 </script>
 @endsection

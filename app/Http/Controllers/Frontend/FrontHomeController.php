@@ -12,6 +12,7 @@ use App\Models\IbuCare;
 use App\Models\FoundationCategory;
 use Illuminate\Support\Facades\Log;
 use App\Mail\EnquiryMail;
+use App\Models\SchlorshipImages;
 use Illuminate\Support\Facades\DB; 
 use Exception;
 class FrontHomeController extends Controller
@@ -74,6 +75,11 @@ class FrontHomeController extends Controller
        $data['foundation_category_list'] = FoundationCategory::with(['foundationImages' => function ($q) {
             $q->orderBy('created_at', 'DESC');
         }])->orderBy('id', 'DESC')->get();
+        $data['schlorship_images'] = SchlorshipImages::select('title','image')
+            ->where('status',1)
+            ->orderBy('sort_order','ASC')
+            ->take(15)
+            ->get();
 		DB::disconnect();
 	    return view('frontend.pages.our-foundation', compact('data'));
     }

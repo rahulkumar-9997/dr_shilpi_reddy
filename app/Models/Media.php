@@ -15,5 +15,6 @@ class Media extends Model
         'media_image',
         'sort_order',
         'user_id',
+		'media_link_url'
     ];
 }

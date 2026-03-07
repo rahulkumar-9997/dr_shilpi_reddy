@@ -3,10 +3,7 @@
 @section('main-content')
 {{--@dd(Auth::check());--}}
 @section('morecss')
-<link href="{{asset('backend/assets//plugins/datatables/css/jquery.dataTables.css')}}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{asset('backend/assets/plugins/datatables/extensions/TableTools/css/dataTables.tableTools.min.css')}}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{asset('backend/assets/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css')}}" rel="stylesheet" type="text/css" media="screen"/>
-<link href="{{asset('backend/assets/plugins/datatables/extensions/Responsive/bootstrap/3/dataTables.bootstrap.css')}}" rel="stylesheet" type="text/css" media="screen"/>    
+
 @endsection
 <section id="main-content" class=" ">
    <section class="wrapper main-wrapper" style=''>
@@ -43,7 +40,7 @@
                <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
                   @if (isset($data['blog_list']) && $data['blog_list']->count() > 0)
-                     <table id="example-1" class="table table-striped dt-responsive display" cellspacing="0" width="100%">
+                     <table class="table table-striped dt-responsive display" cellspacing="0" width="100%">
                         <thead>
                            <tr>
                               <th>Sr. No.</th>
@@ -88,6 +85,9 @@
                         @endforeach
                         </tbody>
                      </table>
+                     <div class="my-pagination">
+                        {{ $data['blog_list']->links('vendor.pagination.bootstrap-4') }}
+                     </div>
                      @endif
                   </div>
                </div>

@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\RolesController;
 use App\Http\Controllers\Backend\PermissionsController;
 use App\Http\Controllers\Backend\FoundationCategoryController;
 use App\Http\Controllers\Backend\FoundationImageController;
+use App\Http\Controllers\Backend\SchlorshipController;
 use App\Http\Controllers\Backend\CacheController;
 
 
@@ -130,7 +131,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('foundation-image', FoundationImageController::class);
     Route::post('foundation-image/sort', [FoundationImageController::class, 'sort'])->name('foundation-image.sort');
     Route::post('foundation-image/rotate/{id}', [FoundationImageController::class, 'ImageRotate'])->name('foundation-image.rotate');
-
+    Route::resource('schlorship-image', SchlorshipController::class);
     
 });
 

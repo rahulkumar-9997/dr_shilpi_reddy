@@ -282,10 +282,12 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.media_title h4{
-    font-size: 20px;
+.media_title h4 a, .media_title h4{
+    font-size: 15px;
     line-height: 22px;
+    padding: 10px;
     color: #074560;
+    font-weight: 500;
 }
 .border-radius{
     border-radius: 10px;
@@ -582,9 +584,18 @@
     transition-property: transform;
     transition-timing-function: ease-out;
 }
+.agree_bazar_image .border {
+    border: none!important;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
 .media-box-image .col-md-4{
-    padding-right: 5px;
-    padding-left: 1px;
+    padding-right: 10px;
+    padding-left: 7px;
     
 }
 .media-box-image .agree_bazar_image:hover{

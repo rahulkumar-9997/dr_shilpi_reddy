@@ -171,6 +171,72 @@
                 </div>
             </div>
         </div>
+        @if (isset($data['schlorship_images']) && $data['schlorship_images']->count() > 0)
+            @php
+                $imageCount = $data['schlorship_images']->count();
+            @endphp            
+            <div class="w-100 float-left schlorship_image_section">
+                <div class="container text-center my-3">
+                    @if($imageCount > 3)
+                        <div class="row mx-auto my-auto justify-content-center">
+                            <div class="carousel-wrap">
+                                <div class="owl-carousel owl-theme schlorship_images_carousel">
+                                    @foreach($data['schlorship_images'] as $schlorship_image_row)
+                                        <div class="item">
+                                            <div class="scholarship-card">
+                                                <div class="feature_card_img">
+                                                    <a 
+                                                        href="{{ asset('upload/schlorship/main-image/'.$schlorship_image_row->image) }}"
+                                                        data-fancybox="schlorship-gallery"
+                                                        data-caption="{{ $schlorship_image_row->title }}"
+                                                        title="{{ $schlorship_image_row->title }}"
+                                                    >
+
+                                                    <img 
+                                                        src="{{ asset('upload/schlorship/thumb/'.$schlorship_image_row->image) }}"
+                                                        class="img-fluid"
+                                                        loading="lazy"
+                                                        width="500"
+                                                        height="350"
+                                                        alt="{{ $schlorship_image_row->title ?? 'Scholarship Image' }}"
+                                                    >
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <div class="row justify-content-center">
+                            @foreach($data['schlorship_images'] as $schlorship_image_row)
+                                <div class="col-md-4 col-sm-6 mb-4">
+                                    <div class="scholarship-card">
+                                        <div class="feature_card_img">
+                                            <a 
+                                                href="{{ asset('upload/schlorship/main-image/'.$schlorship_image_row->image) }}"
+                                                data-fancybox="schlorship-gallery"
+                                                data-caption="{{ $schlorship_image_row->title }}"
+                                                title="{{ $schlorship_image_row->title }}"
+                                            >
+                                                <img src="{{ asset('upload/schlorship/thumb/'.$schlorship_image_row->image) }}" 
+                                                    class="img-fluid" 
+                                                    loading="lazy"
+                                                    width="500"
+                                                    height="350"
+                                                    alt="{{ $schlorship_image_row->title ?? 'Scholarship Image' }}"
+                                                >
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endif
+                </div>
+            </div>
+        @endif
     </div>
 </div>
 </section>

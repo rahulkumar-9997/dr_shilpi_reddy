@@ -15,7 +15,7 @@ use App\Models\BlogImages;
 class BlogController extends Controller
 {
     public function index(){
-        $data['blog_list'] = Blog::orderBy('id','DESC')->get();        
+        $data['blog_list'] = Blog::orderBy('id','DESC')->paginate('10');        
         return view('backend.manage-blog.index' , compact('data'));
     }
 

@@ -139,6 +139,18 @@
                
             </ul>
          </li>
+         <li class="{{ request()->is('schlorship-image*') ? 'open' : '' }}">
+            <a href="javascript:;">
+                <i class="fa fa-graduation-cap"></i>
+               <span class="title">Manage Schlorship</span>
+            </a>
+
+            <ul class="sub-menu">
+               <li class="{{ request()->is('schlorship-image*') ? 'active' : '' }}">
+                     <a href="{{ route('schlorship-image.index') }}">Schlorship Images</a>
+               </li>
+            </ul>
+         </li>
       </ul>
    </div>
    <div class="project-info">
