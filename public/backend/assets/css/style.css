@@ -209,7 +209,7 @@ Mobile Menu Settings - Since 3.1
   --bs-border-color: #eaedf1;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
   --bs-border-radius: 0.75rem;
-  --bs-border-radius-sm: 0.5rem;
+  --bs-border-radius-sm: 5px;
   --bs-border-radius-lg: 1rem;
   --bs-border-radius-xl: 1.25rem;
   --bs-border-radius-xxl: 2rem;
@@ -1477,11 +1477,11 @@ input[type=checkbox], input[type=color], input[type=date], input[type=datetime-l
 -------------------------------*/
 
 .btn {
-    border-radius:0.5rem;
-    -o-border-radius:0.5rem;
-    -ms-border-radius:0.5rem;
-    -moz-border-radius:0.5rem;
-    -webkit-border-radius: 0.5rem;
+    border-radius:5px;
+    -o-border-radius:5px;
+    -ms-border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
     border: 0px;
     font-family: Oswald, Helvetica, Arial, sans-serif;
     font-weight: 300;
@@ -1611,7 +1611,7 @@ input[type=checkbox], input[type=color], input[type=date], input[type=datetime-l
     padding: 10px 21px;
 }
 .btn.btn-sm, .btn-sm, .btn-group-sm>.btn {
-    padding: 5px 13px;
+    padding: 7px 18px;
 }
 .btn.btn-xs, .btn-xs, .btn-group-xs>.btn {
     padding: 2px 8px;
@@ -1627,57 +1627,57 @@ input[type=checkbox], input[type=color], input[type=date], input[type=datetime-l
 .btn:hover, .btn:active, .btn:focus, .btn-default:hover, .btn-default:active, .btn-default:focus {
     color: #333333;
     background: #e5e5e5;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn.btn-link:hover, .btn.btn-link:focus {
     color: rgba(1,131,122, 1.0);
     background: transparent;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-success:hover, .btn-success:active, .btn-success:focus {
     background: rgba(72,159,90,1.0);
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-warning:hover, .btn-warning:active, .btn-warning:focus {
     background: #e9a048;
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-danger:hover, .btn-danger:active, .btn-danger:focus {
     background: rgba(210,50,50,1.0);
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-info:hover, .btn-info:active, .btn-info:focus {
     background: rgba(5,153,199,1.0);
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-orange:hover, .btn-orange:active, .btn-orange:focus {
     background: rgba(215, 113, 80, 1.0);
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-purple:hover, .btn-purple:active, .btn-purple:focus {
     background: rgba(123, 74, 141, 1.0);
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-primary.active, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
     background: rgba(1,151,142, 1.0);
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
     background: rgba(139,139,139, 1.0);
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-default.active, .btn-default:hover, .btn-default:active, .btn-default:focus {
     background: #d5d5d5;
     color: #333333;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-default:active, .btn-primary:active, .btn-success:active, .btn-info:active, .btn-warning:active, .btn-danger:active, .btn-default.active, .btn-primary.active, .btn-success.active, .btn-info.active, .btn-warning.active, .btn-danger.active {
     box-shadow: none;
@@ -1685,12 +1685,12 @@ input[type=checkbox], input[type=color], input[type=date], input[type=datetime-l
     -moz-box-shadow: none;
     -ms-box-shadow: none;
     -webkit-box-shadow: none;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn-primary:disabled, .btn-primary[disabled] {
     background: rgba(0,131,122, 1.0);
     color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 5px;
 }
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
     text-shadow: none;
