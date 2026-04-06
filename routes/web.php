@@ -146,6 +146,8 @@ Route::get('blog/{slug}', [FrontHomeController::class, 'blogDetailsPage']);
 Route::get('contact-us', [FrontHomeController::class, 'contactUsPage'])->name('contact-us');
 Route::get('our-foundation', [FrontHomeController::class, 'ourFoundation'])->name('our-foundation');
 Route::get('foundation-cate-image', [FrontHomeController::class, 'getFoundationCategoryDetails'])->name('foundation-cate-image');
+Route::get('schlorship', [FrontHomeController::class, 'schlorshipList'])->name('schlorship');
+Route::get('schlorship/{id}', [FrontHomeController::class, 'schlorshipDetails'])->name('schlorship.details');
 
 
 Route::get('ibu-care', [FrontHomeController::class, 'ibuCare'])->name('ibu-care');

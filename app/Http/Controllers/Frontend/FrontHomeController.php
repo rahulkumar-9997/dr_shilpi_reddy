@@ -75,7 +75,7 @@ class FrontHomeController extends Controller
        $data['foundation_category_list'] = FoundationCategory::with(['foundationImages' => function ($q) {
             $q->orderBy('created_at', 'DESC');
         }])->orderBy('id', 'DESC')->get();
-        $data['schlorship'] = Schlorship::select('title','main_image','description')
+        $data['schlorship'] = Schlorship::select('id', 'title', 'main_image', 'description')
             ->where('status',1)
             ->orderBy('id', 'asc')
             ->take(4)
@@ -168,8 +168,76 @@ class FrontHomeController extends Controller
     public function donation(){
         return view('frontend.pages.donation'); 
     }
+
     public function fertilityConclave(){
         return view('frontend.pages.fertility-conclave'); 
+    }
+
+    public function schlorshipList(){
+        $data['schlorship'] = Schlorship::select('id', 'title', 'main_image', 'description')
+            ->where('status',1)
+            ->orderBy('id', 'asc')
+            ->get();
+        return view('frontend.pages.schlorship', compact('data'));
+    }
+
+    public function schlorshipDetails($id){
+        $schlorship = Schlorship::with(['images' => function ($query) {
+            $query->orderBy('id', 'DESC');
+        }])->where('id', $id)->firstOrFail();
+        $imagesHtml = '';
+        if ($schlorship->main_image) {
+            $imagesHtml .= '<div class="item">
+                <div class="scholarship-img-ratio">
+                    <div class="scholarship-img">
+                        <a data-fancybox="schlorship" href="'.asset('upload/schlorship/'.$schlorship->main_image).'">
+                        <img src="'.asset('upload/schlorship/'.$schlorship->main_image).'" 
+                        class="img-fluid" 
+                        alt="Main Image - '.$schlorship->title.'">
+                        </a>
+                    </div>
+                </div>
+            </div>';
+        }
+        foreach ($schlorship->images as $image) {
+            $imagesHtml .= '<div class="item">
+                <div class="scholarship-img-ratio">
+                    <div class="scholarship-img">
+                        <a data-fancybox="schlorship" href="'.asset('upload/schlorship/'.$image->image).'">
+                            <img src="'.asset('upload/schlorship/'.$image->image).'" 
+                            class="img-fluid" 
+                            alt="'.$image->title.'">                        
+                        </a>
+                    </div>
+                </div>
+            </div>';
+        }
+        
+        $html = '
+        <div class="modal-popup-inner schlorship-modal-content">
+            <div class="close-modal">
+                <i class="fa fa-times"></i>
+            </div>
+            <div class="modal_box">
+                <div class="schlorship-details">
+                    <h4 class="schlorship-title">'.$schlorship->title.'</h4>
+                    <div class="schlorship-images">
+                        <div class="schlorship-carousel owl-carousel owl-theme">
+                        '.$imagesHtml.'
+                        </div>
+                    </div>
+                    <div class="schlorship-description">
+                        '.$schlorship->description.'
+                    </div>
+                </div>
+            </div>
+        </div>
+        ';
+        
+        return response()->json([
+            'message' => 'Scholarship details retrieved successfully',
+            'data' => $html,
+        ]);
     }
     
     

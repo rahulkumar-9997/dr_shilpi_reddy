@@ -142,7 +142,7 @@
                 <div class="col-md-6 px-2 mb-4">
                     <div class="scholarship-card">
                         <div class="scholarship-img-ratio">
-                            <a href="javascript:void(0);" class="scholarship-img-link" data-schlorshipid="{{ $schlorship_row->id }}">
+                            <a href="javascript:void(0);" class="scholarship-img-link" data-schlorshipid="{{ $schlorship_row->id }}" data-url="{{ route('schlorship.details', ['id' => $schlorship_row->id]) }}" data-schlorship="true" data-size="lg">
                                 <div class="scholarship-img">
                                     <img src="{{asset('upload/schlorship/'.$schlorship_row->main_image)}}" class="img-fluid"
                                         alt="{{$schlorship_row->title}}">
@@ -159,7 +159,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="fo-content text-center">
-                        <a href="" class="appointment-btn ">View More Scholarships</a>
+                        <a href="{{ route('schlorship') }}" class="appointment-btn ">View More Scholarships</a>
                     </div>
                 </div>
             </div>
@@ -366,4 +366,5 @@
     var foundationCategoryUrl = "{{ url('foundation-cate-image') }}";
 </script>
 <script src="{{asset('fronted/js/foundation-category.js') }}?v={{ env('ASSET_VERSION', '1.0.0') }}"></script>
+<script src="{{asset('fronted/js/schlorship.js') }}?v={{ env('ASSET_VERSION', '1.0.0') }}"></script>
 @endpush
