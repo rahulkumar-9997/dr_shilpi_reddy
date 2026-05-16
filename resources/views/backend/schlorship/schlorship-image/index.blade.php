@@ -34,50 +34,45 @@
             <div class="content-body">
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
-                        @if (isset($data['schlorships']) && $data['schlorships']->count() > 0)
+                        @if (isset($data['schlorship_images']) && $data['schlorship_images']->count() > 0)
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
                                     <th width="60">#</th>
-                                    <th width="120">Main Images</th>
+                                    <th width="120">Image</th>
                                     <th>Title</th>
                                     <th width="100">Status</th>
                                     <th width="120">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($data['schlorships'] as $key => $schlorship)
+                                @foreach($data['schlorship_images'] as $key => $image)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
                                     <td>
-                                        @if($schlorship->main_image)
-                                        <img src="{{ asset('upload/schlorship/'.$schlorship->main_image) }}"
+                                        <img src="{{ asset('upload/schlorship/thumb/'.$image->image) }}"
                                             class="img-thumbnail"
-                                            width="50" height="50" alt="{{ $schlorship->title ?? 'Schlorship Image' }}">
-                                        @endif
-                                        @if($schlorship->images && $schlorship->images->count() > 0)
-                                            <span class="badge bg-info text-light mt-1">{{ $schlorship->images->count() }} Images</span>
-                                        @endif  
+                                            width="80">
                                     </td>
                                     <td>
-                                        {{ $schlorship->title ?? '-' }}
+                                        {{ $image->title ?? '-' }}
                                     </td>
                                     <td>
-                                        @if($schlorship->status)
+                                        @if($image->status)
                                             <span class="badge badge-success">Active</span>
                                         @else
                                             <span class="badge badge-danger">Inactive</span>
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('schlorship-image.edit',$schlorship->id) }}"
+                                        <a href="{{ route('schlorship-image.edit',$image->id) }}"
                                         class="btn btn-primary btn-sm">
                                         <i class="fa fa-pencil"></i>
                                         </a>
-                                        <form action="{{ route('schlorship-image.destroy',$schlorship->id) }}" method="POST" style="display:inline-block">
+                                        <form action="{{ route('schlorship-image.destroy',$image->id) }}" method="POST" style="display:inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" data-name="{{ $schlorship->main_image }}"
+                                            <button type="submit" data-name="{{ $image->image }}"
                                             class="btn btn-danger btn-sm show_confirm">
                                                 <i class="fa fa-trash"></i>
                                             </button>
@@ -88,7 +83,7 @@
                             </tbody>
                         </table>
                         <div class="my-pagination">
-                            {{ $data['schlorships']->links('vendor.pagination.bootstrap-4') }}
+                            {{ $data['schlorship_images']->links('vendor.pagination.bootstrap-4') }}
                         </div>
                         @endif
                     </div>

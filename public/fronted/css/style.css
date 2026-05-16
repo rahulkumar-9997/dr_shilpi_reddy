@@ -1635,7 +1635,7 @@ body {
 }
 
 .header-and-banner-con.banner-overlay-img {
-	z-index: 0;
+	z-index: -1;
 }
 
 .drop-down-menu-lg .dropdown-menu .dropdown-item:hover {
@@ -2004,8 +2004,6 @@ body {
 .conclave-content h6{
 	font-size: 22px;
 }
-
-
 .schlorship_section{
 	padding: 40px 0;
 	background-image: linear-gradient(180deg, #d20048 0%, #d20048b3 100%);
@@ -2018,37 +2016,16 @@ body {
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgb(0 0 0 / 13%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     height: 100%;
 }
-.scholarship-img-ratio{
-	position: relative;
-}
-.scholarship-img-ratio:before {
-    content: "";
-    display: block;
-    height: 0;
-    width: 100%;
-}
-.scholarship-img-ratio:before {
-    padding-bottom: 50%;
-}
-.scholarship-img-ratio .scholarship-img img {
-    width: 100%;
-    height: 100%;
-    left: 0;
-    -o-object-fit: cover;
-    object-fit: contain;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
+
 .scholarship-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
-/* 
+
 .scholarship-img {
     width: 100%;
     height: 280px;
@@ -2061,7 +2038,7 @@ body {
     height: 100%;
     object-fit: contain;
     transition: transform 0.3s ease;
-} */
+}
 
 .scholarship-card:hover .scholarship-img img {
     transform: scale(1.05);
@@ -2096,9 +2073,6 @@ body {
 }
 .schlorship-title{
 	margin-bottom: 20px;
-    line-height: 30px;
-    color: #fff;
-    font-size: 20px;
 }
 
 /* Responsive */
@@ -2118,165 +2092,11 @@ body {
 		font-size: 16px;
 		line-height: 20px;
 	}
-	.scholarship-img-ratio:before {
-		padding-bottom: 0%;
-	}
-	
 }
-
 .schlorship_image_section .carousel-wrap {
     margin: 10px auto;
 }
 .schlorship_image_section .container{
 	padding-right: 8px;
     padding-left: 8px;
-}
-/* Modal from bottom animation */
-.modal_popup::before {
-    position: absolute;
-    content: "";
-    background: #030000;
-    opacity: 0.5;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    top: 0;
-}
-.modal_box{
-	padding: 15px 30px;
-}
-.schlorship-modal-content .modal_box{
- 	max-height: 80vh;
-    overflow-y: auto;
-	overflow-x: hidden;
-}
-.modal_popup .modal-popup-inner {
-    background-image: linear-gradient(180deg, #d20048 0%, #d20048b3 100%);
-    border-radius: 10px;
-    position: relative;
-    max-width: 1000px;
-    margin: auto;
-}
-.modal_popup.contact-popup-visible {
-    transform: translateY(0%);
-    visibility: visible;
-    opacity: 1;
-}
-.modal_popup {
-    position: fixed;
-    left: 0;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 99;
-    visibility: hidden;
-    opacity: 0;
-    padding: 100px 0px 0px;
-    overflow: auto;
-    background: none;
-    transform: translateY(-101%);
-    transition: all 700ms ease;
-    -moz-transition: all 700ms ease;
-    -webkit-transition: all 700ms ease;
-    -ms-transition: all 700ms ease;
-    -o-transition: all 700ms ease;
-}
-.modal_popup .modal-popup-inner .close-modal {
-    position: absolute;
-    right: -15px;
-    top: -15px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 50px;
-    background: #ffffff;
-    color: #000000;
-    font-size: 16px;
-    z-index: 3;
-    cursor: pointer;
-}
-
-.schlorship-carousel .item {
-    height: 320px;
-    background: #f8f9fa;
-	border-radius: 10px;
-}
-.schlorship-details .scholarship-img-ratio:before {
-    padding-bottom: 100%;
-}
-.schlorship-details .scholarship-img-ratio {
-    position: unset;
-}
-.fo-content .appointment-btn:hover{
-	text-decoration: none;
-}
-/* .schlorship-carousel .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-} */
-.schlorship-description ul, .schlorship-description ol {
-    margin-left: 25px;
-}
-.schlorship-description h1,
-.schlorship-description h2,
-.schlorship-description h3,
-.schlorship-description h4,
-.schlorship-description h5,
-.schlorship-description h6,
-.schlorship-description p,
-.schlorship-description ul li,
-.schlorship-description span,
-.schlorship-description hr,
-.schlorship-description pre,
-.schlorship-description blockquote code,
-.schlorship-description ul li code
-
-{
-	color: #ffffff;
-}
-.schlorship-description h1,
-.schlorship-description h2,
-.schlorship-description h3{
-	color: #fff;
-    font-size: 18px;
-	line-height: 22px;
-	font-weight: 600;
-	letter-spacing: 0px;
-}
-
-.schlorship-description h4,
-.schlorship-description h5,
-.schlorship-description h6{
-	color: #fff;
-    font-size: 17px;
-	font-weight: 500;
-	line-height: 22px;
-	letter-spacing: 0px;
-}
-@media (max-width: 767px) {
-	.modal_popup {
-        padding: 50px 20px;
-    }
-	.schlorship-carousel .item {
-		height: 170px;
-	}
-	.schlorship-title {
-		line-height: 24px;
-		font-size: 18px;
-	}
-}
-@media (max-width: 1199px) {
-    .modal_popup {
-        padding: 50px 20px;
-    }
-	.schlorship-carousel .item {
-		height: 170px;
-	}
-	.schlorship-title {
-		line-height: 24px;
-		font-size: 18px;
-	}
 }

@@ -4865,9 +4865,10 @@ code {
 ----------------------------------------------------------*/
 
 .badge {
+    padding: 0.35rem 0.45rem;   
     font-weight: 500;
     border-radius: 5px;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 15px;
 }
 .badge.badge-md {
