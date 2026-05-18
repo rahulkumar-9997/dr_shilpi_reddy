@@ -14,6 +14,8 @@ class OurWork extends Model
         'id',
         'heading_name',
         'slug',
+        'meta_title',
+        'meta_description',
         'our_work_content',
         'user_id',
         'mapped_status_to_foundation'

@@ -42,10 +42,14 @@ class OurWorkController extends Controller
             'our_work_heading_name' => 'required',
             'work_content' => 'required',
             'work_multiple_image' => 'required',
+            'meta_title' => 'nullable|max:255',
+            'meta_description' => 'nullable|max:500',
 
         ]);
         $input['heading_name'] = $request->input('our_work_heading_name');
         $input['our_work_content'] = $request->input('work_content');
+        $input['meta_title'] = $request->input('meta_title');
+        $input['meta_description'] = $request->input('meta_description');
         $input['user_id'] = $user_id;
 
         $our_work_add = OurWork::create($input);
@@ -93,12 +97,15 @@ class OurWorkController extends Controller
         $this->validate($request, [
             'our_work_heading_name' => 'required',
             'work_content' => 'required',
-
+            'meta_title' => 'nullable|max:255',
+            'meta_description' => 'nullable|max:500',
         ]);
 
         $our_work_row = OurWork::find($request->our_work_hidden_id);
         $input['heading_name'] = $request->input('our_work_heading_name');
         $input['our_work_content'] = $request->input('work_content');
+        $input['meta_title'] = $request->input('meta_title');
+        $input['meta_description'] = $request->input('meta_description');
         $our_work_update = $our_work_row->update($input);
 
         if ($request->hasFile('work_multiple_image')) {

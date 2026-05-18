@@ -10,7 +10,6 @@
             <!-- navbar-start -->
             @include('frontend.layouts.header-menu')
             <!-- navbar-end -->
-
         </div>
     </div>
 </div>
@@ -130,6 +129,7 @@
         </div>
     </div>
 </section>
+@if(isset($data['schlorship']) && $data['schlorship']->count() > 0)
 <section class="schlorship_section w-100 float-left">
 <div class="schlorship-div">
     <div class="container">
@@ -138,108 +138,37 @@
         </div>
         <div class="our_core_value">
             <div class="row ml-0 mr-0">
-                <!-- First Image Card -->
+                @foreach($data['schlorship'] as $index => $schlorship_row)
                 <div class="col-md-6 px-2 mb-4">
                     <div class="scholarship-card">
-                        <a class="lightbox" title="Certificate" data-fancybox="images-1" data-caption="Certificate"
-                            href="{{asset('fronted/shilpi-img/schlorship/certificate.jpeg')}}">
-                            <div class="scholarship-img">
-                                <img src="{{asset('fronted/shilpi-img/schlorship/certificate.jpeg')}}" class="img-fluid"
-                                    alt="certificate">
-                            </div>
-                        </a>
+                        <div class="scholarship-img-ratio">
+                            <a href="javascript:void(0);" class="scholarship-img-link" data-schlorshipid="{{ $schlorship_row->id }}" data-url="{{ route('schlorship.details', ['id' => $schlorship_row->id]) }}" data-schlorship="true" data-size="lg">
+                                <div class="scholarship-img">
+                                    <img src="{{asset('upload/schlorship/'.$schlorship_row->main_image)}}" class="img-fluid"
+                                        alt="{{$schlorship_row->title}}">
+                                </div>
+                            </a>
+                        </div>
                         <div class="scholarship-text">
-                            <h5>Official Scholarship Certificate presented to the Best Outgoing Student</h5>
-                            <!-- <p>Certificate of Excellence awarded to the Best Outgoing Student</p> -->
+                            <h5>{{$schlorship_row->title}}</h5>                            
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 px-2 mb-4">
-                    <div class="scholarship-card">
-                        <a class="lightbox" title="Check" data-fancybox="images-1" data-caption="Check"
-                            href="{{asset('fronted/shilpi-img/schlorship/check.jpeg')}}">
-                            <div class="scholarship-img">
-                                <img src="{{asset('fronted/shilpi-img/schlorship/check.jpeg')}}" class="img-fluid"
-                                    alt="Check">
-                            </div>
-                        </a>
-                        <div class="scholarship-text">
-                            <h5>Scholarship Cheque of ₹1,00,000 awarded under Kommara Lalitha Devi Scholarship – 2026</h5>
-                            <!-- <p>Awarded for dedication, leadership, and outstanding academic performance</p> -->
-                        </div>
+                </div>                
+                @endforeach
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="fo-content text-center">
+                        <a href="{{ route('schlorship') }}" class="appointment-btn ">View More Scholarships</a>
                     </div>
                 </div>
             </div>
-        </div>
-        @if (isset($data['schlorship_images']) && $data['schlorship_images']->count() > 0)
-            @php
-                $imageCount = $data['schlorship_images']->count();
-            @endphp            
-            <div class="w-100 float-left schlorship_image_section">
-                <div class="container text-center my-3">
-                    @if($imageCount > 3)
-                        <div class="row mx-auto my-auto justify-content-center">
-                            <div class="carousel-wrap">
-                                <div class="owl-carousel owl-theme schlorship_images_carousel">
-                                    @foreach($data['schlorship_images'] as $schlorship_image_row)
-                                        <div class="item">
-                                            <div class="scholarship-card">
-                                                <div class="feature_card_img">
-                                                    <a 
-                                                        href="{{ asset('upload/schlorship/main-image/'.$schlorship_image_row->image) }}"
-                                                        data-fancybox="schlorship-gallery"
-                                                        data-caption="{{ $schlorship_image_row->title }}"
-                                                        title="{{ $schlorship_image_row->title }}"
-                                                    >
 
-                                                    <img 
-                                                        src="{{ asset('upload/schlorship/thumb/'.$schlorship_image_row->image) }}"
-                                                        class="img-fluid"
-                                                        loading="lazy"
-                                                        width="500"
-                                                        height="350"
-                                                        alt="{{ $schlorship_image_row->title ?? 'Scholarship Image' }}"
-                                                    >
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    @else
-                        <div class="row justify-content-center">
-                            @foreach($data['schlorship_images'] as $schlorship_image_row)
-                                <div class="col-md-4 col-sm-6 mb-4">
-                                    <div class="scholarship-card">
-                                        <div class="feature_card_img">
-                                            <a 
-                                                href="{{ asset('upload/schlorship/main-image/'.$schlorship_image_row->image) }}"
-                                                data-fancybox="schlorship-gallery"
-                                                data-caption="{{ $schlorship_image_row->title }}"
-                                                title="{{ $schlorship_image_row->title }}"
-                                            >
-                                                <img src="{{ asset('upload/schlorship/thumb/'.$schlorship_image_row->image) }}" 
-                                                    class="img-fluid" 
-                                                    loading="lazy"
-                                                    width="500"
-                                                    height="350"
-                                                    alt="{{ $schlorship_image_row->title ?? 'Scholarship Image' }}"
-                                                >
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    @endif
-                </div>
-            </div>
-        @endif
+        </div>        
     </div>
 </div>
 </section>
+@endif
 @if (isset($data['foundation_category_list']) && $data['foundation_category_list']->count() > 0)
     <section class="foundation-img-section mt-10">
         <div class="w-100 float-left professional-con media-box">
@@ -437,4 +366,5 @@
     var foundationCategoryUrl = "{{ url('foundation-cate-image') }}";
 </script>
 <script src="{{asset('fronted/js/foundation-category.js') }}?v={{ env('ASSET_VERSION', '1.0.0') }}"></script>
+<script src="{{asset('fronted/js/schlorship.js') }}?v={{ env('ASSET_VERSION', '1.0.0') }}"></script>
 @endpush

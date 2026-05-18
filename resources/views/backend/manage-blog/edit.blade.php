@@ -46,151 +46,222 @@ use App\Models\BlogImages;
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <form action="{{ route('manage-blog.update') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" class="form-control" name="blog_id_hidden" value="{{$blog->id}}">
+                                <input type="hidden" name="blog_id_hidden" value="{{ $blog->id }}">
                                 <div class="row">
+                                    {{-- Blog Title --}}
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Title *</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="blog_title" value="{{$blog->title}}">
+                                                <input type="text"
+                                                    class="form-control"
+                                                    name="blog_title"
+                                                    value="{{ old('blog_title', $blog->title) }}">
                                             </div>
                                             @if($errors->has('blog_title'))
-                                            <div class="text-danger">{{ $errors->first('blog_title') }}</div>
+                                                <div class="text-danger">{{ $errors->first('blog_title') }}</div>
                                             @endif
                                         </div>
                                     </div>
-                                    
+
+                                    {{-- Blog Intro Heading --}}
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Heading</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="blog_intro_heading" value="{{ $blog->blog_intro_head }}">
+                                                <input type="text"
+                                                    class="form-control"
+                                                    name="blog_intro_heading"
+                                                    value="{{ old('blog_intro_heading', $blog->blog_intro_head) }}">
                                             </div>
+
                                             @if($errors->has('blog_intro_heading'))
-                                            <div class="text-danger">{{ $errors->first('blog_intro_heading') }}</div>
+                                                <div class="text-danger">{{ $errors->first('blog_intro_heading') }}</div>
                                             @endif
                                         </div>
                                     </div>
+
+                                    {{-- Blog Post Date --}}
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Post Date *</label>
-                                            <div class="controls">
-                                            <input type="text" class="form-control datepicker" name="blog_post_date" data-format="dd-mm-yyyy" readonly 
-                                            value="{{ date('d-m-Y', strtotime($blog->blog_post_date)) }}">
 
+                                            <div class="controls">
+                                                <input type="text"
+                                                    class="form-control datepicker"
+                                                    name="blog_post_date"
+                                                    data-format="dd-mm-yyyy"
+                                                    readonly
+                                                    value="{{ old('blog_post_date', date('d-m-Y', strtotime($blog->blog_post_date))) }}">
                                             </div>
+
                                             @if($errors->has('blog_post_date'))
-                                            <div class="text-danger">{{ $errors->first('blog_post_date') }}</div>
+                                                <div class="text-danger">{{ $errors->first('blog_post_date') }}</div>
                                             @endif
                                         </div>
                                     </div>
+
+                                    {{-- Intro Description --}}
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Description *</label>
+
                                             <div class="controls">
-                                                <textarea type="text" class="form-control" name="blog_intro_desc">{{$blog->intro_description}}</textarea>
+                                                <textarea class="form-control"
+                                                        name="blog_intro_desc">{{ old('blog_intro_desc', $blog->intro_description) }}</textarea>
                                             </div>
+
                                             @if($errors->has('blog_intro_desc'))
-                                            <div class="text-danger">{{ $errors->first('blog_intro_desc') }}</div>
+                                                <div class="text-danger">{{ $errors->first('blog_intro_desc') }}</div>
                                             @endif
                                         </div>
                                     </div>
+
+                                    {{-- Intro Image --}}
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label class="form-label">Blog Intro Image *</label>
+                                            <label class="form-label">Blog Intro Image</label>
+
                                             <div class="controls">
                                                 <input type="file" class="form-control" name="blog_intro_image">
                                             </div>
-                                            @if(!empty($blog->intro_image)) 
+
+                                            @if(!empty($blog->intro_image))
                                                 <div class="mt-2">
-                                                    <img src="{{ asset('blog-img/intro/' . $blog->intro_image) }}" alt="Blog Intro Image" style="max-width: 200px; height: auto; border-radius: 5px;">
+                                                    <img src="{{ asset('blog-img/intro/' . $blog->intro_image) }}"
+                                                        alt="Blog Intro Image"
+                                                        style="max-width: 200px; height:auto; border-radius:5px;">
                                                 </div>
                                             @endif
+
                                             @if($errors->has('blog_intro_image'))
-                                            <div class="text-danger">{{ $errors->first('blog_intro_image') }}</div>
+                                                <div class="text-danger">{{ $errors->first('blog_intro_image') }}</div>
                                             @endif
                                         </div>
                                     </div>
+
+                                    {{-- External Blog Checkbox --}}
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label class="form-label">Blog External URL</label>
+                                            <label class="form-label">Is External Blog?</label>
+
                                             <div class="form-block">
-                                                <input type="checkbox" class="iswitch iswitch-primary" name="blog_external_url_checkbox" value="1"  {{ $blog->is_external == 1 ? 'checked' : '' }}>
+                                                <input type="checkbox"
+                                                    class="iswitch iswitch-primary"
+                                                    name="blog_external_url_checkbox"
+                                                    value="1"
+                                                    {{ old('blog_external_url_checkbox', $blog->is_external) ? 'checked' : '' }}>
                                             </div>
-                                            @if($errors->has('blog_external_url_checkbox'))
-                                            <div class="text-danger">{{ $errors->first('blog_external_url_checkbox') }}</div>
-                                            @endif
                                         </div>
                                     </div>
-                                    
-                                    <div class="col-lg-4" id="blog_external_url_area">
+
+                                    {{-- External URL --}}
+                                    <div class="col-lg-4"
+                                        id="blog_external_url_area"
+                                        style="{{ old('blog_external_url_checkbox', $blog->is_external) ? '' : 'display:none;' }}">
+
                                         <div class="form-group">
-                                            <label class="form-label" for="field-1">
-                                                Blog Blog External Url *
-                                            </label>
+                                            <label class="form-label">Blog External URL *</label>
+
                                             <div class="controls">
-                                                <input type="text" class="form-control" name="blog_external_url" value="{{$blog->external_url}}">
+                                                <input type="text"
+                                                    class="form-control"
+                                                    name="blog_external_url"
+                                                    value="{{ old('blog_external_url', $blog->external_url) }}">
                                             </div>
+
                                             @if($errors->has('blog_external_url'))
-                                            <div class="text-danger">{{ $errors->first('blog_external_url') }}</div>
+                                                <div class="text-danger">{{ $errors->first('blog_external_url') }}</div>
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="row"> 
-                                        <div class="col-lg-12" id="blog_image_description_area">
+                                    <div class="col-lg-12" id="blog_image_description_area">
+                                        <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label" for="field-1">Blog Image (Select Multiple Image (Limit 20 images))</label>
+                                                    <label class="form-label">
+                                                        Blog Image (Select Multiple Images - Limit 20)
+                                                    </label>
                                                     <div class="controls">
-                                                        <input type="file" class="form-control" name="blog_image[]" multiple>
+                                                        <input type="file"
+                                                            class="form-control"
+                                                            name="blog_image[]"
+                                                            multiple>
                                                     </div>
+
                                                     @if($errors->has('blog_image'))
-                                                    <div class="text-danger">{{ $errors->first('blog_image') }}</div>
+                                                        <div class="text-danger">{{ $errors->first('blog_image') }}</div>
                                                     @endif
                                                 </div>
                                             </div>
+
+                                            {{-- Meta Title --}}
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Meta Title</label>
+
                                                     <div class="controls">
-                                                        <input type="text" class="form-control form-control" name="meta_title" value="{{ $blog->meta_title }}">
+                                                        <input type="text"
+                                                            class="form-control"
+                                                            name="meta_title"
+                                                            value="{{ old('meta_title', $blog->meta_title) }}">
                                                     </div>
+
                                                     @if($errors->has('meta_title'))
-                                                    <div class="text-danger">{{ $errors->first('meta_title') }}</div>
+                                                        <div class="text-danger">{{ $errors->first('meta_title') }}</div>
                                                     @endif
                                                 </div>
                                             </div>
+
+                                            {{-- Meta Description --}}
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Meta Description</label>
+
                                                     <div class="controls">
-                                                        <input type="text" class="form-control form-control" name="meta_description" value="{{ $blog->meta_description }}">
+                                                        <input type="text"
+                                                            class="form-control"
+                                                            name="meta_description"
+                                                            value="{{ old('meta_description', $blog->meta_description) }}">
                                                     </div>
+
                                                     @if($errors->has('meta_description'))
-                                                    <div class="text-danger">{{ $errors->first('meta_description') }}</div>
+                                                        <div class="text-danger">{{ $errors->first('meta_description') }}</div>
                                                     @endif
                                                 </div>
                                             </div>
+
+                                            {{-- Blog Description --}}
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label class="form-label" for="field-1">Blog Description</label>
+                                                    <label class="form-label">Blog Description</label>
+
                                                     <div class="controls">
-                                                        <textarea class="ckeditor4" placeholder="Enter text ..." name="blog_description">{{$blog->blog_description}}</textarea>
+                                                        <textarea class="ckeditor4"
+                                                                name="blog_description"
+                                                                placeholder="Enter text ...">{{ old('blog_description', $blog->blog_description) }}</textarea>
                                                     </div>
+
                                                     @if($errors->has('blog_description'))
-                                                    <div class="text-danger">{{ $errors->first('blog_description') }}</div>
+                                                        <div class="text-danger">{{ $errors->first('blog_description') }}</div>
                                                     @endif
                                                 </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    {{-- Submit --}}
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <button type="submit" class="btn btn-primary">
+                                                    Update
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
-                                       <div class="form-group">
-                                          <div class="controls">
-                                             <button type="submit" class="btn btn-primary">Update</button>
-                                          </div>
-                                       </div>
-                                    </div>
+
                                 </div>
                             </form>
                         </div>
@@ -248,19 +319,13 @@ use App\Models\BlogImages;
 <script src="{{asset('backend/assets/plugins/bootstrap3-wysihtml5/js/bootstrap3-wysihtml5.all.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('backend/assets/plugins/datepicker/js/datepicker.js')}}" type="text/javascript"></script>
 <script>
-    $(document).ready(function () {
-        function toggleBlogImageDescription() {
-            if ($('input[name="blog_external_url_checkbox"]').is(':checked')) {
-                $('#blog_image_description_area').hide();
+     $(document).ready(function () {
+        $('input[name="blog_external_url_checkbox"]').change(function () {
+            if ($(this).is(':checked')) {
                 $('#blog_external_url_area').show();
             } else {
-                $('#blog_image_description_area').show();
                 $('#blog_external_url_area').hide();
             }
-        }
-        toggleBlogImageDescription();
-        $('input[name="blog_external_url_checkbox"]').on('change', function () {
-            toggleBlogImageDescription();
         });
     });
 </script>

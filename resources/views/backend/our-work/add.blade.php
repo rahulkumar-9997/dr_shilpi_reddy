@@ -38,7 +38,7 @@
                             <form action="{{ route('manage-our-work.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Our Work Heading Name</label>
                                             <div class="controls">
@@ -49,7 +49,38 @@
                                             @endif
                                         </div>
                                     </div>
-                                    
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Meta Title</label>
+                                            <div class="controls">
+                                                <input type="text"
+                                                    class="form-control"
+                                                    name="meta_title"
+                                                    value="{{ old('meta_title') }}">
+                                            </div>
+                                            @if($errors->has('meta_title'))
+                                                <div class="text-danger">
+                                                    {{ $errors->first('meta_title') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label class="form-label">Meta Description</label>
+                                            <div class="controls">
+                                                <textarea class="form-control"
+                                                name="meta_description"
+                                                rows="4">{{ old('meta_description') }}</textarea>
+                                            </div>
+                                            @if($errors->has('meta_description'))
+                                                <div class="text-danger">
+                                                    {{ $errors->first('meta_description') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>                                    
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-label" for="field-1">Our Work Content</label>

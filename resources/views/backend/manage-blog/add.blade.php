@@ -79,6 +79,8 @@
                                             @endif
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Description *</label>
@@ -90,6 +92,8 @@
                                             @endif
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label class="form-label">Blog Intro Image</label>
@@ -110,7 +114,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
                                     <div class="col-lg-4" id="blog_external_url_area" style="{{ old('blog_external_url_checkbox') ? '' : 'display: none;' }}">
                                         <div class="form-group">
                                             <label class="form-label">Blog External URL *</label>
@@ -122,61 +125,62 @@
                                             @endif
                                         </div>
                                     </div>
-                                    
-                                    <div class="row"> 
-                                        <div class="col-lg-12" id="blog_image_description_area">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label class="form-label">Blog Image (Select Multiple Image (Limit 20 images))</label>
-                                                    <div class="controls">
-                                                        <input type="file" class="form-control" name="blog_image[]" multiple>
-                                                    </div>
-                                                    @if($errors->has('blog_image'))
-                                                    <div class="text-danger">{{ $errors->first('blog_image') }}</div>
-                                                    @endif
+                                </div>
+                                <div class="row"> 
+                                    <div class="col-lg-12" id="blog_image_description_area">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-label">Blog Image (Select Multiple Image (Limit 20 images))</label>
+                                                <div class="controls">
+                                                    <input type="file" class="form-control" name="blog_image[]" multiple>
                                                 </div>
+                                                @if($errors->has('blog_image'))
+                                                <div class="text-danger">{{ $errors->first('blog_image') }}</div>
+                                                @endif
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Meta Title</label>
-                                                    <div class="controls">
-                                                        <input type="text" class="form-control form-control" name="meta_title" value="{{ old('meta_title') }}">
-                                                    </div>
-                                                    @if($errors->has('meta_title'))
-                                                    <div class="text-danger">{{ $errors->first('meta_title') }}</div>
-                                                    @endif
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Meta Title</label>
+                                                <div class="controls">
+                                                    <input type="text" class="form-control form-control" name="meta_title" value="{{ old('meta_title') }}">
                                                 </div>
+                                                @if($errors->has('meta_title'))
+                                                <div class="text-danger">{{ $errors->first('meta_title') }}</div>
+                                                @endif
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label class="form-label">Meta Description</label>
-                                                    <div class="controls">
-                                                        <input type="text" class="form-control form-control" name="meta_description" value="{{ old('meta_description') }}">
-                                                    </div>
-                                                    @if($errors->has('meta_description'))
-                                                    <div class="text-danger">{{ $errors->first('meta_description') }}</div>
-                                                    @endif
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label">Meta Description</label>
+                                                <div class="controls">
+                                                    <input type="text" class="form-control form-control" name="meta_description" value="{{ old('meta_description') }}">
                                                 </div>
+                                                @if($errors->has('meta_description'))
+                                                <div class="text-danger">{{ $errors->first('meta_description') }}</div>
+                                                @endif
                                             </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label class="form-label">Blog Description</label>
-                                                    <div class="controls">
-                                                        <textarea class="ckeditor4" placeholder="Enter text ..." name="blog_description">{{ old('blog_description') }}</textarea>
-                                                    </div>
-                                                    @if($errors->has('blog_description'))
-                                                    <div class="text-danger">{{ $errors->first('blog_description') }}</div>
-                                                    @endif
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="form-label">Blog Description</label>
+                                                <div class="controls">
+                                                    <textarea class="ckeditor4" placeholder="Enter text ..." name="blog_description">{{ old('blog_description') }}</textarea>
                                                 </div>
+                                                @if($errors->has('blog_description'))
+                                                <div class="text-danger">{{ $errors->first('blog_description') }}</div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <div class="controls">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        <div class="form-group">
+                                            <div class="controls">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
                             </form>

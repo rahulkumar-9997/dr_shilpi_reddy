@@ -2,8 +2,8 @@
 use App\Models\OurWorkImage;
 @endphp
 @extends('frontend.layouts.master')
-@section('title', $our_work->heading_name . ' - Dr. K. Shilpireddy')
-@section('description', substr($our_work->our_work_content, 0, 70))
+@section('title', $our_work->meta_title ? $our_work->meta_title : $our_work->heading_name . ' - Dr. K. Shilpireddy')
+@section('description', $our_work->meta_description ? $our_work->meta_description : substr($our_work->our_work_content, 0, 70))
 @section('keywords', 'Cuddles Baby Shower, Womens Health Conclave, Womens wings (RERF) Brahma Kumaris, photo')
 
 @section('main-content')

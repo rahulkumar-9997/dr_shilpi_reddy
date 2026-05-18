@@ -51,7 +51,7 @@ WOW MOM, Time Bound Lab Diagnostics, Nutrition support, Prenatal Yoga, Normal De
                             <div class="post-item-wrap position-relative">
                                 <div class="post-item-description">
                                     <div class=" padding-b10 ibu_care_main">
-                                        <h2>Complete Maternal Health Care for Expecting Mothers</h2>
+                                        <h1>Complete Maternal Health Care for Expecting Mothers</h1>
                                     </div>
                                     <p>
                                     Wow Mom is for those women who are expecting a baby, where they are given holistic support for their mental, physical, emotional, and mental well-being.

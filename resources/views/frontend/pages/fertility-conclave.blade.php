@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('title','Natural Fertility Conclave')
-@section('description', 'Natural Fertility Conclave')
+@section('title','Natural Fertility Conclave by Dr K Shilpi Reddy')
+@section('description', 'Join India’s fertility conclave focused on natural conception, expert guidance, reproductive wellness, and holistic fertility care solutions.')
 @section('keywords', 'DR. Shilpi reddy, The Education, Work experiences, photo,')
 
 @section('main-content')
@@ -117,9 +117,9 @@
                             <h6>
                                 Meet and Interaction with the
                             </h6>
-                            <h1>
+                            <h2>
                                 India’s Top Fertility Specialists
-                            </h1>
+                            </h2>
                         </div>
                     </div>
                 </div>
