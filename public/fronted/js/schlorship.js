@@ -43,7 +43,7 @@ $(document).ready(function () {
                         }
                     }
                 });
-                                
+                
             },
             error: function (data) {
                 data = data.responseJSON;

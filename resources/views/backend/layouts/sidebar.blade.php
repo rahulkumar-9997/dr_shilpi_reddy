@@ -151,22 +151,28 @@
                </li>
             </ul>
          </li>
+         <li class="{{ request()->is('service-categories*') || request()->is('manage-services*') ? 'open' : '' }}">
+            <a href="javascript:;">
+               <i class="fa fa-cogs"></i>
+               <span class="title">Manage Services</span>
+            </a>
+
+            <ul class="sub-menu">
+               <li class="{{ request()->is('service-categories*') ? 'active' : '' }}">
+                     <a href="{{ route('service-categories.index') }}">
+                        Service Categories
+                     </a>
+               </li>
+
+               <li class="{{ request()->is('manage-services*') ? 'active' : '' }}">
+                     <a href="{{ route('manage-services.index') }}">
+                        Services
+                     </a>
+               </li>
+            </ul>
+         </li>
       </ul>
    </div>
-   <div class="project-info">
-      <div class="block1">
-         <div class="data">
-         <div class="clock">
-            <div id="Date"></div>
-            <ul>
-               <li id="hours"></li>
-               <li id="point">:</li>
-               <li id="min"></li>
-               <li id="point">:</li>
-               <li id="sec"></li>
-            </ul>
-         </div>
-      </div>
-   </div>
+   
    </div>
 </div>

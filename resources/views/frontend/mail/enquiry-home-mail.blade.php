@@ -1,75 +1,64 @@
+```html
 <!DOCTYPE html>
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="x-apple-disable-message-reformatting">
-    <title></title>
-    <style>
-        table,
-        td,
-        div,
-        h1,
-        p {
-            font-weight: 500;
-            font-family: Arial, sans-serif;
-        }
-        .btn {margin: 10px 0px;
-            border-radius: 4px;
-            text-decoration: none;
-            color: #fff !important;
-            height: 46px;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            background-image: linear-gradient(to right top, #021d68, #052579, #072d8b, #09369d, #093fb0) !important;
-        }
-        .btn:hover {
-            text-decoration: none;
-            opacity: .8;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Enquiry</title>
 </head>
-<body style="margin:0;padding:0;">
-    <table role="presentation"
-        style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
-        <tr>
-            <td align="center" style="padding:0;">
-                <table role="presentation"
-                    style="width:100%;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
-                    <tr style="border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;">
-                        <td align="left" style="padding:10px 25px;background:#fff; display: flex; align-items: center;">
-                             <span style="font-weight: bold; padding-top: 10px;"> Book An Appointment With Dr. K. Shilpi Reddy </span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="padding:36px 30px 42px 30px;">
-                            <table role="presentation"
-                                style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
-                                <tr>
-                                    <th>Name</th>
-                                    <td>{{ $data['name'] }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Email</th>
-                                    <td>{{ $data['email'] }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Mobile Number</th>
-                                    <td>{{ $data['mobile_number'] }}</td>
-                                </tr>
-                                <tr>
-                                    <th>Message</th>
-                                    <td>{{ $data['message'] }}</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+
+<body style="margin:0;padding:0;background:#f4f6f9;font-family:Arial,Helvetica,sans-serif;">
+
+    <div style="max-width:650px;margin:40px auto;background:#ffffff;border-radius:10px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.08);">
+        <div style="background:#D20048;padding:15px 30px;color:#fff;">
+            <h2 style="margin:0;font-size:22px;">
+                New Appointment Enquiry
+            </h2>
+            <p style="margin:8px 0 0;font-size:14px;color:#dfe7ff;">
+                Dr. K. Shilpi Reddy
+            </p>
+        </div>
+        <div style="padding:35px 30px;">
+            <p style="margin-top:0;color:#555;font-size:15px;">
+                You have received a new appointment request with the following details:
+            </p>
+            <div style="margin-bottom:20px;">
+                <p style="margin:0;color:#999;font-size:13px;">Name</p>
+                <p style="margin:5px 0 0;font-size:16px;color:#222;">
+                    {{ $data['name'] }}
+                </p>
+            </div>
+            <div style="margin-bottom:20px;">
+                <p style="margin:0;color:#999;font-size:13px;">Email Address</p>
+                <p style="margin:5px 0 0;font-size:16px;color:#222;">
+                    {{ $data['email'] }}
+                </p>
+            </div>
+            <div style="margin-bottom:20px;">
+                <p style="margin:0;color:#999;font-size:13px;">Mobile Number</p>
+                <p style="margin:5px 0 0;font-size:16px;color:#222;">
+                    {{ $data['mobile_number'] }}
+                </p>
+            </div>
+
+            @if(!empty($data['message']))
+            <div style="margin-bottom:20px;">
+                <p style="margin:0;color:#999;font-size:13px;">Message</p>
+                <p style="margin:5px 0 0;font-size:16px;color:#222;line-height:1.7;">
+                    {{ $data['message'] }}
+                </p>
+            </div>
+            @endif
+
+        </div>
+        <div style="background:#f8f9fb;padding:20px 30px;border-top:1px solid #eee;">
+            <p style="margin:0;color:#777;font-size:13px;">
+                This email was generated automatically from the website enquiry form.
+            </p>
+        </div>
+    </div>
 </body>
+
 </html>
+```

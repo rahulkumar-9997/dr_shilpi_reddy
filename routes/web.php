@@ -22,18 +22,9 @@ use App\Http\Controllers\Backend\FoundationCategoryController;
 use App\Http\Controllers\Backend\FoundationImageController;
 use App\Http\Controllers\Backend\SchlorshipController;
 use App\Http\Controllers\Backend\CacheController;
+use App\Http\Controllers\Backend\ServiceCategoryController;
+use App\Http\Controllers\Backend\ServiceController;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
@@ -132,6 +123,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('foundation-image/sort', [FoundationImageController::class, 'sort'])->name('foundation-image.sort');
     Route::post('foundation-image/rotate/{id}', [FoundationImageController::class, 'ImageRotate'])->name('foundation-image.rotate');
     Route::resource('schlorship-image', SchlorshipController::class);
+    Route::resource('service-categories', ServiceCategoryController::class);
+    Route::resource('manage-services', ServiceController::class);
     
 });
 

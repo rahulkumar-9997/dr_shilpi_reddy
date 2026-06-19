@@ -1,9 +1,6 @@
 @extends('frontend.layouts.master')
 @section('title','Dr. K. Shilpi Reddy: Gynaecologist in Hyderabad')
 @section('description', 'Dr. K. Shilpi Reddy – Trusted Gynaecologist in Hyderabad for expert care in women\'s health, pregnancy, and fertility. Book your appointment today.')
-
-<!-- @section('keywords', 'sharing, sharing text, text, sharing photo, photo,') -->
-
 @section('main-content')
 <!-- header-and-banner-section -->
 <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">
@@ -17,68 +14,67 @@
 </div>
 <div class="w-100 float-left header-and-banner-con banner-overlay-img">
     <div class="container">
-        <div class="overlay-img banner-section">
+        <div class="banner-section">
             <!-- banner-start -->
             @include('frontend.layouts.banner-top')
             <!-- banner-end -->
         </div>
     </div>
 </div>
-<section>
-    <div class="w-100 float-left feature-box-con text-center four_column">
-        <div class="container">
-            <div class="row bg-white">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-6  pl-0 pr-0">
-                    <a href="https://mrsmomevent.com/" target="_blank">
-                        <div class="feature-box-item ">
-                            <figure>
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/mr_mom.webp')}}" alt="feature-box-icon" class="img-fluid effect lazyload" loading="lazy" data-src="{{asset('fronted/shilpi-img/fav-icon/mr_mom.webp')}}" fetchpriority="high">
-                            </figure>
-                            <h5>Mrs. Mom</h5>
-                            <p class="mb-0">Wellness & education in pregnancy & infant care.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 pl-0 pr-0 col-6">
-                    <a href="{{url('ibu-care') }}">
-                        <div class="feature-box-item ">
-                            <figure>
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/ibu_care.webp')}}" alt="feature-box-icon" class="img-fluid effect" loading="lazy" fetchpriority="high">
-                                <!-- <img src="{{asset('fronted/shilpi-img/fav-icon/ibu_care.png')}}" alt="feature-box-icon" class="img-fluid effect second_img"> -->
-                            </figure>
-                            <h5>IBU care</h5>
-                            <p class="mb-0">Complete Maternal Health Care.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 pl-0 pr-0 col-6">
-                    <a href="{{url('our-foundation') }}">
-                        <div class="feature-box-item our_foundation_div two_images">
-                            <figure>
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/our_foundation.webp')}}" alt="feature-box-icon" class="img-fluid first_img" loading="lazy" fetchpriority="high">
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/hover_foundation.webp')}}" alt="feature-box-icon" class="img-fluid second_img" loading="lazy" fetchpriority="high">
-                            </figure>
-                            <h5>Our Foundation</h5>
-                            <p class="mb-0">Dr. K. Shilpi Reddy Foundation: Women’s Empowerment & Healthcare.</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 pl-0 pr-0 col-6">
-                    <a href="{{url('blog') }}">
-                        <div class="feature-box-item ">
-                            <figure>
-                                <img src="{{asset('fronted/shilpi-img/fav-icon/blog.webp')}}" alt="feature-box-icon" class="img-fluid effect" loading="lazy" fetchpriority="high">
-                            </figure>
-                            <h5>Blog</h5>
-                            <p class="mb-0">Discover expert insights and advice from Dr. K. Shilpi Reddy.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
 
+<div class="w-100 float-left feature-box-con text-center four_column">
+    <div class="container">
+        <div class="row bg-white">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-6  pl-0 pr-0">
+                <a href="https://mrsmomevent.com/" target="_blank">
+                    <div class="feature-box-item ">
+                        <figure>
+                            <img src="{{asset('fronted/shilpi-img/fav-icon/mr_mom.webp')}}" alt="feature-box-icon" class="img-fluid effect lazyload" loading="lazy" data-src="{{asset('fronted/shilpi-img/fav-icon/mr_mom.webp')}}" fetchpriority="high">
+                        </figure>
+                        <h5>Mrs. Mom</h5>
+                        <p class="mb-0">Wellness & education in pregnancy & infant care.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 pl-0 pr-0 col-6">
+                <a href="{{url('ibu-care') }}">
+                    <div class="feature-box-item ">
+                        <figure>
+                            <img src="{{asset('fronted/shilpi-img/fav-icon/ibu_care.webp')}}" alt="feature-box-icon" class="img-fluid effect" loading="lazy" fetchpriority="high">
+                            <!-- <img src="{{asset('fronted/shilpi-img/fav-icon/ibu_care.png')}}" alt="feature-box-icon" class="img-fluid effect second_img"> -->
+                        </figure>
+                        <h5>IBU care</h5>
+                        <p class="mb-0">Complete Maternal Health Care.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 pl-0 pr-0 col-6">
+                <a href="{{url('our-foundation') }}">
+                    <div class="feature-box-item our_foundation_div two_images">
+                        <figure>
+                            <img src="{{asset('fronted/shilpi-img/fav-icon/our_foundation.webp')}}" alt="feature-box-icon" class="img-fluid first_img" loading="lazy" fetchpriority="high">
+                            <img src="{{asset('fronted/shilpi-img/fav-icon/hover_foundation.webp')}}" alt="feature-box-icon" class="img-fluid second_img" loading="lazy" fetchpriority="high">
+                        </figure>
+                        <h5>Our Foundation</h5>
+                        <p class="mb-0">Dr. K. Shilpi Reddy Foundation: Women’s Empowerment & Healthcare.</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 pl-0 pr-0 col-6">
+                <a href="{{url('blog') }}">
+                    <div class="feature-box-item ">
+                        <figure>
+                            <img src="{{asset('fronted/shilpi-img/fav-icon/blog.webp')}}" alt="feature-box-icon" class="img-fluid effect" loading="lazy" fetchpriority="high">
+                        </figure>
+                        <h5>Blog</h5>
+                        <p class="mb-0">Discover expert insights and advice from Dr. K. Shilpi Reddy.</p>
+                    </div>
+                </a>
+            </div>
         </div>
+
     </div>
-</section>
+</div>
 <section>
     <div class="w-100 float-left quality-system-con video-pb-20 about-home-p">
         <div class="container">
@@ -257,58 +253,17 @@
             <div class="row">
                 <div class="col-lg-6 order-xl-0 order-lg-0 order-2">
                     <div class="form-left-con position-relative text-center">
-
                         <figure class="mb-0">
                             <img src="{{asset('fronted/shilpi-img/Appointment.webp')}}" alt="form-left-img" class="img-fluid human-img form-left-img" loading="lazy">
                         </figure>
-
                     </div>
                 </div>
                 <div class="col-lg-6 d-flex align-items-center">
-                    <form action="{{route('home-enquiry.store')}}" class="contact-form" method="post">
-                        @csrf
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="text-center">
-                                    <h2>Book An Appointment With <br>Dr. K. Shilpi Reddy</h2>
-                                    <!--<p>Find Solutions to Your obstetrician & Gynaecology Problems
-                                    </p>-->
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Name:" name="name" id="name">
-                                    @if($errors->has('name'))
-                                    <div class="text-danger">{{ $errors->first('name') }}</div>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="form-group">
-                                    <input name="email" type="email" class="form-control" placeholder="Email:">
-                                    @if($errors->has('email'))
-                                    <div class="text-danger">{{ $errors->first('email') }}</div>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-md-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Mobile No.:" name="mobile_number" id="name">
-                                    @if($errors->has('mobile_number'))
-                                    <div class="text-danger">{{ $errors->first('mobile_number') }}</div>
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="textarea form-group W-100">
-                                    <textarea class="form-control " placeholder="Message:" rows="3" name="message" id="comments"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn  appointment-btn">Make an appointment</button>
-                    </form>
+                    @include('frontend.pages.common.enquiry-form', [
+                        'buttonText' => 'Make an Appointment',
+                        'formType' => 'homePage',
+                        'pageURL' => request()->fullUrl()
+                    ])
                 </div>
             </div>
         </div>

@@ -176,3 +176,138 @@ $(document).ready(function () {
     enableDesktopDropdownHover();
     $(window).resize(enableDesktopDropdownHover);
 });
+function showNotificationAll(type, title = '', message = '') {
+    let bgColor = '#0d6efd';
+    switch (type) {
+        case 'success':
+            bgColor = '#198754';
+            break;
+        case 'error':
+            bgColor = '#dc3545';
+            break;
+        case 'warning':
+            bgColor = '#ffc107';
+            break;
+
+        case 'info':
+            bgColor = '#0dcaf0';
+            break;
+    }
+    let toast = `
+        <div class="custom-toast">
+            ${title ? `<strong>${title}</strong><br>` : ''}
+            ${message}
+        </div>
+    `;
+    $('body').append(toast);
+    let $toast = $('.custom-toast').last();
+    $toast.css({
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        background: bgColor,
+        color: '#fff',
+        padding: '15px 20px',
+        borderRadius: '8px',
+        zIndex: 99999,
+        boxShadow: '0 4px 10px rgba(0,0,0,.2)',
+        minWidth: '250px'
+    });
+    setTimeout(function () {
+        $toast.fadeOut(300, function () {
+            $(this).remove();
+        });
+    }, 3000);
+}
+/**book Modal open js */
+function openEnquiryFormModal() {
+    const modal = document.getElementById('enquiryFormModal');
+    if (modal) {
+        modal.classList.remove('tw-hidden');
+        modal.classList.add('tw-flex');
+        document.body.style.overflow = 'hidden';
+    }
+}
+function closeEnquiryFormModal() {
+    const modal = document.getElementById('enquiryFormModal');
+    if (modal) {
+        modal.classList.add('tw-hidden');
+        modal.classList.remove('tw-flex');
+        document.body.style.overflow = '';
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('enquiryFormModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEnquiryFormModal();
+            }
+        });
+    }
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeEnquiryFormModal();
+    }
+});
+/**Modal open js */
+$(document).ready(function(){
+    $(document).off('submit', '.enquiry-form').on('submit', '.enquiry-form', function (event) {
+        event.preventDefault();
+        var form = $(this);
+        var submitButton = form.find('button[type="submit"]');
+        $('.form-control').removeClass('is-invalid');
+        $('.invalid-feedback').remove();
+        submitButton.prop('disabled', true).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Submitting...');
+        var formType = form.find('input[name="form_type"]').val();
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: form.attr('action'),
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                submitButton.prop('disabled', false).html('Make an appointment');                    
+                if (response.status === 'success') {
+                    showNotificationAll("success", response.message);
+                    form[0].reset();
+                    if (formType === 'modalForm') {
+                        setTimeout(function() {
+                            closeEnquiryFormModal();
+                        }, 2000);
+                    }                    
+                    
+                }
+            },
+            error: function(xhr) {
+                submitButton.prop('disabled', false).html('Make an appointment');                
+                var errors = xhr.responseJSON?.errors;
+                if (errors) {
+                    $.each(errors, function(key, value) {
+                        var inputField = form.find('[name="' + key + '"]');
+                        inputField.addClass('is-invalid');
+                        inputField.closest('div').find('.invalid-feedback').html(value[0]);
+                    });
+                    var firstError = form.find('.is-invalid').first();
+                    if (firstError.length) {
+                        if (formType === 'modalForm') {
+                            var modalBody = form.closest('.tw-max-h-\\[90vh\\]');
+                            if (modalBody.length) {
+                                modalBody.scrollTop(firstError.position().top - 100);
+                            }
+                        } else {
+                            $('html, body').animate({
+                                scrollTop: firstError.offset().top - 150
+                            }, 500);
+                        }
+                    }
+                } else {
+                    showNotificationAll("warning", "An error occurred! Please try again");
+                }
+            }
+        });
+    });
+ }); 

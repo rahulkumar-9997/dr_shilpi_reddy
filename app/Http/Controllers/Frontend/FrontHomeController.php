@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Log;
 use App\Mail\EnquiryMail;
 use App\Models\SchlorshipImages;
 use Illuminate\Support\Facades\DB; 
-use Exception;
+use Illuminate\Support\Facades\Validator;
+
 class FrontHomeController extends Controller
 {
     public function home(){
@@ -31,13 +32,13 @@ class FrontHomeController extends Controller
 
         $data['feature_logo_list'] = FeatureLogo::orderBy('id','DESC')->get();
         $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id', 'desc')->limit(3)->get();
-        DB::disconnect();
 	    return view('frontend.index', compact('data'));
     }
     
     public function aboutUs(){
 	    return view('frontend.pages.about-us');
     }
+    
     public function workPage(){
         $data['our_work_list'] = OurWork::orderBy('id','DESC')->get(); 
 		DB::disconnect();
@@ -125,32 +126,40 @@ class FrontHomeController extends Controller
 	    
     }
 
-    public function homeEnquirySubmit(Request $request){
-        
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email',
+    public function homeEnquirySubmit(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name'          => 'required',
+            'email'         => 'required|email',
             'mobile_number' => 'required|digits:10',
-            
         ]);
-        
-        try {
-            $data = [
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'mobile_number' => $request->input('mobile_number'),
-                'message' => $request->input('message'),
-            ];
-            
-            Mail::to('drkshilpireddyfoundation@gmail.com')->send(new EnquiryMail($data));
-            Mail::to('rahulkumarmaurya464@gmail.com')->send(new EnquiryMail($data));
-        } catch (Exception $e) {
-            Log::error('Error sending email: ' . $e->getMessage());
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
         }
-        if ($request->input('contact_us_page')){
-            return redirect('contact-us')->with('success','Enquiry send successfully, Our team contact you shortly.');
-        }else{
-            return redirect('/#contact-form')->with('success','Enquiry send successfully, Our team contact you shortly.');
+        try {
+
+            $data = [
+                'name'          => $request->name,
+                'email'         => $request->email,
+                'mobile_number' => $request->mobile_number,
+                'message'       => $request->message,
+            ];
+            Mail::to('drkshilpireddyfoundation@gmail.com')->send(new EnquiryMail($data));
+            //Mail::to('rahulkumarmaurya464@gmail.com')->send(new EnquiryMail($data));
+            return response()->json([
+                'status'  => 'success',
+                'message' => 'Enquiry sent successfully. Our team will contact you shortly.'
+            ]);
+
+        } catch (\Exception $e) {
+            Log::error('Error sending email: ' . $e->getMessage());
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Something went wrong. Please try again later.'
+            ], 500);
         }
     }
 

@@ -30,8 +30,6 @@
             </div>
         </div>
     </div>
-
-
     
     <section>
         <div class="w-100 float-left Schedule-con">
@@ -86,47 +84,10 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="Schedule-box-item position-relative w-100 float-left">
-                            <form class="contact-form-plan-box" action="{{route('home-enquiry.store')}}" method="POST">
-                                @csrf
-                                <input type="hidden" name="contact_us_page" value="contact_us_page">
-                                <div class="form-row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">    
-                                        <input type="text" class="form-control" placeholder="Your Name:" name="name" id="name"> 
-                                        @if($errors->has('name'))
-                                            <div class="text-danger">{{ $errors->first('name') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-lg-6 col-md-6">
-                                    <div class="form-group">    
-                                        <input type="email" class="form-control" placeholder="Your Email:" name="email" id="email"> 
-                                        @if($errors->has('email'))
-                                            <div class="text-danger">{{ $errors->first('email') }}</div>
-                                        @endif
-                                    </div>
-                                </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-lg-12 col-lg-12 col-md-12">
-                                        <div class="form-group">    
-                                            <input type="text" class="form-control" placeholder="Phone:" name="mobile_number" id="phone"> 
-                                            @if($errors->has('mobile_number'))
-                                                <div class="text-danger">{{ $errors->first('mobile_number') }}</div>
-                                            @endif
-                                        </div>
-                                    </div>
-                                
-                                </div>
-                                <div>
-                                <div class="textarea form-group">    
-                                    <textarea class="form-control" placeholder="Message:" rows="3" name="message" id="comments"></textarea>
-                                </div>
-                                </div>
-                                <div class="submitform-button">
-                                <button type="submit" id="submit" class="submitform-btn appointment-btn ml-auto mr-auto d-block">Send Message</button>
-                                </div>
-                            </form>
+                             @include('frontend.pages.common.enquiry-form', [
+                                'buttonText' => 'Send Message',
+                                'formType' => 'contactUsPage'
+                            ])
                         </div>
                     </div>
                     <!--<div class="col-lg-6 col-md-6">

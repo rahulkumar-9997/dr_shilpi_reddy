@@ -8,8 +8,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <link rel="canonical" href="{{ url()->current() }}">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous"/>
+<link rel="stylesheet" href="{{ asset('fronted/css/app.css') }}?v={{ filemtime(public_path('fronted/css/app.css')) }}">
 <link rel="stylesheet" href="{{asset('fronted/css/animate.css')}}">
-<link rel="stylesheet" href="{{asset('fronted/bootstarp/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('fronted/bootstarp/bootstrap.min.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
 <link rel="stylesheet" href="{{asset('fronted/css/super-classes.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/css/style.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
 <link rel="stylesheet" href="{{asset('fronted/css/mobile.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
@@ -17,8 +18,6 @@
 <link rel="stylesheet" href="{{asset('fronted/css/owl.carousel.min.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/css/owl.theme.default.min.css')}}">
 <link rel="stylesheet" href="{{asset('fronted/css/jquery.fancybox.min.css')}}">
-
-
 <!-- work -->
 <link rel="stylesheet" href="{{asset('fronted/css/super-classes.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
 <link rel="stylesheet" href="{{asset('fronted/css/custom-style.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}">
@@ -32,6 +31,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-5SSBF16EJK');
 </script>
+@stack('styles')
