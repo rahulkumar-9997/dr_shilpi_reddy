@@ -12,7 +12,7 @@
         </div>
     </div>
 </div>
-<div class="w-100 float-left header-and-banner-con banner-overlay-img">
+<div class="w-100 float-left header-and-banner-con banner-overlay-img-1">
     <div class="container">
         <div class="banner-section">
             <!-- banner-start -->
