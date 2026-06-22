@@ -151,6 +151,9 @@ Route::get('terms-of-use', [FrontHomeController::class, 'termsOfUse'])->name('te
 Route::get('disclaimer', [FrontHomeController::class, 'disclaimer'])->name('disclaimer');
 Route::get('donation', [FrontHomeController::class, 'donation'])->name('donation');
 Route::get('fertility-conclave', [FrontHomeController::class, 'fertilityConclave'])->name('fertility-conclave');
+Route::get('services', [FrontHomeController::class, 'servicesIndex'])->name('services.index');
+Route::get('services/{slug}', [FrontHomeController::class, 'servicesDetails'])->name('service.details');
+
 Route::get('/resize-image/{filename}', function ($filename) {
     $width = request()->query('width', 800); 
     $height = request()->query('height', 600); 

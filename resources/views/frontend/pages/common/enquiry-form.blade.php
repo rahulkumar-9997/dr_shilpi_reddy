@@ -22,7 +22,7 @@
         @endif
         <div class="col-lg-6 col-md-6">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Name:" name="name" id="name">
+                <input type="text" class="form-control" placeholder="Enter your name" name="name" id="name">
                 @if($errors->has('name'))
                 <div class="text-danger">{{ $errors->first('name') }}</div>
                 @endif
@@ -30,7 +30,7 @@
         </div>
         <div class="col-lg-6 col-md-6">
             <div class="form-group">
-                <input name="email" type="email" id="email" class="form-control" placeholder="example.com">
+                <input name="email" type="email" id="email" class="form-control" placeholder="Enter your email address">
                 @if($errors->has('email'))
                 <div class="text-danger">{{ $errors->first('email') }}</div>
                 @endif
@@ -38,7 +38,7 @@
         </div>
         <div class="col-lg-12 col-md-12">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Mobile No.:" name="mobile_number" id="mobile_number">
+                <input type="text" class="form-control" placeholder="Enter your mobile no." name="mobile_number" id="mobile_number">
                 @if($errors->has('mobile_number'))
                 <div class="text-danger">{{ $errors->first('mobile_number') }}</div>
                 @endif
@@ -48,7 +48,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="textarea form-group W-100">
-                <textarea class="form-control " placeholder="Message:" rows="2" name="message" id="message"></textarea>
+                <textarea class="form-control " placeholder="Enter message" rows="2" name="message" id="message"></textarea>
             </div>
         </div>
     </div>

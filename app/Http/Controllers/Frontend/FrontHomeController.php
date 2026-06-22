@@ -182,7 +182,13 @@ class FrontHomeController extends Controller
         return view('frontend.pages.fertility-conclave'); 
     }
     
-    
+    public function servicesIndex(){
+	    return view('frontend.pages.services.index');
+    }
+
+    public function servicesDetails(){
+	    return view('frontend.pages.services.details');
+    }
     
     
 }
