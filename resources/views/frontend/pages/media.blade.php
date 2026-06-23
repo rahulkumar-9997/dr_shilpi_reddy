@@ -64,11 +64,12 @@
                             </article>
                         </div>
                     @endforeach
-                    
                     </div>
-                    <div class="pagination media-pagination col-xl-12">
-                        {!! $data['media_list']->render() !!}                        
-                    </div>
+                    @if ($data['media_list']->hasPages())
+                        <div class="my-pagination mt-2 mb-2">
+                            {{ $data['media_list']->links('vendor.pagination.bootstrap-4') }}
+                        </div>
+                    @endif
                 </div>
             </div>
             

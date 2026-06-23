@@ -28,9 +28,7 @@ use App\Models\BlogImages;
 		        </section>
             </div>
         </div>
-    </div>
-
-    
+    </div>    
     <section class=" blog-posts w-100 float-left blog_list blog-list-section">
         <div class="container">
             <div class="row">
@@ -71,51 +69,14 @@ use App\Models\BlogImages;
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @endforeach                        
+                    @endif                    
+                    </div>
+                    @if ($data['blog_list']->hasPages())
+                        <div class="my-pagination mt-2 mb-2">
+                            {{ $data['blog_list']->links('vendor.pagination.bootstrap-4') }}
+                        </div>
                     @endif
-                    <!--Blog code static-->
-                    <!--<div class="col-md-4">
-                        <div class="float-left w-100 post-item border mb-4 blog_list_height">
-                            <div class="post-item-wrap position-relative">
-                                <div class="post-image">
-                                    <a href="https://www.kimscuddles.com/blog/obesity-and-pregnancy">
-                                        <img alt="Obesity and Pregnancy" src="{{asset('fronted/shilpi-img/blog/obesity-and-pregnancy.png')}}" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="post-item-description">
-                                    <h2>
-                                        <a href="https://www.kimscuddles.com/blog/obesity-and-pregnancy">Obesity and Pregnancy</a>
-                                    </h2>
-                                <p>
-                                {!! strip_tags(substr('Obesity is when your BMI is 30 or higher. To calculate your body mass index, divide your weight in kilograms by your height in meters squared.', 0, 80)) !!}
-                                </p>
-                                <a href="https://www.kimscuddles.com/blog/obesity-and-pregnancy" class="item-link" >Read More <i class="fa fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="float-left w-100 post-item border mb-4 blog_list_height">
-                            <div class="post-item-wrap position-relative">
-                                <div class="post-image">
-                                    <a href="https://www.drkshilpireddy.com/how-to-get-the-right-nutrients/">
-                                        <img alt="Bleeding in Pregnancy" src="{{asset('fronted/shilpi-img/blog/bleeding-in-pregnancy.png')}}" loading="lazy">
-                                    </a>
-                                </div>
-                                <div class="post-item-description">
-                                    <h2>
-                                        <a href="https://www.drkshilpireddy.com/how-to-get-the-right-nutrients/">Bleeding in Pregnancy</a>
-                                    </h2>
-                                <p>
-                                {!! strip_tags(substr('Bleeding during pregnancy is relatively common, but it can be a dangerous sign.', 0, 80)) !!}
-                                </p>
-                                <a href="https://www.drkshilpireddy.com/how-to-get-the-right-nutrients/" class="item-link" >Read More <i class="fa fa-arrow-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!--Blog code static-->
-                    </div>
                 </div>
             </div>
         </div>

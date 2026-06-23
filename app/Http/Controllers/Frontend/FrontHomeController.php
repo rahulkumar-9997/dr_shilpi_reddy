@@ -53,13 +53,12 @@ class FrontHomeController extends Controller
     }
 
     public function mediaPage(){
-        //$data['media_list'] = Media::orderBy('sort_order', 'asc')->simplePaginate(20);
-        $data['media_list'] = Media::orderBy('id', 'desc')->simplePaginate(20);
+        $data['media_list'] = Media::orderBy('id', 'desc')->paginate(20);
 		DB::disconnect();
 	    return view('frontend.pages.media', compact('data'));
     }
     public function blogPage(){
-        $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id','DESC')->get();
+        $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id','DESC')->paginate(15);
 		DB::disconnect();
 	    return view('frontend.pages.blog', compact('data'));
     }
