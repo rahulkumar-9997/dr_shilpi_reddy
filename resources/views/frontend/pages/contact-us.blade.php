@@ -6,17 +6,14 @@
 @section('main-content')
     <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">
         <div class="container">
-            <div class="overlay-img">
-                <!-- navbar-start -->
+            <div class="overlay-img10">
                 @include('frontend.layouts.header-menu')
-                <!-- navbar-end -->
-
             </div>
         </div>
     </div>
     <div class="w-100 float-left header-and-banner-con banner-overlay-img breadcrub">
         <div class="container">
-            <div class="overlay-img">
+            <div class="overlay-img10">
                 <section>
                     <div class="w-100 float-left generic-banner-con text-xl-left text-lg-left text-center">
                         <div class="container">

@@ -732,8 +732,9 @@
     .mobile-app-right-con h2,
     .video-pt-20 h2,
     .core-vaule-title h2,
-    .professional-title h2{
-        margin-bottom: 5px;
+    .professional-title h2,
+    .home-some-content h2{
+        margin-bottom: 8px;
         font-size: 28px;;
         line-height: 30px;
     }

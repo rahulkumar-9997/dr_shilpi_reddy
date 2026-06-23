@@ -13,15 +13,11 @@
 
 <div class="w-100 float-left header-and-banner-con-bg banner-overlay-img pa-main-header">
     <div class="container">
-        <div class="overlay-img">
-            <!-- navbar-start -->
+        <div class="overlay-img10">
             @include('frontend.layouts.header-menu')
-            <!-- navbar-end -->
-
         </div>
     </div>
 </div>
-
 <div class="pt-5 donation banner-section w-100 float-left" style="background: linear-gradient(to bottom, #f9f9f9 -18%, #D20048 63%);">
     <div class="container ">
         <div class="row align-items-center">

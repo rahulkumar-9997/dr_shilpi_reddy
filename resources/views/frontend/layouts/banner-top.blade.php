@@ -40,7 +40,7 @@
 					with a vision for Women's Empowerment.
 				</p>
 				<div class="tw-flex tw-flex-wrap tw-gap-2 tw-justify-center lg:tw-justify-start tw-mb-7">
-					@foreach(['MBBS · MS (OB-GYN)', 'KIMS Cuddles, Hyderabad', '15+ Years Experience'] as $b)
+					@foreach(['MBBS · MS (OB-GYN)', 'KIMS Cuddles, Hyderabad', '23+ Years Experience'] as $b)
 					<span class="tw-text-white tw-text-[12px] tw-font-medium tw-px-3 tw-py-1 tw-rounded-full tw-bg-white/15">
 						{{ $b }}
 					</span>

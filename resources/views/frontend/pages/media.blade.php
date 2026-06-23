@@ -67,7 +67,7 @@
                     
                     </div>
                     <div class="pagination media-pagination col-xl-12">
-                        {!! $data['media_list']->render() !!}
+                        {!! $data['media_list']->render() !!}                        
                     </div>
                 </div>
             </div>

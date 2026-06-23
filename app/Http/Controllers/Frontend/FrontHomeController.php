@@ -13,6 +13,7 @@ use App\Models\FoundationCategory;
 use Illuminate\Support\Facades\Log;
 use App\Mail\EnquiryMail;
 use App\Models\SchlorshipImages;
+use App\Models\Service;
 use Illuminate\Support\Facades\DB; 
 use Illuminate\Support\Facades\Validator;
 
@@ -183,11 +184,51 @@ class FrontHomeController extends Controller
     }
     
     public function servicesIndex(){
-	    return view('frontend.pages.services.index');
+        $services = Service::select(
+            'id',
+            'services_category_id',
+            'title',
+            'subtitle',
+            'slug',
+            'short_content',
+            'main_image',
+            'created_at'
+        )
+        ->with([
+            'category:id,title,slug'
+        ])
+        ->latest()
+        ->paginate(20);
+	    return view('frontend.pages.services.index', compact('services'));
     }
 
-    public function servicesDetails(){
-	    return view('frontend.pages.services.details');
+    public function servicesDetails($slug)
+    {
+        $service = Service::select(
+                'id',
+                'services_category_id',
+                'title',
+                'subtitle',
+                'slug',
+                'short_content',
+                'content',
+                'main_image',
+                'details_image',
+                'created_at'
+            )
+            ->with([
+                'category:id,title,slug'
+            ])
+            ->where('slug', $slug)
+            ->firstOrFail();
+
+        $relatedServices = Service::select('id', 'services_category_id', 'title', 'slug', 'short_content', 'main_image')
+        ->where('services_category_id', $service->services_category_id)
+        ->where('id', '!=', $service->id)
+        ->limit(4)
+        ->get();
+
+        return view('frontend.pages.services.details', compact('service', 'relatedServices'));
     }
     
     

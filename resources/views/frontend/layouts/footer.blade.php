@@ -107,6 +107,11 @@
 												</a>
 											</li>
 											<li>
+												<a href="{{route('services.index')}}">
+													<i class="fas fa-caret-right"></i>Services
+												</a>
+											</li>
+											<li>
 												<a href="{{route('contact-us')}}">
 													<i class="fas fa-caret-right"></i>Contact Us
 												</a>
@@ -236,19 +241,19 @@
 	</button>
 </div>
 
-/*this display only mobile screen */
+<!-- this display only mobile screen  -->
 <div class="ksr-bottom-bar tw-fixed tw-bottom-0 tw-left-0 tw-right-0 tw-bg-white tw-flex lg:tw-hidden tw-z-[9990] tw-shadow-[0_-2px_18px_rgba(0,0,0,.12)] tw-border-t tw-border-gray-200">
 	<a href="tel:+919503606049"
-		class="tw-flex-1 tw-flex tw-items-center tw-justify-center tw-gap-1.5 tw-py-3.5 tw-text-sm tw-font-semibold tw-no-underline tw-transition-all tw-text-[#D20048] hover:tw-bg-[rgba(210,0,72,0.05)] tw-border-r tw-border-gray-200">
+		class="tw-flex-1 tw-flex tw-items-center tw-justify-center tw-gap-1.5 tw-py-3.5 tw-text-sm tw-font-semibold tw-no-underline tw-transition-all tw-text-[#D20048] hover:tw-bg-[rgba(210,0,72,0.05)] tw-border-r tw-border-gray-200 hover:tw-text-heading-secondary hover:tw-no-underline">
 		<i class="fas fa-phone-alt tw-text-xs"></i> Call
 	</a>
 	<a href="https://wa.me/919503606049?text={{ urlencode('Hi Dr. Shilpi, I would like to know more about your services.') }}"
-		class="tw-flex-1 tw-flex tw-items-center tw-justify-center tw-gap-1.5 tw-py-3.5 tw-text-sm tw-font-semibold tw-text-green-600 tw-no-underline tw-transition-all hover:tw-bg-green-50 tw-border-r tw-border-gray-200">
+		class="tw-flex-1 tw-flex tw-items-center tw-justify-center tw-gap-1.5 tw-py-3.5 tw-text-sm tw-font-semibold tw-text-green-600 tw-no-underline tw-transition-all hover:tw-bg-green-50 tw-border-r tw-border-gray-200 hover:tw-green-600 hover:tw-no-underline">
 		<i class="fab fa-whatsapp tw-text-base"></i> WhatsApp
 	</a>
 
-	<a href="{{ route('contact-us') }}"
-		class="tw-flex-1 tw-flex tw-items-center tw-justify-center tw-gap-1.5 tw-py-3.5 tw-text-white tw-text-sm tw-font-semibold tw-no-underline tw-transition-all tw-bg-[#D20048] hover:tw-bg-[#AA0E39]">
+	<a href="javascript:void(0);" onclick="openEnquiryFormModal()"
+		class="tw-flex-1 tw-flex tw-items-center tw-justify-center tw-gap-1.5 tw-py-3.5 tw-text-white tw-text-sm tw-font-semibold tw-no-underline tw-transition-all tw-bg-[#D20048] hover:tw-bg-[#AA0E39] hover:tw-text-white hover:tw-no-underline">
 		<i class="fas fa-calendar-check tw-text-xs"></i> Book Now
 	</a>
 </div>

@@ -70,7 +70,7 @@
 							<ul>
 								@foreach($services as $service)
 								<li>
-									<a  href="{{ route('service.details', $service->slug) }}" class="tw-flex tw-items-start tw-gap-2 tw-px-3 tw-py-1.5 tw-rounded-xl tw-text-[17px] tw-no-underline tw-transition-all  tw-text-[#52656d] hover:tw-bg-[rgba(210,0,72,0.05)] hover:tw-text-[#D20048] hover:tw-no-underline">
+									<a  href="{{ route('service.details', $service->slug) }}" class="tw-flex tw-items-start tw-gap-2 tw-px-0.5 tw-py-1.5 tw-rounded-xl tw-text-[17px] tw-no-underline tw-transition-all  tw-text-[#52656d]  hover:tw-text-[#D20048] hover:tw-no-underline">
 										<i class="fas fa-chevron-right tw-text-[10px] tw-mt-[8px] tw-shrink-0 tw-text-[#D20048]"></i>
 										{{ $service->title }}
 									</a>
@@ -106,17 +106,17 @@
 		<button id="ksrClose" aria-label="Close menu" class="tw-w-9 tw-h-9 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-white tw-text-lg tw-border-0 tw-cursor-pointer tw-shrink-0 tw-bg-white/20 hover:tw-bg-white/35 tw-transition-all">✕</button>
 	</div>
 	<div class="tw-flex tw-items-center tw-justify-around tw-py-2 tw-shrink-0tw-bg-[rgba(210,0,72,0.04)] tw-border-b tw-border-[rgba(210,0,72,0.1)]">
-		<a href="tel:+919503606049" class="tw-flex tw-flex-col tw-items-center tw-gap-0.5 tw-text-[11px] tw-font-medium tw-no-underline tw-text-[#D20048] hover:tw-opacity-75 tw-transition-opacity">
+		<a href="tel:+919503606049" class="tw-flex tw-flex-col tw-items-center tw-gap-0.5 tw-text-[12px] tw-font-medium tw-no-underline tw-text-[#D20048] hover:tw-opacity-75 tw-transition-opacity hover:tw-no-underline hover:tw-text-heading-secondary">
 			<span class="tw-w-8 tw-h-8 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mb-0.5 tw-bg-[rgba(210,0,72,0.1)] tw-text-[#D20048]">
 				<i class="fas fa-phone-alt"></i>
 			</span>Call
 		</a>
-		<a href="https://wa.me/919503606049?text={{ urlencode('Hi Dr. Shilpi, I would like to know more about your services.') }}" class="tw-flex tw-flex-col tw-items-center tw-gap-0.5 tw-text-[11px] tw-font-medium tw-no-underline tw-text-green-600 hover:tw-opacity-75 tw-transition-opacity">
+		<a href="https://wa.me/919503606049?text={{ urlencode('Hi Dr. Shilpi, I would like to know more about your services.') }}" class="tw-flex tw-flex-col tw-items-center tw-gap-0.5 tw-text-[12px] tw-font-medium tw-no-underline tw-text-green-600 hover:tw-opacity-75 tw-transition-opacity hover:tw-no-underline hover:tw-text-green-600">
 			<span class="tw-w-8 tw-h-8 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mb-0.5 tw-bg-green-100 tw-text-green-600">
 				<i class="fab fa-whatsapp"></i>
 			</span>WhatsApp
 		</a>
-		<a href="{{ route('contact-us') }}" class="ksr-close-on-click tw-flex tw-flex-col tw-items-center tw-gap-0.5 tw-text-[11px] tw-font-medium tw-no-underline tw-text-[#D20048] hover:tw-opacity-75 tw-transition-opacity">
+		<a href="{{ route('contact-us') }}" class="ksr-close-on-click tw-flex tw-flex-col tw-items-center tw-gap-0.5 tw-text-[12px] tw-font-medium tw-no-underline tw-text-[#D20048] hover:tw-opacity-75 tw-transition-opacity hover:tw-no-underline hover:tw-text-heading-secondary">
 			<span class="tw-w-8 tw-h-8 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-mb-0.5 tw-bg-[rgba(210,0,72,0.1)] tw-text-[#D20048]">
 				<i class="fas fa-calendar-check"></i>
 			</span>Book an Appointment
@@ -159,7 +159,7 @@
 				Ibu Care
 			</a>
 		</li>
-
+		@if(!empty($services) && $services->count() > 0)
 		<li class="tw-border-b tw-border-gray-100">
 			<button class="ksr-acc-btn tw-flex tw-items-center tw-px-5 tw-py-3.5 tw-text-[17px] tw-font-medium tw-no-underline tw-w-full !tw-text-heading-secondary hover:tw-bg-[rgba(210,0,72,0.04)] hover:tw-text-[#D20048] tw-transition-all focus:tw-outline-none focus:tw-ring-0"
 				data-target="ksrAcc3">				
@@ -178,6 +178,7 @@
 				@endforeach
 			</div>
 		</li>
+		@endif
 	</ul>
 	@php
     $socialLinks = 

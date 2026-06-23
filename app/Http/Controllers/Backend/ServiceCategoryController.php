@@ -9,6 +9,7 @@ use App\Models\ServicesCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Cache;
 use Exception;
 
 class ServiceCategoryController extends Controller
@@ -63,6 +64,7 @@ class ServiceCategoryController extends Controller
                 'backend.manage-services.category.partials.category-list',
                 compact('services')
             )->render();
+            Cache::forget('website_services');
             DB::commit();
             return response()->json([
                 'status' => 'success',
@@ -138,6 +140,7 @@ class ServiceCategoryController extends Controller
                 'backend.manage-services.category.partials.category-list',
                 compact('services')
             )->render();
+            Cache::forget('website_services');
             DB::commit();
             return response()->json([
                 'status' => 'success',
@@ -159,6 +162,7 @@ class ServiceCategoryController extends Controller
         try {
             $serviceCategory = ServicesCategory::findOrFail($id);
             $serviceCategory->delete();
+            Cache::forget('services');
             DB::commit();
             return redirect()->route('service-categories.index')->with('success', 'Service category deleted successfully.');
         } catch (\Exception $e) {

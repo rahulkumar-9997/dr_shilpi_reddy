@@ -45,11 +45,41 @@ class BlogController extends Controller
                 return redirect()->back()->withErrors($validator)->withInput();
             }
             
-
+            $content = $request->input('blog_description');
+            /* Remove unnecessary <br> at the beginning of heading tags */
+            $content = preg_replace(
+                '/(<h[1-6][^>]*>)\s*(<br\s*\/?>\s*)+/i',
+                '$1',
+                $content
+            );
+            /* Remove trailing <br> and &nbsp; before closing heading tags */
+            $content = preg_replace(
+                '/(<br\s*\/?>|\&nbsp;|\s)+(<\/h[1-6]>)/i',
+                '$2',
+                $content
+            );
+            /* Remove leading &nbsp; from list items */
+            $content = preg_replace(
+                '/<li>\s*(?:&nbsp;|\x{00A0}|\s)+/iu',
+                '<li>',
+                $content
+            );
+            /* Remove completely empty p/div/h tags */
+            $content = preg_replace(
+                '/<(p|div|h[1-6])[^>]*>(?:\s|&nbsp;|<br\s*\/?>)*<\/\1>/i',
+                '',
+                $content
+            );
+            /* Remove multiple consecutive <br> tags */
+            $content = preg_replace(
+                '/(<br\s*\/?>\s*){2,}/i',
+                '<br>',
+                $content
+            );
             $input = [
                 'title' => $request->input('blog_title'),
                 'intro_description' => $request->input('blog_intro_desc'),
-                'blog_description' => $request->input('blog_description') ?: '',
+                'blog_description' => $content ?: '',
                 'blog_intro_head' => $request->input('blog_intro_heading'),
                 'blog_post_date' => date('y-m-d', strtotime($request->input('blog_post_date'))),
                 'user_id' => $user_id,
@@ -131,14 +161,44 @@ class BlogController extends Controller
             if ($validator->fails()) {                
                 return redirect()->back()->withErrors($validator)->withInput();
             }
-
+            $content = $request->input('blog_description');
+            /* Remove unnecessary <br> at the beginning of heading tags */
+            $content = preg_replace(
+                '/(<h[1-6][^>]*>)\s*(<br\s*\/?>\s*)+/i',
+                '$1',
+                $content
+            );
+            /* Remove trailing <br> and &nbsp; before closing heading tags */
+            $content = preg_replace(
+                '/(<br\s*\/?>|\&nbsp;|\s)+(<\/h[1-6]>)/i',
+                '$2',
+                $content
+            );
+            /* Remove leading &nbsp; from list items */
+            $content = preg_replace(
+                '/<li>\s*(?:&nbsp;|\x{00A0}|\s)+/iu',
+                '<li>',
+                $content
+            );
+            /* Remove completely empty p/div/h tags */
+            $content = preg_replace(
+                '/<(p|div|h[1-6])[^>]*>(?:\s|&nbsp;|<br\s*\/?>)*<\/\1>/i',
+                '',
+                $content
+            );
+            /* Remove multiple consecutive <br> tags */
+            $content = preg_replace(
+                '/(<br\s*\/?>\s*){2,}/i',
+                '<br>',
+                $content
+            );
             $blog = Blog::findOrFail($request->blog_id_hidden);
             $input = [
                 'title' => $request->input('blog_title'),
                 'blog_intro_head' => $request->input('blog_intro_heading'),
                 'blog_post_date' => date('y-m-d', strtotime($request->input('blog_post_date'))),
                 'intro_description' => $request->input('blog_intro_desc'),
-                'blog_description' => $request->input('blog_description') ?: 'No description available.',
+                'blog_description' => $content ?: '',
                 'user_id' => $user_id,
                 'is_external' => $request->has('blog_external_url_checkbox') ? 1 : 0,
                 'external_url' => $request->input('blog_external_url'),
