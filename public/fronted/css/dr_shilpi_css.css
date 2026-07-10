@@ -1182,7 +1182,7 @@ ul.meta li a {
     margin-bottom: 10px;
     padding-left: 25px;
     font-size: 18px;
-    text-align: justify;
+    /* text-align: justify; */
     font-weight: 400;
     line-height: 24px;
     color: var(--text-color);
@@ -1208,21 +1208,12 @@ ul.meta li a {
     font-size: 26px;
     color: #D20048;
     line-height: 1.2;
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
 .blog-details-new h2,
 .services-details h2 {
-    font-size: 26px;
-    line-height: 1.3;
-    color: var(--secondary--color);
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.blog-details-new h3,
-.services-details h3 {
     font-size: 24px;
     line-height: 1.3;
     color: var(--secondary--color);
@@ -1230,11 +1221,20 @@ ul.meta li a {
     margin-bottom: 10px;
 }
 
+.blog-details-new h3,
+.services-details h3 {
+    font-size: 23px;
+    line-height: 1.3;
+    color: var(--secondary--color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
 .blog-details-new h4,
 .services-details h4 {
     font-size: 22px;
     line-height: 1.4;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 12px;
     color: var(--secondary--color);
 }
@@ -1243,16 +1243,16 @@ ul.meta li a {
 .services-details h5 {
     font-size: 20px;
     line-height: 1.4;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 10px;
     color: var(--secondary--color);
 }
 
 .blog-details-new h6,
 .services-details h6 {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.5;
-    font-weight: 600;
+    font-weight: 500;
     margin-bottom: 10px;
     color: var(--secondary--color);
 }
@@ -1260,7 +1260,7 @@ ul.meta li a {
 .blog-details-new p,
 .services-details p {
     font-size: 18px;
-    line-height: 1.8;
+    line-height: 26px;
     margin-bottom: 18px;
     color: var(--text-color);
 }
