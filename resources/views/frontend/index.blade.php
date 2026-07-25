@@ -180,7 +180,7 @@
 @include('frontend.layouts.for-online-consultancy')
 
 @if (isset($data['blog_list']) && $data['blog_list']->count() > 0)
-<section>
+<section class="tw-w-full tw-bg-linear-to-b tw-from-[#e9e2d4] tw-via-white tw-to-[#faf9f7] tw-lg:px-12 tw-md:px-10 tw-overflow-hidden tw-relative">    
     <div class="w-100 float-left blog-con hom_blog_page">
         <div class="container">
             <div class="text-center">
