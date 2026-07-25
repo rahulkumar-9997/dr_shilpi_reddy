@@ -2103,3 +2103,8 @@ body {
     justify-content: center;
     align-items: center;
 }
+.privacy-list {
+    list-style-type: disc;
+    padding-left: 25px;
+    margin: 15px 0 25px;
+}

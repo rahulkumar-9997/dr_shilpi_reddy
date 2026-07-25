@@ -98,10 +98,16 @@
 
                             </p>
                             <h3>
+                                Data Retention
+                            </h3>
+                            <p>
+                                We retain user information for as long as it is necessary to provide our services and maintain user accounts. Personal information may also be retained as required to comply with applicable legal obligations or resolve disputes. When the information is no longer required, it is securely deleted or anonymized.
+                            </p>
+                            <h3>
                                 Sharing of Information
                             </h3>
                             <p>We may share your information in the following circumstances:</p>
-                            <ul>
+                            <ul class="privacy-list">
                                 <li>
                                 With our service providers to operate and maintain the Services
                                 </li>
