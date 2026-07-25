@@ -1,5 +1,6 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="theme-color" content="#D20048"/>
 <title>@yield('title')</title>
 @yield('meta')
 <meta name="description" content="@yield('description')">
