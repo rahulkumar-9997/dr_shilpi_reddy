@@ -424,33 +424,6 @@
 	 font-size: 18px;
 	  
   }
-  .blog-item figure
-  /* .post-item-wrap .post-image */
-  {
-    position: relative;
-    height: 200px;
-    width: 100%;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-}
-.blog-item figure img
-/* .post-item-wrap .post-image img */
- {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-  /* .ibu_care_1 {
-    background-image: url(../shilpi-img/ibu_care/pregency_1.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
  .post-image{
     margin-bottom: 0px;
  }
@@ -538,12 +511,20 @@
 
 .work-div .carousel-inner,
 .blog_list_height .post-image {
-    position: relative;
-    height: 220px;
+    position: relative;    
+}
+
+.work-div .carousel-inner:before,
+.blog_list_height .post-image:before {
+    content: "";
+    display: block;
+    height: 0;
     width: 100%;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
+}
+.work-div .carousel-inner:before,
+.blog_list_height .post-image:before {
+    padding-bottom: 65%;
+    margin-top: 1px;
 }
 
 .work-div .carousel-inner img,
@@ -1264,6 +1245,25 @@ ul.meta li a {
     margin-bottom: 18px;
     color: var(--text-color);
 }
+.blog-details-new table td,
+.blog-details-new table th,
+.services-details table td,
+.services-details table th{
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--text-color);
+}
+.blog-details-new table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.blog-details-new th,
+.blog-details-new td {
+    padding: 8px 8px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
 .blog-details-new a,
 .services-details a {
     color: #D20048;

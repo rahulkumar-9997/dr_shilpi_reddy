@@ -1470,7 +1470,6 @@ body {
 }
 
 .blog-item .blog-item-content span {
-	font-size: 14px;
 	color: var(--accent-color);
 }
 
@@ -1607,7 +1606,7 @@ body {
 	letter-spacing: 1.5px;
 	font-weight: 900;
 	width: 200px;
-	position: absolute;
+	/* position: absolute; */
 	margin: 0 auto;
 	text-align: center;
 	left: 0;

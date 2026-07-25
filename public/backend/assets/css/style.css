@@ -8136,5 +8136,10 @@ border-left: 3px solid transparent;
     justify-content: end;
 }
 
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}
+
 
 

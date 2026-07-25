@@ -39,27 +39,20 @@ use App\Models\OurWorkImage;
 
                     @foreach($data['our_work_list'] as $our_work_list_row)
                     @php
-                    $our_work_multiple_image = OurWorkImage::where(['our_work_id' => $our_work_list_row->id])->limit(5)->get();
+                        $our_work_image = OurWorkImage::where('our_work_id', $our_work_list_row->id)->first();
                     @endphp
                     <div class="col-xl-4 mb-4">
                         <div class="float-left w-100 post-item border  work-div">
                             <div class="post-item-wrap position-relative ">
-                                <div id="blogslider_{{$our_work_list_row->id}}" class="carousel slide" data-interval="false" data-ride="carousel" data-pause="hover">
-                                    <div class="carousel-inner">
-                                        @php $sr_no = 1; @endphp
-                                        @foreach($our_work_multiple_image as $our_work_image_row)
-                                        <div class="carousel-item {{ $sr_no == 1 ? 'active' : '' }}">
-                                            <img src="{{ asset('our-work/main-img/' . $our_work_image_row->our_work_image) }}" alt="work" loading="lazy" class="d-block w-100">
+                                <div class="carousel-inner tw-relative tw-overflow-hidden tw-image-shine product-img tw-aspect-auto">
+                                    @if($our_work_image)
+                                        <div class="">
+                                            <img src="{{ asset('our-work/main-img/' . $our_work_image->our_work_image) }}"
+                                                alt="work"
+                                                loading="lazy"
+                                                class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-object-contain tw-transition-transform tw-duration-600 tw-group-hover/product:scale-105 tw-blur-up">
                                         </div>
-                                        @php $sr_no++; @endphp
-                                        @endforeach
-                                    </div>
-                                    <a class="carousel-control-prev" href="#blogslider_{{$our_work_list_row->id}}" data-slide="prev">
-                                        <span class="carousel-control-prev-icon"></span>
-                                    </a>
-                                    <a class="carousel-control-next" href="#blogslider_{{$our_work_list_row->id}}" data-slide="next">
-                                        <span class="carousel-control-next-icon"></span>
-                                    </a>
+                                    @endif                            
                                 </div>
                                 <div class="post-item-description">
                                     <h2>
@@ -69,7 +62,7 @@ use App\Models\OurWorkImage;
                                     <div class="work_details8">
                                         {!! substr($our_work_list_row->our_work_content, 0, 150) !!}
                                     </div>
-                                    <div class="read_more_class">
+                                    <div class="read_more_class tw-mt-6">
                                         <a href="{{url('work/'.$our_work_list_row->slug.'') }}" class="item-link read_more_btn">Read More <i class="fa fa-arrow-right"></i></a>
                                     </div>
                                 </div>

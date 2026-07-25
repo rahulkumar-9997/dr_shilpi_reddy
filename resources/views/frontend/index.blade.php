@@ -199,44 +199,74 @@
                 @endphp
                 <div class="col-lg-4 col-md-4">
                     <a href="{{ $blog_url }}">
-                        <div class="blog-item">
-                            @if($blog_list_row->intro_image)
-
-                            <figure class="mb-0">
-                                <picture>
-                                    <source media="(max-width: 767px)" srcset="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}">
-                                    <img class="img-fluid blur-up lazyloaded"
-                                        data-src="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}"
-                                        src="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}"
-                                        srcset="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }} 600w, 
-                                        {{ asset('  blog-img/intro/'.$blog_list_row->intro_image) }} 1200w"
-                                        sizes="(max-width: 600px) 600px, 1200px"
-                                        alt="{{ $blog_list_row->title }}"
-                                        title="{{ $blog_list_row->title }}"
-                                        loading="lazy"
-                                        width="600"
-                                        height="400"
-                                        onload="this.style.opacity=1"
-                                        style="opacity: 1;">
-                                </picture>
-                            </figure>
-                            @else
-                            <figure class="mb-0">
-                                <img src="{{asset('fronted/shilpi-img/blog/obesity-and-pregnancy.png') }}" alt="{{$blog_list_row->title}}" class="img-fluid" loading="lazy">
-                            </figure>
-                            @endif
+                        <div class="blog-item blog_list_height">
+                            <div class="post-image tw-relative tw-overflow-hidden tw-image-shine product-img tw-aspect-auto">
+                                @if($blog_list_row->intro_image)                            
+                                <figure class="mb-0">
+                                    <picture>
+                                        <source media="(max-width: 767px)" srcset="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}">
+                                        <img class="img-fluid blur-up lazyloaded"
+                                            data-src="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}"
+                                            src="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }}"
+                                            srcset="{{ asset('blog-img/intro/'.$blog_list_row->intro_image) }} 600w, 
+                                            {{ asset('  blog-img/intro/'.$blog_list_row->intro_image) }} 1200w"
+                                            sizes="(max-width: 600px) 600px, 1200px"
+                                            alt="{{ $blog_list_row->title }}"
+                                            title="{{ $blog_list_row->title }}"
+                                            loading="lazy"
+                                            width="600"
+                                            height="400"
+                                            onload="this.style.opacity=1"
+                                            style="opacity: 1;">
+                                    </picture>
+                                </figure>
+                                @else
+                                <figure class="mb-0">
+                                    <img src="{{asset('fronted/shilpi-img/blog/obesity-and-pregnancy.png') }}" alt="{{$blog_list_row->title}}" class="img-fluid" loading="lazy">
+                                </figure>
+                                @endif
+                            </div>
                             <div class="blog-item-content">
-                                <!--<div class="blog-item-auther-name">
-                                    <span>By David William</span>
-                                    <span>Dec 1, 2022</span>
-                                    </div>-->
-                                <h4>{{$blog_list_row->title}}</h4>
-                                <p class="mb-0">{!! strip_tags(substr($blog_list_row->intro_description, 0, 120)) !!}</p>
+                                <div class="tw-flex tw-items-center tw-justify-between tw-mb-3">
+                                    <div class="tw-flex tw-items-center tw-gap-3 tw-text-[18px] tw-text-gray-500">
+                                        <span class="tw-flex tw-items-center tw-gap-1.5 tw-text-sm tw-text-gray-500 tw-bg-gray-50 tw-px-3 tw-py-1.5 tw-rounded-full">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="tw-w-4 tw-h-4 tw-text-secondary group-hover/views:tw-scale-110 tw-transition-transform tw-duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0zm6 0s-3.6 7-9 7-9-7-9-7 3.6-7 9-7 9 7 9 7z"/>
+                                            </svg>
+                                            <span class="tw-text-sm tw-font-semibold tw-text-gray-700">
+                                                {{ number_format($blog_list_row->visit_count) }}
+                                            </span>
+                                            <span class="tw-text-[16px] tw-text-gray-400">views</span>
+                                        </span>
+                                        
+                                        @if(isset($blog_list_row->blog_post_date))
+                                            <span class="tw-flex tw-items-center tw-gap-1.5 tw-text-sm tw-text-gray-500 tw-bg-gray-50 tw-px-3 tw-py-1.5 tw-rounded-full">
+                                                <svg class="tw-w-3.5 tw-h-3.5 tw-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                                </svg>
+                                                <span class="tw-text-gray-600 tw-font-medium">{{ \Carbon\Carbon::parse($blog_list_row->blog_post_date)->format('d M, Y') }}</span>
+                                            </span>
+                                            @endif
+                                    </div>
+                                </div>
+                                <h4>{{ $blog_list_row->title }}</h4>
+                                <p class="mb-0">
+                                    {{ \Illuminate\Support\Str::limit(strip_tags($blog_list_row->intro_description ?? ''), 120) }}
+                                </p>
                             </div>
                         </div>
                     </a>
                 </div>
                 @endforeach
+            </div>
+            <div class="tw-text-center tw-mt-10 md:tw-mt-8">
+                <a href="{{ route('blog') }}" class="tw-inline-flex tw-items-center tw-gap-2 tw-px-8 tw-py-3 tw-bg-heading-secondary hover:tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-full tw-transition-all tw-duration-300 hover:tw-text-white tw-ease-in-out hover:tw-shadow-lg hover:tw-transform hover:tw--translate-y-0.5">
+                    View All Blogs
+                    <svg class="tw-w-5 tw-h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </div>

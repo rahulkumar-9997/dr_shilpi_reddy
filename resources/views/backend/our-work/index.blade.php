@@ -62,12 +62,10 @@
                               <td>{{ $sr_no }}</td>
                               <td>{{ $our_work_list->heading_name }}</td>
                               <td>
-                                 <div class="overflow-auto" style="max-width: 300px; max-height: 100px; overflow: auto;">
-                                    {!! $our_work_list->our_work_content !!}
-                                 </div>
+                                 {{ \Illuminate\Support\Str::limit(strip_tags($our_work_list->our_work_content ?? ''), 80) }}                                 
                               </td>                              
                               <td>
-                                 <div class="d-flex gap-2">
+                                 <div class="action-buttons">
                                     @if($our_work_list->mapped_status_to_foundation==0)
                                        <a href="javascript:;"
                                           data-bs-toggle="tooltip"

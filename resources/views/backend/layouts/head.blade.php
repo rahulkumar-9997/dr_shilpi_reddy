@@ -14,7 +14,7 @@
     <!-- CORE CSS FRAMEWORK - START -->
     <link href="{{asset('backend/assets/plugins/pace/pace-theme-flash.css')}}" rel="stylesheet" type="text/css" media="screen"/>
     <link href="{{asset('backend/assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('backend/assets/plugins/bootstrap/css/bootstrap-theme.min.css')}}" rel="stylesheet" type="text/css"/>
+    <!-- <link href="{{asset('backend/assets/plugins/bootstrap/css/bootstrap-theme.min.css')}}" rel="stylesheet" type="text/css"/> -->
     <link href="{{asset('backend/assets/fonts/font-awesome/css/font-awesome.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('backend/assets/css/animate.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('backend/assets/plugins/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" type="text/css"/>
@@ -23,8 +23,8 @@
     <link href="{{asset('backend/assets/plugins/messenger/css/messenger.css')}}" rel="stylesheet" type="text/css" media="screen"/>
 		<link href="{{asset('backend/assets/plugins/messenger/css/messenger-theme-future.css')}}" rel="stylesheet" type="text/css" media="screen"/>
 		<link href="{{asset('backend/assets/plugins/messenger/css/messenger-theme-flat.css')}}" rel="stylesheet" type="text/css" media="screen"/>  
-    <link href="{{asset('backend/assets/css/style.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('backend/assets/css/responsive.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('backend/assets/css/style.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('backend/assets/css/responsive.css')}}?v={{ env('ASSET_VERSION', '1.0.0') }}" rel="stylesheet" type="text/css"/>
     @stack('style')
 </head>
 <?php

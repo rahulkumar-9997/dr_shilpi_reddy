@@ -45,6 +45,7 @@
                            <tr>
                               <th>Sr. No.</th>
                               <th>Name</th>
+                              <th>Image</th>
                               <th style="width: 55%;">Blog description</th>
 `                              <th style="width: 15%;">Action</th>
                            </tr>
@@ -59,25 +60,33 @@
                               <td>{{ $sr_no }}</td>
                               <td>{{ $blog_list_row->title }}</td>
                               <td>
-                                 <div style="max-height: 100px; overflow: auto; white-space: pre-wrap;">
-                                    {!! $blog_list_row->blog_description !!}
+                                 @if(!empty($blog_list_row->intro_image))
+                                    <div class="mt-2">
+                                          <img src="{{ asset('blog-img/intro/' . $blog_list_row->intro_image) }}"
+                                             alt="Blog Intro Image"
+                                             style="max-width: 60px; height:60px; border-radius:5px;">
+                                    </div>
+                                 @endif
+                              </td>
+                              <td>
+                                 <div>{{ \Illuminate\Support\Str::limit(strip_tags($blog_list_row->blog_description ?? ''), 80) }}
                                  </div>
-                                 </td>
+                              </td>
                               
                               <td>
-                                 <a href="{{url('manage-blog/edit/'.$blog_list_row->id.'') }}" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-pencil icon-xs"></i>  
-                                 </a>
-                                 <a href="{{url('manage-blog/delete/'.$blog_list_row->id.'') }}" class="btn btn-danger btn-sm">
-                                    <i class="fa fa-trash icon-xs"></i>
-                                 </a>
-                                 <a href="{{url('manage-blog/edit/'.$blog_list_row->id.'') }}"
-                                 class="btn btn-info btn-sm">
-                                    <i class="fa fa-eye icon-xs"></i>
-                                 </a>
-                                 
-                              </td>
-                             
+                                 <div class="action-buttons">
+                                    <a href="{{url('manage-blog/edit/'.$blog_list_row->id.'') }}" class="btn btn-primary btn-sm">
+                                       <i class="fa fa-pencil icon-xs"></i>  
+                                    </a>
+                                    <a href="{{url('manage-blog/delete/'.$blog_list_row->id.'') }}" class="btn btn-danger btn-sm">
+                                       <i class="fa fa-trash icon-xs"></i>
+                                    </a>
+                                    <a href="{{url('manage-blog/edit/'.$blog_list_row->id.'') }}"
+                                    class="btn btn-info btn-sm">
+                                       <i class="fa fa-eye icon-xs"></i>
+                                    </a>
+                                 </div>                                 
+                              </td>                             
                            </tr>
                            @php
                               $sr_no++; 

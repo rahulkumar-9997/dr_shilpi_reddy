@@ -24,6 +24,8 @@ class Blog extends Model
         'sort_order',
         'blog_description',
         'user_id',
+        'visit_count',
+        'reading_time'
     ];
 
     /**

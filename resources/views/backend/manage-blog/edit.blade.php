@@ -108,7 +108,7 @@ use App\Models\BlogImages;
 
                                             <div class="controls">
                                                 <textarea class="form-control"
-                                                        name="blog_intro_desc">{{ old('blog_intro_desc', $blog->intro_description) }}</textarea>
+                                                name="blog_intro_desc">{{ old('blog_intro_desc', $blog->intro_description) }}</textarea>
                                             </div>
 
                                             @if($errors->has('blog_intro_desc'))

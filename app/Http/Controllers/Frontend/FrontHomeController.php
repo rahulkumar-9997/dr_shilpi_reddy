@@ -32,7 +32,7 @@ class FrontHomeController extends Controller
         ->get();
 
         $data['feature_logo_list'] = FeatureLogo::orderBy('id','DESC')->get();
-        $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id', 'desc')->limit(3)->get();
+        $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url', 'visit_count', 'blog_post_date')->orderBy('id', 'desc')->limit(3)->get();
 	    return view('frontend.index', compact('data'));
     }
     
@@ -53,21 +53,23 @@ class FrontHomeController extends Controller
     }
 
     public function mediaPage(){
+        //$data['media_list'] = Media::orderBy('sort_order', 'asc')->simplePaginate(20);
         $data['media_list'] = Media::orderBy('id', 'desc')->paginate(20);
 		DB::disconnect();
 	    return view('frontend.pages.media', compact('data'));
     }
+
     public function blogPage(){
-        $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url')->orderBy('id','DESC')->paginate(15);
+        $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url', 'visit_count', 'blog_post_date')->orderBy('id','DESC')->paginate(15);
 		DB::disconnect();
 	    return view('frontend.pages.blog', compact('data'));
     }
+
     public function blogDetailsPage($slug){
-        //$blog = Blog::where('slug', $slug)->firstOrFail();
         $blog = Blog::with('images')->where('slug', $slug)->firstOrFail();
-		DB::disconnect();
-        return view('frontend.pages.blog-details' , compact('blog'));
-	    
+		$blog->increment('visit_count');
+        $blog->refresh();
+        return view('frontend.pages.blog-details' , compact('blog'));	    
     }
     public function contactUsPage(){
 	    return view('frontend.pages.contact-us');
