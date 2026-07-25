@@ -55,12 +55,13 @@ use App\Models\OurWorkImage;
                                     @endif                            
                                 </div>
                                 <div class="post-item-description">
+                                    
                                     <h2>
                                         <a href="{{url('work/'.$our_work_list_row->slug.'') }}">{{$our_work_list_row->heading_name}}
                                         </a>
                                     </h2>
                                     <div class="work_details8">
-                                        {!! substr($our_work_list_row->our_work_content, 0, 150) !!}
+                                        {!! substr($our_work_list_row->our_work_content, 0, 100) !!}
                                     </div>
                                     <div class="read_more_class tw-mt-6">
                                         <a href="{{url('work/'.$our_work_list_row->slug.'') }}" class="item-link read_more_btn">Read More <i class="fa fa-arrow-right"></i></a>
