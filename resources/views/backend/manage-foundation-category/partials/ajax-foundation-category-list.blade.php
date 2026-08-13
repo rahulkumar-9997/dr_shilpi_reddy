@@ -1,5 +1,5 @@
 @if (isset($data['foundation_category_list']) && $data['foundation_category_list']->count() > 0)
-<table id="example-1" class="table table-striped dt-responsive display" cellspacing="0" width="100%">
+<table class="table table-striped dt-responsive display" cellspacing="0" width="100%">
     <thead>
         <tr>
             <th>Sr. No.</th>

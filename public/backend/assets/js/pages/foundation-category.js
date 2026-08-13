@@ -9,19 +9,21 @@ $(document).ready(function () {
             url: url
         };
         $("#commonModal .modal-title").html(title);
+        $("#commonModal .modal-dialog").addClass('modal-' + size);
         $.ajax({
             url: url,
             type: 'get',
             data: data,
             success: function (data) {
                 $('#commonModal .render-data').html(data.form);
-                $("#commonModal").modal('show');
+                $("#commonModal").modal('show');                
             },
             error: function (data) {
                 data = data.responseJSON;
             }
         });
     });
+
     $(document).off('submit', '#foundationCategoryStore').on('submit', '#foundationCategoryStore', function (event) {
         event.preventDefault();
         var form = $(this);
@@ -78,7 +80,7 @@ $(document).ready(function () {
             group_category_id: fcid,
         };
         $("#commonModal .modal-title").html(title);
-        //$("#commonModal .modal-dialog").addClass('modal-' + size);
+        $("#commonModal .modal-dialog").addClass('modal-' + size);
         
         $.ajax({
             url: url,
@@ -86,13 +88,14 @@ $(document).ready(function () {
             data: data,
             success: function (data) {
                 $('#commonModal .render-data').html(data.form);
-                $("#commonModal").modal('show');
+                $("#commonModal").modal('show');                
             },
             error: function (data) {
                 data = data.responseJSON;
             }
         });
     });
+
     /**Edit group modal js */
     $(document).off('submit', '#foundationCategoryUpdate').on('submit', '#foundationCategoryUpdate', function (event) {
         event.preventDefault();
@@ -135,6 +138,32 @@ $(document).ready(function () {
                 }
             }
         });
+    });
+
+    $('#commonModal').on('shown.bs.modal', function () {
+        $(this).find('.ckeditor4').each(function () {
+            var editorId = $(this).attr('id');
+            if (editorId && !CKEDITOR.instances[editorId]) {
+                CKEDITOR.replace(editorId, {
+                    removePlugins: 'exportpdf',
+                    baseFloatZIndex: 10000000
+                });
+            }
+        });
+        
+        setTimeout(function () {
+            $(window).trigger('resize');
+        }, 300);
+    });
+
+    $('#commonModal').on('hidden.bs.modal', function () {
+        $(this).find('.ckeditor4').each(function () {
+            var editorId = $(this).attr('id');
+            if (editorId && CKEDITOR.instances[editorId]) {
+                CKEDITOR.instances[editorId].destroy(true);
+            }
+        });
+        $('#commonModal .render-data').html('');
     });
     /*Delete foundation category */
     $(document).ready(function() {

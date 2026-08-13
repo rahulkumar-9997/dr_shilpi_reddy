@@ -9,7 +9,7 @@ $(document).ready(function () {
         };
         $("#commanModal .modal-dialog").removeClass('modal-sm modal-md modal-lg modal-xl')
         .addClass('modal-' + size);
-        
+
         $.ajax({
             url: url,
             type: 'get',
@@ -17,33 +17,12 @@ $(document).ready(function () {
             success: function (data) {
                 $('.modal_popup .render-data').html(data.data);
                 $('.modal_popup').addClass('contact-popup-visible');
-                var $carousel = $('.schlorship-carousel');
-                if ($carousel.hasClass('owl-loaded')) {
-                    $carousel.trigger('destroy.owl.carousel');
-                    $carousel.removeClass('owl-loaded');
-                    $carousel.find('.owl-stage-outer').children().unwrap();
+                if ($.fn.fancybox) {
+                    $('[data-fancybox="schlorship"]').fancybox({
+                        buttons: ['zoom', 'slideShow', 'close'],
+                        loop: true
+                    });
                 }
-                $carousel.owlCarousel({
-                    loop: false,
-                    margin: 10,
-                    nav: true,
-                    dots: true,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    autoplayHoverPause: true,
-                    responsive: {
-                        0: {
-                            items: 2
-                        },
-                        600: {
-                            items: 2
-                        },
-                        1000: {
-                            items: 3
-                        }
-                    }
-                });
-                
             },
             error: function (data) {
                 data = data.responseJSON;
@@ -52,10 +31,7 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '.close-modal', function() {
-		$('.modal_popup').removeClass('contact-popup-visible');
-        var $carousel = $('.schlorship-carousel');
-        if ($carousel.hasClass('owl-loaded')) {
-            $carousel.trigger('destroy.owl.carousel');
-        }
-	});
+        $('.modal_popup').removeClass('contact-popup-visible');
+        $('.modal_popup .render-data').html(''); 
+    });
 });

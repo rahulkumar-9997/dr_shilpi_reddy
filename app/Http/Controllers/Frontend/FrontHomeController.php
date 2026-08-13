@@ -12,6 +12,7 @@ use App\Models\IbuCare;
 use App\Models\FoundationCategory;
 use Illuminate\Support\Facades\Log;
 use App\Mail\EnquiryMail;
+use App\Models\Schlorship;
 use App\Models\SchlorshipImages;
 use App\Models\Service;
 use Illuminate\Support\Facades\DB; 
@@ -75,42 +76,53 @@ class FrontHomeController extends Controller
 	    return view('frontend.pages.contact-us');
     }
     public function ourFoundation(){
-       $data['foundation_category_list'] = FoundationCategory::with(['foundationImages' => function ($q) {
-            $q->orderBy('created_at', 'DESC');
-        }])->orderBy('id', 'DESC')->get();
-        $data['schlorship_images'] = SchlorshipImages::select('title','image')
+        $data['foundation_category_list'] = FoundationCategory::with('latestFoundationImage')
+        ->orderBy('id', 'DESC')
+        ->get();
+        $data['schlorship'] = Schlorship::select('id', 'title', 'main_image', 'description')
             ->where('status',1)
-            ->orderBy('sort_order','ASC')
-            ->take(15)
+            ->orderBy('id', 'asc')
+            ->take(3)
             ->get();
-		DB::disconnect();
-	    return view('frontend.pages.our-foundation', compact('data'));
+        //return response($data['foundation_category_list']);
+	    return view('frontend.pages.our-foundation.index', compact('data'));
     }
 
-    public function getFoundationCategoryDetails(Request $request)
-    {
-        
-        if (!$request->has('id')) {
-            return response()->json(['error' => 'Missing category ID'], 400);
-        }
-        $category = FoundationCategory::with(['foundationImages' => function ($query) {
-            $query->orderBy('id', 'DESC');
-        }])->find($request->id);
-        if (!$category) {
-            Log::error('Foundation Category Not Found: ID ' . $request->id);
-            return response()->json(['error' => 'Category not found'], 404);
-        }
-        //Log::info('Fetched Foundation Category:', ['category' => $category]);
-        try {
-            $html = view('frontend.pages.partials.foundation-category-details', [
-                'foundation_category' => $category
-            ])->render();
-        } catch (\Exception $e) {
-            Log::error('View Rendering Error: ' . $e->getMessage());
-            return response()->json(['error' => 'View rendering failed'], 500);
-        }
-        return response()->json(['html' => $html]);
+    public function ourFoundationDetails($slug){
+        $foundation = FoundationCategory::with(['foundationImages' => function ($q) {
+            $q->orderBy('created_at', 'DESC');
+        }])
+        ->where('slug', $slug)
+        ->firstOrFail(); 
+
+        $recentFoundations = FoundationCategory::with('latestFoundationImage')
+            ->where('id', '!=', $foundation->id)
+            ->orderBy('id', 'DESC')
+            ->take(5)
+            ->get();
+        return view('frontend.pages.our-foundation.foundation-details', compact('foundation', 'recentFoundations'));
     }
+
+    public function schlorshipList(){
+        $data['schlorship'] = Schlorship::select('id', 'title', 'main_image', 'description')
+            ->where('status',1)
+            ->orderBy('id', 'asc')
+            ->get();
+        return view('frontend.pages.scholarship.schlorship', compact('data'));
+    }
+
+
+    public function schlorshipDetails($id){
+        $schlorship = Schlorship::with(['images' => function ($query) {
+            $query->orderBy('id', 'DESC');
+        }])->where('id', $id)->firstOrFail();
+
+        $html = view('frontend.pages.scholarship.partials.scholarship-details-modal', compact('schlorship'))->render();
+        return response()->json([
+            'message' => 'Scholarship details retrieved successfully',
+            'data' => $html,
+        ]);
+    }   
 
     
     public function ibuCare(){

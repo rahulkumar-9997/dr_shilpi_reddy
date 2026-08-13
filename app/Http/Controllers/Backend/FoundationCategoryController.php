@@ -9,6 +9,7 @@ use App\Models\FoundationImage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class FoundationCategoryController extends Controller
 {
@@ -37,11 +38,46 @@ class FoundationCategoryController extends Controller
             <form method="POST" action="' . route('foundation-category.store') . '" accept-charset="UTF-8" enctype="multipart/form-data" id="foundationCategoryStore">
                 ' . csrf_field() . '
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <div class="form-group">
                             <label for="foundation_category_name" class="control-label">Foundation Category Name *</label>
                             <input type="text" name="foundation_category_name" class="form-control" id="foundation_category_name">
                         </div>	
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="meta_title" class="control-label">
+                                Meta Title
+                            </label>
+                            <input type="text"
+                                name="meta_title"
+                                class="form-control"
+                                id="meta_title">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="meta_description" class="control-label">
+                                Meta Description
+                            </label>
+                            <textarea
+                                name="meta_description"
+                                class="form-control"
+                                id="meta_description"
+                                rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="description" class="control-label">
+                                Description
+                            </label>
+                            <textarea
+                                name="description"
+                                class="form-control ckeditor4"
+                                id="description">
+                            </textarea>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer pb-0">
@@ -57,16 +93,14 @@ class FoundationCategoryController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'foundation_category_name' => 'required|string|max:255|unique:foundation_categories,name',
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'description' => 'nullable|string',
         ]);
 
         if ($validator->fails()) {
@@ -74,9 +108,21 @@ class FoundationCategoryController extends Controller
         }
         DB::beginTransaction();
         try {
+            $name = $request->foundation_category_name;
+            $slug = Str::slug($name);
+            $originalSlug = $slug;
+            $count = 1;
+            while (FoundationCategory::where('slug', $slug)->exists()) {
+                $slug = $originalSlug . '-' . $count;
+                $count++;
+            }
             $foundationCategory = FoundationCategory::create([
-                'name' => $request->foundation_category_name,
-                'status' => 1, // Default status
+                'name' => $name,
+                'slug' => $slug,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'description' => $request->description,
+                'status' => 1,
             ]);
 
             DB::commit();
@@ -93,23 +139,7 @@ class FoundationCategoryController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit(Request $request, $id)
     {
         $foundationCategory = FoundationCategory::findOrFail($id);
@@ -126,6 +156,42 @@ class FoundationCategoryController extends Controller
                             <input type="text" name="foundation_category_name" class="form-control" id="foundation_category_name" value="'.$foundationCategory->name.'">
                         </div>	
                     </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="meta_title" class="control-label">
+                                Meta Title
+                            </label>
+                            <input type="text"
+                                name="meta_title"
+                                class="form-control"
+                                id="meta_title"
+                                value="' . e($foundationCategory->meta_title) . '">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="meta_description" class="control-label">
+                                Meta Description
+                            </label>
+                            <textarea
+                                name="meta_description"
+                                class="form-control"
+                                id="meta_description"
+                                rows="2">' . e($foundationCategory->meta_description) . '</textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="description" class="control-label">
+                                Description
+                            </label>
+                            <textarea
+                                name="description"
+                                class="form-control ckeditor4"
+                                id="description"
+                                rows="5">' . e($foundationCategory->description) . '</textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer pb-0">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
@@ -140,17 +206,14 @@ class FoundationCategoryController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'foundation_category_name' => 'required|string|max:255|unique:foundation_categories,name,' . $id,
+            'meta_title' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string',
+            'description' => 'nullable|string',
         ]);
     
         if ($validator->fails()) {
@@ -159,9 +222,21 @@ class FoundationCategoryController extends Controller
     
         DB::beginTransaction();
         try {
+            $name = $request->foundation_category_name;
+            $slug = Str::slug($name);
+            $originalSlug = $slug;
+            $count = 1;
+            while (FoundationCategory::where('slug', $slug)->exists()) {
+                $slug = $originalSlug . '-' . $count;
+                $count++;
+            }
             $foundationCategory = FoundationCategory::findOrFail($id);
                 $foundationCategory->update([
                 'name' => $request->foundation_category_name,
+                'slug' =>$slug,
+                'meta_title' => $request->meta_title,
+                'meta_description' => $request->meta_description,
+                'description' => $request->description,
             ]);
     
             DB::commit();

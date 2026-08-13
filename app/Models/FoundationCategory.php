@@ -12,13 +12,22 @@ class FoundationCategory extends Model
     protected $fillable = [
         'id',
         'name',
+        'slug',
         'work_id',
         'description',
+        'meta_title',
+        'meta_description',
         'status'
     ];
 
     public function foundationImages()
     {
         return $this->hasMany(FoundationImage::class, 'foundation_categories_id');
+    }
+
+    public function latestFoundationImage()
+    {
+        return $this->hasOne(FoundationImage::class, 'foundation_categories_id')
+        ->ofMany('created_at', 'max');
     }
 }

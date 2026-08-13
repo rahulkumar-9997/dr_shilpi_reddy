@@ -53,11 +53,9 @@ class SchlorshipController extends Controller
             }
             $schlorship = Schlorship::create($input);
             if ($request->hasFile('image_file')) {
-                $files = $request->file('image_file');
-                $titleSlug = Str::slug($request->input('schlorship_title'), '-');                
+                $files = $request->file('image_file');           
                 foreach ($files as $index => $file) {
-                    $uniqueId = uniqid();
-                    $imageFileName = $titleSlug . '-' . ($index + 1) . '-' . $uniqueId . '.webp';
+                    $imageFileName = 'sch-' . ($index + 1) . '-' . uniqid() . '.webp';
                     Image::make($file->getRealPath())
                         ->encode('webp', 80)
                         ->save($imagePath . '/' . $imageFileName);                    
@@ -86,76 +84,99 @@ class SchlorshipController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'schlorship_title' => 'required|string|max:255',
-            'schlorship_description' => 'nullable|string',
-            'schlorship_main_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:4096',
-            'image_file' => 'nullable|array',
-            'image_file.*' => 'image|mimes:jpeg,jpg,png,webp|max:4096',
-            'delete_images' => 'nullable|array',
-            'status' => 'required|in:0,1'
-        ]);        
+            'schlorship_title'          => 'required|string|max:255',
+            'schlorship_description'    => 'nullable|string',
+            'schlorship_main_image'     => 'nullable|image|mimes:jpeg,jpg,png,webp|max:4096',
+            'image_file'                => 'nullable|array',
+            'image_file.*'              => 'image|mimes:jpeg,jpg,png,webp|max:4096',
+            'delete_images'             => 'nullable|array',
+            'delete_images.*'           => 'integer|exists:schlorship_images,id',
+            'status'                    => 'required|in:0,1',
+        ]);
+        Log::info('Scholarship update started', [
+            'id'     => $id,
+            'title'  => $request->input('schlorship_title'),
+            'status' => $request->input('status'),
+        ]);
+        $schlorship = Schlorship::findOrFail($id);
+        $imagePath = public_path('upload/schlorship');
+        if (!File::exists($imagePath)) {
+            File::makeDirectory($imagePath, 0755, true);
+        }
+        $filesToDeleteAfterCommit = [];
+        $newlyWrittenFiles = [];
         DB::beginTransaction();
         try {
-            $schlorship = Schlorship::findOrFail($id);
-            $schlorship->title = $request->input('schlorship_title');
+            $schlorship->title       = $request->input('schlorship_title');
             $schlorship->description = $request->input('schlorship_description');
-            $schlorship->status = $request->input('status');
-            $imagePath = public_path('upload/schlorship');
-            if (!File::exists($imagePath)) {
-                File::makeDirectory($imagePath, 0755, true);
-            }
+            $schlorship->status      = $request->input('status');
+            $titleSlug = Str::slug($request->input('schlorship_title'), '-');
             if ($request->hasFile('schlorship_main_image')) {
-                if ($schlorship->main_image) {
-                    $oldMainImagePath = $imagePath . '/' . $schlorship->main_image;
-                    if (File::exists($oldMainImagePath)) {
-                        File::delete($oldMainImagePath);
-                    }
-                }                
                 $mainImage = $request->file('schlorship_main_image');
-                $titleSlug = Str::slug($request->input('schlorship_title'), '-');
-                $mainImageName = $titleSlug . '-main-' . uniqid() . '.webp';                
+                $mainImageName = $titleSlug . '-main-' . uniqid() . '.webp';
                 Image::make($mainImage->getRealPath())
                     ->encode('webp', 80)
-                    ->save($imagePath . '/' . $mainImageName);                
+                    ->save($imagePath . '/' . $mainImageName);
+                $newlyWrittenFiles[] = $imagePath . '/' . $mainImageName;
+                if ($schlorship->main_image) {
+                    $filesToDeleteAfterCommit[] = $imagePath . '/' . $schlorship->main_image;
+                }
+
                 $schlorship->main_image = $mainImageName;
-            }            
+            }
             $schlorship->save();
-            if ($request->has('delete_images') && !empty($request->delete_images)) {
-                foreach ($request->delete_images as $imageId) {
-                    $image = SchlorshipImages::find($imageId);
-                    if ($image) {
-                        $imagePathFull = $imagePath . '/' . $image->image;
-                        if (File::exists($imagePathFull)) {
-                            File::delete($imagePathFull);
-                        }
-                        $image->delete();
-                    }
+            if ($request->filled('delete_images')) {
+                $imagesToDelete = SchlorshipImages::where('schlorship_id', $schlorship->id)
+                    ->whereIn('id', $request->input('delete_images'))
+                    ->get();
+
+                foreach ($imagesToDelete as $image) {
+                    $filesToDeleteAfterCommit[] = $imagePath . '/' . $image->image;
+                    $image->delete();
                 }
             }
             if ($request->hasFile('image_file')) {
                 $files = $request->file('image_file');
-                $titleSlug = Str::slug($request->input('schlorship_title'), '-');
                 $existingImagesCount = $schlorship->images()->count();
                 foreach ($files as $index => $file) {
-                    $uniqueId = uniqid();
                     $imageIndex = $existingImagesCount + $index + 1;
-                    $imageFileName = $titleSlug . '-' . $imageIndex . '-' . $uniqueId . '.webp';
+                    $imageFileName = 'sch-' . $imageIndex . '-' . uniqid() . '.webp';
                     Image::make($file->getRealPath())
                         ->encode('webp', 80)
-                        ->save($imagePath . '/' . $imageFileName);                    
+                        ->save($imagePath . '/' . $imageFileName);
+                    $newlyWrittenFiles[] = $imagePath . '/' . $imageFileName;
                     SchlorshipImages::create([
-                        'schlorship_id' => $schlorship->id,
-                        'image' => $imageFileName,
-                        'title' => $request->input('schlorship_title') . ' - Image ' . $imageIndex,
-                        'status' => 1
+                        'schlorship_id' => $id,
+                        'image'         => $imageFileName,
+                        'title'         => $request->input('schlorship_title') . ' - Image ' . $imageIndex,
+                        'status'        => 1,
                     ]);
                 }
-            }            
+            }
             DB::commit();
-            return redirect()->route('schlorship-image.index')->with('success', 'Scholarship updated successfully');            
+            foreach ($filesToDeleteAfterCommit as $path) {
+                if (File::exists($path)) {
+                    File::delete($path);
+                }
+            }
+            return redirect()
+                ->route('schlorship-image.index')
+                ->with('success', 'Scholarship updated successfully');
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->back()->with('error', 'Update failed: ' . $e->getMessage())->withInput();
+            foreach ($newlyWrittenFiles as $path) {
+                if (File::exists($path)) {
+                    File::delete($path);
+                }
+            }
+            Log::error('Scholarship update failed', [
+                'id'    => $id,
+                'error' => $e->getMessage(),
+            ]);
+            return redirect()
+                ->back()
+                ->with('error', 'Update failed. Please try again.')
+                ->withInput();
         }
     }
 
