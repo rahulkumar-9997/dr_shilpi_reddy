@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Frontend\FrontHomeController;
+use App\Http\Controllers\Frontend\SitemapController;
 
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\ForgotPasswordController;
@@ -154,6 +155,8 @@ Route::get('donation', [FrontHomeController::class, 'donation'])->name('donation
 Route::get('fertility-conclave', [FrontHomeController::class, 'fertilityConclave'])->name('fertility-conclave');
 Route::get('services', [FrontHomeController::class, 'servicesIndex'])->name('services.index');
 Route::get('services/{slug}', [FrontHomeController::class, 'servicesDetails'])->name('service.details');
+
+Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 Route::get('/resize-image/{filename}', function ($filename) {
     $width = request()->query('width', 800); 
