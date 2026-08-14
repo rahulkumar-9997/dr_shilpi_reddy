@@ -59,6 +59,7 @@ use App\Models\BlogImages;
                                     <div class="post-item-description">
                                         <div class="tw-flex tw-items-center tw-justify-between tw-mb-3">
                                             <div class="tw-flex tw-items-center tw-gap-3 tw-text-[18px] tw-text-gray-500">
+                                                @if($blog_list_row->is_external !==1) 
                                                 <span class="tw-flex tw-items-center tw-gap-1.5 tw-text-sm tw-text-gray-500 tw-bg-gray-50 tw-px-3 tw-py-1.5 tw-rounded-full">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="tw-w-4 tw-h-4 tw-text-secondary group-hover/views:tw-scale-110 tw-transition-transform tw-duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -69,7 +70,7 @@ use App\Models\BlogImages;
                                                     </span>
                                                     <span class="tw-font-medium tw-text-heading-secondary">views</span>
                                                 </span>
-                                                
+                                                @endif
                                                 @if(isset($blog_list_row->blog_post_date))
                                                     <span class="tw-flex tw-items-center tw-gap-1.5 tw-text-sm tw-text-gray-500 tw-bg-gray-50 tw-px-3 tw-py-1.5 tw-rounded-full ">
                                                         <svg class="tw-w-3.5 tw-h-3.5 tw-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">

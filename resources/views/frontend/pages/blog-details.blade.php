@@ -54,7 +54,7 @@
 	<div class="w-100 float-left professional-con">
 		<div class="container">
 			<div class="row justify-content-md-center">
-				<div class="col-lg-11 primary right-sidebar blog_details">
+				<div class="col-lg-8 primary right-sidebar blog_details">
 					<div class="professional-title single-post single">
 						<!--@if($blog->blog_post_date)
 							<ul class="meta ospm-default clr">

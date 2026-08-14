@@ -129,6 +129,16 @@ WOW MOM, Time Bound Lab Diagnostics, Nutrition support, Prenatal Yoga, Normal De
                                                                     </div>
                                                                     {!!$ibucare_list_row->description!!}
                                                                 </div>
+                                                                <div class="tw-text-left tw-mt-8">
+                                                                    <a href="{{ url('ibu-care', ['slug' => $ibucare_list_row->slug]) }}"
+                                                                    class="tw-group tw-relative tw-inline-flex tw-items-center tw-gap-3 tw-text-heading-secondary tw-font-semibold tw-transition-all tw-duration-500 tw-transform hover:tw--translate-y-1 hover:tw-scale-105 tw-tracking-wide tw-text-base hover:tw-no-underline hover:tw-text-secondary">
+                                                                        <span class="tw-relative tw-z-10">Read More</span>
+                                                                        <svg class="tw-w-5 tw-h-5 tw-transition-transform tw-duration-500 group-hover:tw-translate-x-2" 
+                                                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                                        </svg>                
+                                                                    </a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -145,6 +155,16 @@ WOW MOM, Time Bound Lab Diagnostics, Nutrition support, Prenatal Yoga, Normal De
                                                                         <h2>{{$ibucare_list_row->title}}</h2>
                                                                     </div>
                                                                     {!!$ibucare_list_row->description!!}
+                                                                </div>
+                                                                <div class="tw-text-left tw-mt-8">
+                                                                    <a href="{{ url('ibu-care', ['slug' => $ibucare_list_row->slug]) }}"
+                                                                    class="tw-group tw-relative tw-inline-flex tw-items-center tw-gap-3 tw-text-heading-secondary tw-font-semibold tw-transition-all tw-duration-500 tw-transform hover:tw--translate-y-1 hover:tw-scale-105 tw-tracking-wide tw-text-base hover:tw-no-underline hover:tw-text-secondary">
+                                                                        <span class="tw-relative tw-z-10">Read More</span>
+                                                                        <svg class="tw-w-5 tw-h-5 tw-transition-transform tw-duration-500 group-hover:tw-translate-x-2" 
+                                                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                                                        </svg>                
+                                                                    </a>
                                                                 </div>
                                                             </div>
                                                         </div>

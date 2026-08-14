@@ -43,26 +43,22 @@ class FrontHomeController extends Controller
     
     public function workPage(){
         $data['our_work_list'] = OurWork::orderBy('id','DESC')->get(); 
-		DB::disconnect();
 	    return view('frontend.pages.work', compact('data'));
     }
 
     public function workDetailsPage($slug){
         $our_work = OurWork::where('slug', $slug)->firstOrFail();
-		DB::disconnect();
 	    return view('frontend.pages.work-details', compact('our_work'));
     }
 
     public function mediaPage(){
         //$data['media_list'] = Media::orderBy('sort_order', 'asc')->simplePaginate(20);
         $data['media_list'] = Media::orderBy('id', 'desc')->paginate(20);
-		DB::disconnect();
 	    return view('frontend.pages.media', compact('data'));
     }
 
     public function blogPage(){
         $data['blog_list'] = Blog::select('id', 'title' ,'slug', 'intro_description', 'intro_image', 'is_external', 'external_url', 'visit_count', 'blog_post_date')->orderBy('id','DESC')->paginate(15);
-		DB::disconnect();
 	    return view('frontend.pages.blog', compact('data'));
     }
 
@@ -127,16 +123,14 @@ class FrontHomeController extends Controller
     
     public function ibuCare(){
         $data['ibucare_list'] = IbuCare::orderBy('id','ASC')->get(); 
-        DB::disconnect();
-	    return view('frontend.pages.ibu-care', compact('data'));
+	    return view('frontend.pages.ibu-care.ibu-care', compact('data'));
     }
 
     public function ibuCareDetails($slug){
         $data['ibucare_list'] = IbuCare::orderBy('id','ASC')->get();
         $array_color = ['#f29685', '#f9bd55', '#f9e255', '#abce5d', '#87d0d6', '#c996ce', '#f9e255', '#ff5757'];
         $ibucare = IbuCare::where('slug', $slug)->firstOrFail();
-		DB::disconnect();
-        return view('frontend.pages.ibu-care-details' , compact('ibucare', 'data', 'array_color'));
+        return view('frontend.pages.ibu-care.ibu-care-details' , compact('ibucare', 'data', 'array_color'));
 	    
     }
 
