@@ -37,36 +37,82 @@ class FoundationImageController extends Controller
         $foundation_cate_id = $request->input('foundation_cate_id');
         $form = '
         <div class="modal-body">
-            <form method="POST" action="' . route('foundation-image.store') . '" accept-charset="UTF-8" enctype="multipart/form-data" id="foundationImageStore">
+            <form method="POST"
+                action="' . route('foundation-image.store') . '"
+                accept-charset="UTF-8"
+                enctype="multipart/form-data"
+                id="foundationImageStore">
                 ' . csrf_field() . '
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="foundation_category" class="form-label">Select Foundation Category</label>
-                            <select class="form-control" name="foundation_category" id="foundation_category">
+                            <label for="foundation_category" class="form-label">
+                                Select Foundation Category
+                            </label>
+                            <select class="form-control"
+                                name="foundation_category"
+                                id="foundation_category">
                                 <option value="">Select Foundation Category</option>';
-								foreach ($foundation_categories as $category) {
-									$selected = ($category->id == $foundation_cate_id) ? 'selected' : '';
-									$form .= '<option value="' . $category->id . '" ' . $selected . '>' . $category->name . '</option>';
-								}
-								$form .= '
+                                foreach ($foundation_categories as $category) {
+                                    $selected = ($category->id == $foundation_cate_id)
+                                        ? 'selected'
+                                        : '';
+                                    $form .= '
+                                    <option value="' . $category->id . '" ' . $selected . '>
+                                        ' . e($category->name) . '
+                                    </option>';
+                                }
+
+                                $form .= '
                             </select>
-                        </div>	
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
-                            <label for="foundation_image_file" class="control-label">Fondation Image Multiple (Select Multiple Images (Limit 20 images))*</label>
-                            <input type="file" name="foundation_image_file[]" multiple class="form-control" id="foundation_image_file">
-                        </div>	
+                            <label for="media_type" class="control-label">
+                                Media Type
+                            </label>
+                            <select class="form-control"
+                                name="media_type"
+                                id="media_type">
+                                <option value="">Select Media Type</option>
+                                <option value="image">Image</option>
+                                <option value="video">Video</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="media_file" class="control-label">
+                                Media File
+                            </label>
+                            <input
+                                type="file"
+                                name="media_file[]"
+                                multiple
+                                class="form-control"
+                                id="media_file"
+                            >
+                            <small class="text-muted" id="media_help">
+                                Select media type first.
+                            </small>
+                        </div>
                     </div>
                 </div>
+
                 <div class="modal-footer pb-0">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button"
+                        class="btn btn-info"
+                        data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="submit"
+                        class="btn btn-primary">
+                        Save changes
+                    </button>
                 </div>
             </form>
         </div>';
-
         return response()->json([
             'message' => 'Foundation Category Form created successfully',
             'form' => $form,
@@ -84,56 +130,114 @@ class FoundationImageController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'foundation_category' => 'required|exists:foundation_categories,id',
-            'foundation_image_file' => 'required|array',
-            'foundation_image_file.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
-
+            'media_type' => 'required|in:image,video',
+            'media_file' => 'required|array',
+            'media_file.*' => 'required|file',
         ]);
-
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 422);
+            return response()->json([
+                'errors' => $validator->errors()
+            ], 422);
         }
-
+        if ($request->media_type === 'image') {
+            $validator = Validator::make($request->all(), [
+                'media_file.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:4096',
+            ]);
+        } elseif ($request->media_type === 'video') {
+            $validator = Validator::make($request->all(), [
+                'media_file.*' => 'file|mimes:mp4,webm,ogg|max:102400',
+            ]);
+        }
+        if ($validator->fails()) {
+            return response()->json([
+                'errors' => $validator->errors()
+            ], 422);
+        }
         DB::beginTransaction();
-
         try {
             $foundation_category_id = $request->foundation_category;
-            $foundation_category = FoundationCategory::findOrFail($foundation_category_id);
-            if ($request->hasFile('foundation_image_file')) {
-                $uploadPath = public_path('foundation-img');
-                if (!file_exists($uploadPath)) {
-                    mkdir($uploadPath, 0777, true);
-                }
-
-                foreach ($request->file('foundation_image_file') as $file) {
-                    $sanitized_title = preg_replace('/[^A-Za-z0-9-]+/', '-', strtolower(trim($foundation_category->name)));
-                    $uniqueTimestamp = uniqid() . '-' . round(microtime(true) * 1000);
-                    $image_file_name = 'dr-shilpi-reddy-hyd-' . $sanitized_title . '-' . $uniqueTimestamp . '.webp';
+            $foundation_category = FoundationCategory::findOrFail(
+                $foundation_category_id
+            );
+            $sanitized_title = preg_replace(
+                '/[^A-Za-z0-9-]+/',
+                '-',
+                strtolower(trim($foundation_category->name))
+            );
+            foreach ($request->file('media_file') as $file) {
+                $uniqueTimestamp = uniqid() . '-' .
+                    round(microtime(true) * 1000);               
+                if ($request->media_type === 'image') {
+                    $uploadPath = public_path('foundation-img');
+                    if (!file_exists($uploadPath)) {
+                        mkdir($uploadPath, 0777, true);
+                    }
+                    $image_file_name =
+                        'dr-shilpi-reddy-hyd-' .
+                        $sanitized_title . '-' .
+                        $uniqueTimestamp .
+                        '.webp';
                     $webpPath = $uploadPath . '/' . $image_file_name;
-                    $img = Image::make($file)->resize(800, 600, function ($constraint) {
-                        $constraint->aspectRatio();
-                        $constraint->upsize();
-                    });
-
+                    $img = Image::make($file)->resize(
+                        800,
+                        600,
+                        function ($constraint) {
+                            $constraint->aspectRatio();
+                            $constraint->upsize();
+                        }
+                    );
                     $img->encode('webp', 80)->save($webpPath);
                     FoundationImage::create([
                         'foundation_categories_id' => $foundation_category_id,
+                        'media_type' => 'image',
                         'image_path' => $image_file_name,
                         'sort_order' => 0,
                     ]);
                 }
+                /*Video file */
+                if ($request->media_type === 'video') {
+                    $uploadPath = public_path('foundation-video');
+                    if (!file_exists($uploadPath)) {
+                        mkdir($uploadPath, 0777, true);
+                    }
+                    $video_file_name =
+                        'dr-shilpi-reddy-hyd-' .
+                        $sanitized_title . '-' .
+                        $uniqueTimestamp . '.' .
+                        $file->getClientOriginalExtension();
+                    $file->move(
+                        $uploadPath,
+                        $video_file_name
+                    );
+                    FoundationImage::create([
+                        'foundation_categories_id' => $foundation_category_id,
+                        'media_type' => 'video',
+                        'image_path' => $video_file_name,
+                        'sort_order' => 0,
+                    ]);
+                }
             }
+
             DB::commit();
-            $data['foundation_category_list'] = FoundationCategory::withCount('foundationImages')->orderBy('id', 'DESC')->get();
+            $data['foundation_category_list'] =
+            FoundationCategory::withCount('foundationImages')
+                ->orderBy('id', 'DESC')
+                ->get();
             return response()->json([
                 'status' => 'success',
-                'message' => 'Foundation Images uploaded successfully',
-                'foundationCategoryContent' => view('backend.manage-foundation-category.partials.ajax-foundation-category-list', compact('data'))->render(),
+                'message' => ucfirst($request->media_type) .
+                ' uploaded successfully',
+                'foundationCategoryContent' => view(
+                    'backend.manage-foundation-category.partials.ajax-foundation-category-list',
+                    compact('data')
+                )->render(),
             ]);
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json([
                 'status' => 'error',
-                'message' => 'Something went wrong! ' . $e->getMessage(),
+                'message' => 'Something went wrong! ' .
+                    $e->getMessage(),
             ], 500);
         }
     }
@@ -186,17 +290,30 @@ class FoundationImageController extends Controller
     {
         DB::beginTransaction();
         try {
-            $foundationImage = FoundationImage::findOrFail($id);
-            $imagePath = public_path('foundation-img/' . $foundationImage->image_path);
-            if (file_exists($imagePath) && is_file($imagePath)) {
-                unlink($imagePath);
+            $foundationMedia = FoundationImage::findOrFail($id);
+            if ($foundationMedia->media_type === 'image') {
+                $filePath = public_path(
+                    'foundation-img/' . $foundationMedia->image_path
+                );
+            } elseif ($foundationMedia->media_type === 'video') {
+                $filePath = public_path(
+                    'foundation-video/' . $foundationMedia->image_path
+                );
+            } else {
+                $filePath = null;
             }
-            $foundationImage->delete();
+            if ($filePath && file_exists($filePath) && is_file($filePath)) {
+                unlink($filePath);
+            }
+            $foundationMedia->delete();
             DB::commit();
-            return back()->with('success', 'Foundation Image deleted successfully.');
+            return back()->with('success', 'Foundation Media deleted successfully.');
         } catch (\Exception $e) {
             DB::rollback();
-            return back()->with('error', 'Something went wrong! ' . $e->getMessage());
+            return back()->with(
+                'error',
+                'Something went wrong! ' . $e->getMessage()
+            );
         }
     }
 

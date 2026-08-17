@@ -72,9 +72,14 @@ class FrontHomeController extends Controller
 	    return view('frontend.pages.contact-us');
     }
     public function ourFoundation(){
-        $data['foundation_category_list'] = FoundationCategory::with('latestFoundationImage')
-        ->orderBy('id', 'DESC')
-        ->get();
+        $data['foundation_category_list'] = FoundationCategory::with([
+            'foundationImages' => function ($q) {
+                $q->where('media_type', 'image')
+                ->orderBy('sort_order')
+                ->orderByDesc('id');
+            }
+        ])->orderBy('id', 'DESC')->get();
+        
         $data['schlorship'] = Schlorship::select('id', 'title', 'main_image', 'description')
             ->where('status',1)
             ->orderBy('id', 'asc')
@@ -86,16 +91,22 @@ class FrontHomeController extends Controller
 
     public function ourFoundationDetails($slug){
         $foundation = FoundationCategory::with(['foundationImages' => function ($q) {
-            $q->orderBy('created_at', 'DESC');
+            $q->orderBy('sort_order')->orderByDesc('id');
         }])
         ->where('slug', $slug)
         ->firstOrFail(); 
 
-        $recentFoundations = FoundationCategory::with('latestFoundationImage')
-            ->where('id', '!=', $foundation->id)
-            ->orderBy('id', 'DESC')
-            ->take(5)
-            ->get();
+        $recentFoundations = FoundationCategory::with([
+            'foundationImages' => function ($q) {
+                $q->where('media_type', 'image')
+                ->orderBy('sort_order')
+                ->orderByDesc('id');
+            }
+        ])
+        ->where('id', '!=', $foundation->id)
+        ->orderBy('id', 'DESC')
+        ->take(5)
+        ->get();
         return view('frontend.pages.our-foundation.foundation-details', compact('foundation', 'recentFoundations'));
     }
 

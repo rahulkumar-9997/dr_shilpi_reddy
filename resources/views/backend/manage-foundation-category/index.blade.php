@@ -33,9 +33,9 @@
 @section('morescripts')
 <script src="{{ asset('backend/assets/ckeditor-4/ckeditor.js') }}"></script>
 <script>
-    if ($.fn.modal && $.fn.modal.Constructor) {
+   if ($.fn.modal && $.fn.modal.Constructor) {
         $.fn.modal.Constructor.prototype._enforceFocus = function () {};
-    }
+   }   
 </script>
 <script src="{{asset('backend/assets/js/pages/foundation-category.js')}}" type="text/javascript"></script>
 <script src="{{asset('backend/assets/js/pages/foundation-image.js')}}" type="text/javascript"></script>

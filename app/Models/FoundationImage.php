@@ -12,6 +12,7 @@ class FoundationImage extends Model
     protected $fillable = [
         'id',
         'foundation_categories_id',
+        'media_type',
         'image_path',
         'sort_order'
     ];

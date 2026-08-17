@@ -39,24 +39,40 @@
                 @endif
                 @if($foundation->foundationImages->count() > 0)
                 <div class="tw-columns-2 md:tw-columns-3 tw-gap-2 md:tw-gap-3">
-                    @foreach($foundation->foundationImages as $index => $image)
-                    <a href="{{ asset('foundation-img/'.$image->image_path) }}"
-                        data-fancybox="foundation-gallery"
-                        data-caption="{{ $foundation->name }}"
-                        class="tw-group tw-relative tw-block tw-w-full tw-mb-4 md:tw-mb-5 tw-break-inside-avoid tw-rounded-2xl tw-overflow-hidden tw-bg-gray-100 tw-shadow-sm hover:tw-shadow-xl tw-transition-all tw-duration-300">
-                        <img src="{{ asset('foundation-img/'.$image->image_path) }}"
-                            class="tw-w-full tw-h-auto tw-block tw-transition-transform tw-duration-700 group-hover:tw-scale-110"
-                            alt="{{ $foundation->name }} photo {{ $index + 1 }}"
-                            loading="lazy">
+                    @foreach($foundation->foundationImages as $index => $media)
+                        @if($media->media_type === 'image')
+                            <a href="{{ asset('foundation-img/'.$media->image_path) }}"
+                                data-fancybox="foundation-gallery"
+                                data-caption="{{ $foundation->name }}"
+                                class="tw-group tw-relative tw-block tw-w-full tw-mb-4 md:tw-mb-5 tw-break-inside-avoid tw-rounded-2xl tw-overflow-hidden tw-bg-gray-100 tw-shadow-sm hover:tw-shadow-xl tw-transition-all tw-duration-300">
+                                <img src="{{ asset('foundation-img/'.$media->image_path) }}"
+                                    class="tw-w-full tw-h-auto tw-block tw-transition-transform tw-duration-700 group-hover:tw-scale-110"
+                                    alt="{{ $foundation->name }} photo {{ $index + 1 }}"
+                                    loading="lazy">
 
-                        <div class="tw-absolute tw-inset-0 tw-bg-black/0 group-hover:tw-bg-black/30 tw-transition-colors tw-duration-300 tw-flex tw-items-center tw-justify-center">
-                            <span class="tw-w-10 tw-h-10 tw-rounded-full tw-bg-white/90 tw-flex tw-items-center tw-justify-center tw-opacity-0 group-hover:tw-opacity-100 tw-scale-75 group-hover:tw-scale-100 tw-transition-all tw-duration-300">
-                                <svg class="tw-w-5 tw-h-5 tw-text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
-                                </svg>
-                            </span>
-                        </div>
-                    </a>
+                                <div class="tw-absolute tw-inset-0 tw-bg-black/0 group-hover:tw-bg-black/30 tw-transition-colors tw-duration-300 tw-flex tw-items-center tw-justify-center">
+                                    <span class="tw-w-10 tw-h-10 tw-rounded-full tw-bg-white/90 tw-flex tw-items-center tw-justify-center tw-opacity-0 group-hover:tw-opacity-100 tw-scale-75 group-hover:tw-scale-100 tw-transition-all tw-duration-300">
+                                        <svg class="tw-w-5 tw-h-5 tw-text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </a>
+                        @elseif($media->media_type === 'video')
+                            <div class="tw-relative tw-w-full tw-mb-4 md:tw-mb-5 tw-break-inside-avoid tw-rounded-2xl tw-overflow-hidden tw-bg-black tw-shadow-sm">
+                                <video  
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    controls
+                                    class="tw-w-full tw-h-auto tw-block"
+                                    preload="metadata">
+                                    <source src="{{ asset('foundation-video/' . $media->image_path) }}">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        @endif
                     @endforeach
                 </div>                
                 @endif

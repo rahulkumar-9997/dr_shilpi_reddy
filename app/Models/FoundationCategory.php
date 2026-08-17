@@ -28,6 +28,9 @@ class FoundationCategory extends Model
     public function latestFoundationImage()
     {
         return $this->hasOne(FoundationImage::class, 'foundation_categories_id')
-        ->ofMany('created_at', 'max');
+            ->ofMany([
+                'sort_order' => 'max',
+                'created_at' => 'max',
+            ]);
     }
 }

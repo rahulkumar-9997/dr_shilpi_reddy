@@ -14,9 +14,17 @@ class AddSlugToFoundationCategoriesTable extends Migration
     public function up()
     {
         Schema::table('foundation_categories', function (Blueprint $table) {
-            $table->string('slug')->nullable()->after('name');
-            $table->string('meta_title')->nullable()->after('slug');
-            $table->text('meta_description')->nullable()->after('meta_title');
+            if (!Schema::hasColumn('foundation_categories', 'slug')) {
+                $table->string('slug')->nullable()->after('name');
+            }
+
+            if (!Schema::hasColumn('foundation_categories', 'meta_title')) {
+                $table->string('meta_title')->nullable()->after('slug');
+            }
+
+            if (!Schema::hasColumn('foundation_categories', 'meta_description')) {
+                $table->text('meta_description')->nullable()->after('meta_title');
+            }
         });
     }
 
